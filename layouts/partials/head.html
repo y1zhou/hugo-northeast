@@ -1,4 +1,5 @@
 <head>
+    {{/*  Metadata  */}}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ block "title" . }}
@@ -15,6 +16,7 @@
     {{ end -}}
     {{ hugo.Generator }}
 
+    {{/*  Site CSS  */}}
     {{- $styles := resources.Get "css/northeast-tailwind.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
     {{- if .Site.IsServer }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
@@ -22,4 +24,10 @@
         {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
     {{ end -}}
+
+    {{/*  Google Fonts  */}}
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+    {{/*  Font Awesome 5  */}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous">
 </head>
