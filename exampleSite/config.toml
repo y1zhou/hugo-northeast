@@ -1,18 +1,21 @@
 theme = "hugo-northeast"
 languageCode = "en-us"
 baseurl = "http://example.com/"
-title = "Hugo Tailwindcss Starter"
+title = "Hugo Theme Northeast"
 
-author = "Dirk Olbrich"
-copyright = "Copyright © 2019, Dirk Olbrich, all rights reserved."
+author = "John Doe"
+copyright = "&copy; 2019-{year}"
 
-# Code higlighting settings
-pygmentsCodefences = true
-pygmentsStyle = "vs"
-
-[params]
-    name = "Hugo Tailwindcss Starter"
-    description = "A simple bootstraped theme for Hugo, build with Tailwindcss."
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Enable user to embed HTML snippets in Markdown content.
+  [markup.highlight]
+    codeFences = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
 
     github_user = "dirkolbrich"
     github_repo = "https://github.com/dirkolbrich/hugo-theme-tailwindcss-starter"

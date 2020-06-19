@@ -1,15 +1,13 @@
+/* purgecss start ignore */
 /* Tailwind base - put variables under: tailwind.config.js */
-@import "node_modules/tailwindcss/base";
+@import "tailwindcss/base";
 
-/* Tailwind component classes registered by plugins*/
-@import "node_modules/tailwindcss/components";
 /* Site Specific */
 @import "assets/css/site";
+
+/* Tailwind component classes registered by plugins*/
+@import "tailwindcss/components";
+/* purgecss end ignore */
+
 /* Tailwind's utility classes - generated based on config file */
-@import "node_modules/tailwindcss/utilities";
-@font-face {
-    font-family: JetBrains Mono;
-    font-weight: 400;
-    src: local("JetBrains Mono") url(fonts/JetBrainsMono-Regular.woff2)
-        format("woff2");
-}
+@import "tailwindcss/utilities";

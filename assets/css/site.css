@@ -1,3 +1,102 @@
-.starter {
-  color: blue;
+@font-face {
+    font-family: JetBrains Mono;
+    font-weight: 400;
+    src: local("JetBrains Mono") url(fonts/JetBrainsMono-Regular.woff2)
+        format("woff2");
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-serif font-bold text-gray-700 text-xl;
+    @apply pt-3 pb-2;
+}
+h1 {
+    @apply text-center text-5xl;
+}
+h2 {
+    @apply text-4xl;
+}
+h3 {
+    @apply text-3xl;
+}
+h4 {
+    @apply text-2xl;
+}
+h6 {
+    @apply font-normal;
+}
+
+/* Lists */
+ul {
+    @apply list-disc list-inside;
+}
+
+ol {
+    @apply list-decimal list-inside;
+}
+
+/* Main text */
+p {
+    @apply font-sans text-gray-800 text-lg;
+    @apply py-1 leading-relaxed text-left break-normal;
+}
+
+/* Blockquote */
+blockquote {
+    @apply pl-16 pr-8 py-4 my-2 relative border-l-2 border-yellow-300;
+}
+
+blockquote::before {
+    @apply absolute font-serif text-yellow-300;
+    font-size: 6rem;
+    content: "\201C";
+    top: -1.5rem;
+    left: 0.5rem;
+}
+
+/* Text elements */
+a {
+    @apply underline transition-all duration-150 ease-in-out;
+}
+
+a:hover {
+    @apply bg-yellow-300;
+}
+
+:not(pre) > code {
+    @apply text-red-600 bg-red-100 rounded;
+}
+
+pre {
+    @apply overflow-auto m-1 px-3 rounded;
+    background-color: #f8f8f8;
+}
+
+code.hljs {
+    background-color: inherit;
+}
+
+/* Table */
+table {
+    @apply table-auto bg-white border-b-2;
+}
+
+tr th {
+    @apply px-4 py-1 border-b-2;
+}
+tr td {
+    @apply border px-4 py-2;
+}
+
+tbody tr:nth-child(even) {
+    @apply bg-gray-100;
+}
+tbody tr:hover {
+    @apply bg-gray-300;
+}
 }

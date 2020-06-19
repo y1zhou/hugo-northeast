@@ -1,0 +1,6 @@
+# Code highlighting
+highlight_enabled = true
+hljs_version = "10.1.1"
+hljs_languages = ["r", "javascript", "python", "bash", "go", "json"]
+hljs_light_style = "github-gist"
+hljs_dark_style = "atom-one-dark-reasonable"
