@@ -1,5 +1,5 @@
 {{ if .Site.IsServer }}
-<div class="h-40 mb-4 py-4 px-4 overflow-y-auto scrolling-touch border-t border-gray-200">
+<div class="h-64 mb-4 py-4 px-4 overflow-y-auto scrolling-touch border-t border-gray-200">
     <table class="w-full text-left table-auto table-collapse border-gray-200">
         <caption class="text-left pb-2">Hugo Variables for the current page.</caption>
         <thead>
@@ -46,6 +46,19 @@
                 <td>
                     <table>
                         {{ range $k,$v := .Params }}
+                        <tr>
+                            <td class="text-right italic pr-2">{{ printf "%#v:" $k }}</td>
+                            <td>{{ printf "%#v" $v }}</td>
+                        </tr>
+                        {{ end }}
+                    </table>
+                </td>
+            </tr>
+            <tr class="p-2 border-t">
+                <td>site.Params</td>
+                <td>
+                    <table>
+                        {{ range $k,$v := site.Params }}
                         <tr>
                             <td class="text-right italic pr-2">{{ printf "%#v:" $k }}</td>
                             <td>{{ printf "%#v" $v }}</td>

@@ -11,3 +11,52 @@ npm install -g postcss-cli autoprefixer
 ```
 
 Make sure to use a minimum Hugo version of v0.69.0 and above.
+
+## Features
+
+-   [ ] Homepage
+    -   [ ] Introduction section
+    -   [ ] Featured posts
+    -   [ ] Featured publications
+    -   [ ] Recent posts
+    -   [ ] Pagination
+    -   [ ] Tag cloud
+-   [ ] Header
+    -   [ ] Logo
+    -   [x] Title if logo doesn't exist
+    -   [ ] Menu of links
+        -   [x] Large screen
+        -   [ ] Mobile
+    -   [x] Search
+    -   [ ] Light/dark theme toggle
+-   [ ] Footer
+    -   [ ] Social links
+    -   [ ] Copyright
+-   [ ] Post
+    -   [ ] Featured picture
+    -   [x] Tables
+    -   [x] Blockquotes
+    -   [x] Inline code
+    -   [ ] Tags
+    -   [ ] References
+    -   [ ] Footnote back reference
+    -   [ ] Previous/next post in the same category
+-   [ ] Category page
+    -   [ ] Feature picture
+    -   [ ] List of posts
+-   [ ] Publications
+    -   [ ] Highlight author
+    -   [ ] Support `.bib` files
+    -   [ ] External link to DOI/PDF
+-   [ ] Widgets
+    -   [ ] Go back to top
+    -   [ ] Search screen w/ Algolia
+    -   [ ] Table of contents
+    -   [ ] xx min read
+    -   [ ] Category
+    -   [ ] Highlight in post
+-   [ ] Extra functions
+    -   [x] Math rendering
+    -   [ ] Figure popout / image gallary
+    -   [x] Code highlighting
+    -   [x] Read from config files
