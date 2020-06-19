@@ -1,3 +1,23 @@
-<footer class="w-full text-center border-t border-gray-200 p-4 pin-b text-xs text-gray-400">
-    <p>made with <a href="https://gohugo.io" class="underline hover:text-blue-400">Hugo</a> and <a href="https://tailwindcss.com" class="underline hover:text-blue-400">TailwindCSS</a></p>
+<footer
+    class="w-full text-center border-t border-gray-200 p-4 pin-b text-xs text-gray-400"
+>
+    <p>
+        made with
+        <a href="https://gohugo.io" class="underline hover:text-blue-400">
+            Hugo
+        </a>
+        and
+        <a href="https://tailwindcss.com" class="underline hover:text-blue-400">
+            TailwindCSS
+        </a>
+    </p>
 </footer>
+
+{{/* Mathjax import */}}
+{{ $mathjax_config := resources.Get "js/mathjax-config.js" }}
+<script src="{{ $mathjax_config.RelPermalink }}"></script>
+<script
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    crossorigin="anonymous"
+></script>
