@@ -33,11 +33,11 @@ h6 {
 
 /* Blockquote */
 blockquote {
-    @apply pl-16 pr-8 py-4 my-2 relative border-l-2 border-yellow-300;
+    @apply pl-16 pr-8 py-4 my-2 relative border-l-2 border-yellow-400;
 }
 
 blockquote::before {
-    @apply absolute font-serif text-yellow-300;
+    @apply absolute font-serif text-yellow-400;
     font-size: 6rem;
     content: "\201C";
     top: -1.5rem;
@@ -54,7 +54,7 @@ a {
 }
 
 a:hover {
-    @apply bg-yellow-300 text-gray-800;
+    @apply bg-gray-300 text-gray-800;
 }
 
 hr {
@@ -77,14 +77,14 @@ code.hljs {
 /* Table */
 table {
     @apply table-auto w-full max-w-full my-4 overflow-y-hidden;
-    @apply bg-white border-b-2;
+    @apply bg-white border-b-2 border-gray-400;
 }
 
 tr th {
-    @apply px-4 py-1 border-b-2;
+    @apply px-4 py-1 border-b-2 border-gray-400;
 }
 tr td {
-    @apply border px-4 py-2;
+    @apply border px-4 py-2 border-gray-400;
 }
 
 tbody tr:nth-child(even) {

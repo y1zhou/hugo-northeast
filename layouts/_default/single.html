@@ -4,6 +4,7 @@
         <h1>
             {{ .Title }}
         </h1>
+        {{partial "post-metadata" . }}
         {{ .Content }}
     </div>
 </article>
