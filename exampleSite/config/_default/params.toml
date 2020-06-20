@@ -1,3 +1,9 @@
+# Social links
+email = "example@gmail.com"
+twitter = "GoHugoIO"
+github = "y1zhou"
+google_scholar = "yxUduqMAAAAJ"  # Michael Jordan
+linkedin = "satyanadella"  # Satya Nadella
 # Code highlighting
 highlight_enabled = true
 hljs_version = "10.1.1"

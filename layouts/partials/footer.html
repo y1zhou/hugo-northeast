@@ -4,22 +4,21 @@
     {{ partial "social-list" }}
     <p class="text-gray-500">
         {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}
-        {{ end }} Powered by
-        <a href="https://gohugo.io" class="text-gray-200"> Hugo </a>
-        and
+        {{ end }} Powered by the
         <a
             href="https://github.com/y1zhou/hugo-northeast"
             target="_blank"
             rel="noopener"
             class="text-gray-200"
         >
-            theme Northeast</a
-        >.
+            Northeast theme</a
+        >
+        for <a href="https://gohugo.io" class="text-gray-200"> Hugo</a>.
     </p>
 </footer>
 
 {{/* Mathjax import */}}
-{{ $mathjax_config := resources.Get "js/mathjax-config.js" }}
+ {{ $mathjax_config := resources.Get "js/mathjax-config.js" }}
 <script src="{{ $mathjax_config.RelPermalink }}"></script>
 <script
     async
