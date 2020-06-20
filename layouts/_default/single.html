@@ -1,8 +1,10 @@
 {{ define "main" }}
-<article class="text-gray-700 text-lg sm:mx-12">
-    <h1>
-        {{ .Title }}
-    </h1>
-    {{ .Content }}
+<article class="sm:mx-12">
+    <div class="article-container max-w-screen-lg mx-auto">
+        <h1>
+            {{ .Title }}
+        </h1>
+        {{ .Content }}
+    </div>
 </article>
 {{ end }}

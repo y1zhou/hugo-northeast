@@ -16,7 +16,7 @@ h6 {
     @apply pt-3 pb-2;
 }
 h1 {
-    @apply text-center text-5xl;
+    @apply text-center text-4xl;
 }
 h2 {
     @apply text-4xl;
@@ -29,21 +29,6 @@ h4 {
 }
 h6 {
     @apply font-normal;
-}
-
-/* Lists */
-ul {
-    @apply list-disc list-inside;
-}
-
-ol {
-    @apply list-decimal list-inside;
-}
-
-/* Main text */
-p {
-    @apply font-sans text-gray-800 text-lg;
-    @apply py-1 leading-relaxed text-left break-normal;
 }
 
 /* Blockquote */
@@ -60,21 +45,29 @@ blockquote::before {
 }
 
 /* Text elements */
+p {
+    @apply font-sans text-gray-800;
+}
+
 a {
-    @apply underline transition-all duration-150 ease-in-out;
+    @apply transition-all duration-150 ease-in-out;
 }
 
 a:hover {
-    @apply bg-yellow-300;
+    @apply bg-yellow-300 text-gray-800;
 }
 
+hr {
+    @apply my-6 py-2;
+}
+
+/* Code highlight (mainly w/ highlight.js) */
 :not(pre) > code {
     @apply text-red-600 bg-red-100 rounded;
 }
 
 pre {
-    @apply overflow-auto m-1 px-3 rounded;
-    background-color: #f8f8f8;
+    @apply overflow-auto m-1 px-3 rounded bg-gray-100;
 }
 
 code.hljs {
@@ -83,7 +76,8 @@ code.hljs {
 
 /* Table */
 table {
-    @apply table-auto bg-white border-b-2;
+    @apply table-auto w-full max-w-full my-4 overflow-y-hidden;
+    @apply bg-white border-b-2;
 }
 
 tr th {
@@ -99,4 +93,58 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
     @apply bg-gray-300;
 }
+
+/* ################################# */
+/*           Post articles           */
+/* ################################# */
+article {
+    @apply text-lg;
+}
+
+/* Figures */
+.article-container img {
+    @apply my-4 max-w-full mx-auto;
+}
+
+/* Lists */
+.article-container ul {
+    @apply list-disc list-outside pl-4;
+}
+
+.article-container ol {
+    @apply list-decimal list-outside pl-6;
+}
+
+/* Text elements */
+.article-container a {
+    @apply underline;
+}
+
+.article-container p {
+    @apply py-1 mb-2 text-lg leading-relaxed text-left break-normal;
+}
+
+/* Overflow long math equations for MathJax */
+mjx-container[display="true"] {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Better looking footnotes */
+a.footnote-ref {
+    @apply no-underline font-bold;
+}
+a.footnote-ref::before {
+    content: " [";
+}
+a.footnote-ref::after {
+    content: "]";
+}
+
+.footnotes p {
+    @apply mt-0 mb-2 py-0 text-base font-serif;
+}
+
+.footnotes ol {
+    @apply text-base font-serif;
 }
