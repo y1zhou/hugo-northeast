@@ -1,0 +1,13 @@
+<div class="flex justify-center space-x-2">
+    {{ range (.GetTerms "tags") }}
+    <div
+        class="bg-yellow-400 hover:bg-yellow-500 px-1 py-0 rounded flex-shrink"
+    >
+        <a
+            href="{{ .Permalink }}"
+            class="text-gray-700 text-sm no-underline hover:bg-transparent tracking-tight leading-tight"
+            >{{ .LinkTitle }}</a
+        >
+    </div>
+    {{ end }}
+</div>

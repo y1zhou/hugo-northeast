@@ -33,12 +33,14 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
     -   [x] Social links
     -   [x] Copyright
 -   [ ] Post
+    -   [x] Tags
+    -   [x] xx min read
+    -   [x] Category
     -   [ ] Featured picture
     -   [x] Tables
     -   [x] Blockquotes
     -   [x] Inline code
-    -   [ ] Tags
-    -   [ ] References
+    -   [x] References
     -   [x] Footnote back reference
     -   [ ] Previous/next post in the same category
 -   [ ] Category page
@@ -51,8 +53,6 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
     -   [ ] Go back to top
     -   [ ] Search screen w/ Algolia
     -   [ ] Table of contents
-    -   [ ] xx min read
-    -   [ ] Category
     -   [ ] Highlight in post
 -   [ ] Extra functions
     -   [x] Math rendering
