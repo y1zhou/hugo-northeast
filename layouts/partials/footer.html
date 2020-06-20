@@ -1,15 +1,20 @@
 <footer
-    class="w-full text-center border-t border-gray-200 p-4 pin-b text-xs text-gray-400"
+    class="w-full h-32 text-center py-4 pt-8 inset-0 text-sm text-gray-200 bg-gray-800"
 >
-    <p>
-        made with
-        <a href="https://gohugo.io" class="underline hover:text-blue-400">
-            Hugo
-        </a>
+    {{ partial "social-list" }}
+    <p class="text-gray-500">
+        {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}
+        {{ end }} Powered by
+        <a href="https://gohugo.io" class="text-gray-200"> Hugo </a>
         and
-        <a href="https://tailwindcss.com" class="underline hover:text-blue-400">
-            TailwindCSS
-        </a>
+        <a
+            href="https://github.com/y1zhou/hugo-northeast"
+            target="_blank"
+            rel="noopener"
+            class="text-gray-200"
+        >
+            theme Northeast</a
+        >.
     </p>
 </footer>
 

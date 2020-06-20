@@ -29,9 +29,9 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
         -   [ ] Mobile
     -   [x] Search
     -   [ ] Light/dark theme toggle
--   [ ] Footer
-    -   [ ] Social links
-    -   [ ] Copyright
+-   [x] Footer
+    -   [x] Social links
+    -   [x] Copyright
 -   [ ] Post
     -   [ ] Featured picture
     -   [x] Tables
@@ -39,13 +39,12 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
     -   [x] Inline code
     -   [ ] Tags
     -   [ ] References
-    -   [ ] Footnote back reference
+    -   [x] Footnote back reference
     -   [ ] Previous/next post in the same category
 -   [ ] Category page
     -   [ ] Feature picture
     -   [ ] List of posts
 -   [ ] Publications
-    -   [ ] Highlight author
     -   [ ] Support `.bib` files
     -   [ ] External link to DOI/PDF
 -   [ ] Widgets

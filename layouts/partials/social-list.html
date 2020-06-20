@@ -1,0 +1,68 @@
+<div class="flex justify-center w-full max-w-screen-lg mx-auto mb-2">
+    <ul
+        class="flex flex-row justify-center text-xl space-x-2 max-w-md text-gray-200"
+    >
+        {{ with site.Params.email }}
+        <li>
+            <a
+                href="mailto:{{ . }}"
+                class="bg-gray-800 rounded-full h-8 w-8 flex items-center justify-center"
+            >
+                <i class="far fa-envelope"></i>
+            </a>
+        </li>
+        {{ end }} {{ with site.Params.github }}
+        <li>
+            <a
+                href="https://github.com/{{ . }}"
+                target="_blank"
+                rel="noopener"
+                class="bg-gray-800 rounded-full h-8 w-8 flex items-center justify-center"
+            >
+                <i class="fab fa-github"></i>
+            </a>
+        </li>
+        {{ end }} {{ with site.Params.google_scholar }}
+        <li>
+            <a
+                href="https://scholar.google.com/citations?user={{ . }}"
+                target="_blank"
+                rel="noopener"
+                class="bg-gray-800 rounded-full h-8 w-8 flex items-center justify-center"
+            >
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+        </li>
+        {{ end }} {{ with site.Params.linkedin }}
+        <li>
+            <a
+                href="https://www.linkedin.com/in/{{ . }}/"
+                target="_blank"
+                rel="noopener"
+                class="bg-gray-800 rounded-full h-8 w-8 flex items-center justify-center"
+            >
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+        {{ end }} {{ with site.Params.twitter }}
+        <li>
+            <a
+                href="https://twitter.com/{{ . }}"
+                target="_blank"
+                rel="noopener"
+                class="bg-gray-800 rounded-full h-8 w-8 flex items-center justify-center"
+            >
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+        {{ end }}
+        <li>
+            <a
+                href="/rss"
+                class="bg-gray-800 rounded-full h-8 w-8 flex items-center justify-center"
+            >
+                <i class="fas fa-rss"></i>
+            </a>
+        </li>
+    </ul>
+</div>
