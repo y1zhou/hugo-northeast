@@ -53,7 +53,7 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
     -   [x] Go back to top
     -   [ ] Search screen w/ Algolia
     -   [x] Table of contents
-    -   [ ] Highlight in post
+    -   [x] Highlight in post
 -   [ ] Extra functions
     -   [x] Math rendering
     -   [ ] Figure popout / image gallary

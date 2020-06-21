@@ -106,6 +106,8 @@ The <kbd>kbd element</kbd> example
 
 The <mark>mark element</mark> example
 
+The {{<hl>}} hl shortcode {{</hl>}} example
+
 The <q>q element</q> example
 
 The <q>q element <q>inside</q> a q element</q> example
