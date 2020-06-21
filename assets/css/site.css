@@ -15,6 +15,9 @@ html {
     }
 }
 
+/* ################################# */
+/* #         Overall design        # */
+/* ################################# */
 /* Headings */
 h1,
 h2,
@@ -22,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-serif font-bold text-gray-700 text-xl;
+    @apply font-serif font-bold text-gray-800 text-xl;
     @apply pt-3 pb-2;
 }
 h1 {
@@ -41,6 +44,27 @@ h6 {
     @apply font-normal;
 }
 
+/* Text elements */
+p {
+    @apply font-sans text-gray-800;
+}
+
+a {
+    @apply transition-all duration-150 ease-linear;
+}
+
+a:hover {
+    @apply bg-gray-300 text-gray-800;
+}
+
+hr {
+    @apply my-6 py-2;
+}
+
+mark {
+    @apply bg-yellow-400;
+}
+
 /* Blockquote */
 blockquote {
     @apply pl-16 pr-8 py-4 my-2 relative border-l-2 border-yellow-400;
@@ -52,36 +76,6 @@ blockquote::before {
     content: "\201C";
     top: -1.5rem;
     left: 0.5rem;
-}
-
-/* Text elements */
-p {
-    @apply font-sans text-gray-800;
-}
-
-a {
-    @apply transition-all duration-150 ease-in-out;
-}
-
-a:hover {
-    @apply bg-gray-300 text-gray-800;
-}
-
-hr {
-    @apply my-6 py-2;
-}
-
-/* Code highlight (mainly w/ highlight.js) */
-:not(pre) > code {
-    @apply text-red-600 bg-red-100 rounded;
-}
-
-pre {
-    @apply overflow-auto m-1 px-3 rounded bg-gray-100;
-}
-
-code.hljs {
-    background-color: inherit;
 }
 
 /* Table */
@@ -104,8 +98,33 @@ tbody tr:hover {
     @apply bg-gray-300;
 }
 
+/* Code highlight */
+:not(pre) > code {
+    @apply text-red-600 bg-red-100 rounded;
+}
+
+pre {
+    @apply overflow-auto py-3;
+}
+
+.highlight {
+    @apply my-2 ml-2;
+}
+
+/* First one is the line numbers, second one is the actual code */
+.highlight td:first-child pre {
+    @apply pl-3 rounded-l-md;
+}
+.highlight td:last-child pre {
+    @apply rounded-r-md;
+}
+
+.highlight tr:hover {
+    @apply bg-transparent;
+}
+
 /* ################################# */
-/*           Post articles           */
+/* #         Post articles         # */
 /* ################################# */
 article {
     @apply text-lg;
@@ -160,7 +179,7 @@ a.footnote-ref::after {
 }
 
 /* ################################# */
-/*         Table of contents         */
+/* #       Table of contents       # */
 /* ################################# */
 #toc-list ol {
     @apply pl-6 text-gray-700 border-l-2 border-gray-300;
@@ -177,14 +196,14 @@ a.footnote-ref::after {
 }
 
 #toc-list a {
-    @apply inline-block w-4/5 rounded px-1 leading-relaxed;
+    @apply inline-block w-full rounded px-1 leading-relaxed transition-none;
 }
 #toc-list ol > li {
-    display: block;
+    @apply -ml-1 block;
     counter-increment: tocitem;
 }
 
-#toc-list li::before {
-    @apply -ml-1 mr-2 font-bold;
+#toc-list li > a::before {
+    @apply pr-2 font-bold;
     content: counters(tocitem, ".");
 }

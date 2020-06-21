@@ -4,9 +4,13 @@ twitter = "GoHugoIO"
 github = "y1zhou"
 google_scholar = "yxUduqMAAAAJ"  # Michael Jordan
 linkedin = "satyanadella"  # Satya Nadella
-# Code highlighting
-highlight_enabled = true
-hljs_version = "10.1.1"
-hljs_languages = ["r", "javascript", "python", "bash", "go", "json"]
-hljs_light_style = "github-gist"
-hljs_dark_style = "atom-one-dark-reasonable"
+
+# Google Analytics
+google_analytics = "UA-86032708-3"
+
+# Search in site
+search_enabled = true
+algolia_app_id = ""
+algolia_api_key = ""
+algolia_index_name = ""
+algolia_show_logo = true

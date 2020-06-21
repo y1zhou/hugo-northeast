@@ -1,7 +1,7 @@
 theme = "hugo-northeast"
 languageCode = "en-us"
 baseurl = "http://example.com/"
-title = "Hugo Theme Northeast"
+title = "Hugo Northeast"
 
 author = "John Doe"
 copyright = "2019-{year} &copy;"
@@ -12,10 +12,15 @@ copyright = "2019-{year} &copy;"
     [markup.goldmark.renderer]
       unsafe = true  # Enable user to embed HTML snippets in Markdown content.
   [markup.highlight]
-    codeFences = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "dracula"
+    tabWidth = 2
   [markup.tableOfContents]
-    startLevel = 2
+    startLevel = 1
     endLevel = 3
+    ordered = true
 
     github_user = "dirkolbrich"
     github_repo = "https://github.com/dirkolbrich/hugo-theme-tailwindcss-starter"

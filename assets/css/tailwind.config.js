@@ -3,7 +3,6 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
     important: true,
     purge: {
-        enabled: false,
         content: [
             themeDir + "layouts/**/*.html",
             themeDir + "content/**/*.html",
