@@ -26,7 +26,7 @@ h6 {
     @apply pt-3 pb-2;
 }
 h1 {
-    @apply text-center text-4xl;
+    @apply text-5xl;
 }
 h2 {
     @apply text-4xl;
@@ -157,4 +157,34 @@ a.footnote-ref::after {
 
 .footnotes ol {
     @apply text-base font-serif;
+}
+
+/* ################################# */
+/*         Table of contents         */
+/* ################################# */
+#toc-list ol {
+    @apply pl-6 text-gray-700 border-l-2 border-gray-300;
+    counter-reset: tocitem;
+}
+
+#toc-top-divider::after {
+    content: "Table of Contents";
+    @apply inline-block text-gray-500 font-bold bg-white pr-2 transform -translate-y-4;
+}
+
+#toc-list #TableOfContents > ol {
+    @apply border-0;
+}
+
+#toc-list a {
+    @apply inline-block w-4/5 rounded px-1 leading-relaxed;
+}
+#toc-list ol > li {
+    display: block;
+    counter-increment: tocitem;
+}
+
+#toc-list li::before {
+    @apply -ml-1 mr-2 font-bold;
+    content: counters(tocitem, ".");
 }

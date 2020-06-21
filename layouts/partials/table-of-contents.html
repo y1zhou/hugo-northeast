@@ -1,0 +1,35 @@
+{{ if and (gt .WordCount 400 ) (.Params.toc) }}
+
+<button
+    onclick="toggleTOC()"
+    class="block my-2 rounded-md shadow-md bg-white hover:bg-yellow-400 active:bg-yellow-400 w-10 h-10 text-gray-700 font-bold"
+>
+    <i class="fas fa-bars"></i>
+</button>
+<div
+    onclick="toggleTOC()"
+    id="toc-background-mask"
+    class="opacity-0 invisible fixed inset-0 bg-black transition-opacity duration-300 ease-linear"
+></div>
+<div
+    id="toc-container"
+    class="opacity-0 invisible fixed bottom-0 inset-x-0 bg-white rounded m-2 py-4 px-2 md:m-3 md:p-8"
+>
+    <div
+        id="toc-top-divider"
+        class="block relative border-t-2 border-gray-300 mt-2 mb-0 transform translate-y-3"
+    ></div>
+    <button
+        onclick="toggleTOC()"
+        style="bottom: 1.4rem; right: 1.4rem;"
+        class="fixed rounded-full shadow-md hover:bg-yellow-400 active:bg-yellow-400 w-10 h-10 text-gray-700 font-bold"
+    >
+        <i class="fas fa-times"></i>
+    </button>
+    <div id="toc-list">
+        {{ replace .TableOfContents "ul" "ol" | safeHTML }}
+    </div>
+</div>
+{{ $toggleTOC := resources.Get "js/toc-menu.js" }} {{ with $toggleTOC }}
+<script type="text/javascript" src="{{ .Permalink }}"></script>
+{{ end }} {{ end }}
