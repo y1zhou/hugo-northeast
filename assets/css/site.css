@@ -5,6 +5,16 @@
         format("woff2");
 }
 
+/* Site-wide smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 /* Headings */
 h1,
 h2,
@@ -135,7 +145,7 @@ a.footnote-ref {
     @apply no-underline font-bold;
 }
 a.footnote-ref::before {
-    content: " [";
+    content: "[";
 }
 a.footnote-ref::after {
     content: "]";

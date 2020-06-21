@@ -4,7 +4,7 @@ A [Hugo](https://gohugo.io) theme with [Tailwind CSS](https://tailwindcss.com), 
 
 ## Prerequisites
 
-Make sure to install `postcss-cli` and `autoprefixer` globally in your environment, as Hugo Pipe’s PostCSS requires it.
+Make sure to install `postcss-cli` and `autoprefixer` globally in your environment, as Hugo Pipe's PostCSS requires it.
 
 ```bash
 npm install -g postcss-cli autoprefixer
@@ -50,7 +50,7 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
     -   [ ] Support `.bib` files
     -   [ ] External link to DOI/PDF
 -   [ ] Widgets
-    -   [ ] Go back to top
+    -   [x] Go back to top
     -   [ ] Search screen w/ Algolia
     -   [ ] Table of contents
     -   [ ] Highlight in post

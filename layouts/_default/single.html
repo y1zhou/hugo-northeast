@@ -2,11 +2,13 @@
 <article class="sm:mx-12">
     <div class="article-container max-w-screen-lg mx-auto">
         {{ partial "post-tags" . }}
-        <h1>
+        <h1 class="my-2">
             {{ .Title }}
         </h1>
-        {{partial "post-metadata" . }}
-        {{ .Content }}
+        {{partial "post-metadata" . }} {{ .Content }}
+    </div>
+    <div class="fixed" style="bottom: 1.2rem; right: 1.2rem;">
+        {{partial "back-to-top-button" }}
     </div>
 </article>
 {{ end }}
