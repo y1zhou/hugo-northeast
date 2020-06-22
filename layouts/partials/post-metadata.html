@@ -6,14 +6,19 @@
         <i class="fas fa-calendar-day mr-1"></i>
         {{ .Format "June 2, 2006" -}}
     </div>
-    {{ end }} {{ range first 1 (.GetTerms "categories") }}
+    {{ end }}
+    
+    {{ if .Params.categories }}
     <div class="pl-4">
         <i class="fas fa-folder mr-1"></i>
-        <a href="{{ .RelPermalink }}" class="no-underline">
-            {{ humanize .LinkTitle }}
-        </a>
+        {{- range $index, $value := (.GetTerms "categories") -}}
+            {{- if gt $index 0 }}, {{ end -}}
+            <a href="{{ .RelPermalink }}" class="no-underline">{{ humanize .LinkTitle }}</a>
+        {{- end -}}
     </div>
-    {{ end }} {{ with .ReadingTime }}
+    {{ end }}
+
+    {{ with .ReadingTime }}
     <div class="pl-4">
         <i class="fas fa-stopwatch mr-1"></i>
         {{ . -}}min Read
