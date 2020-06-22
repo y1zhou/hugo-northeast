@@ -1,9 +1,25 @@
 ---
 title: "Style Guide: see what this theme looks like"
 date: 2020-06-18
-tags: ["css", "mathematics"]
-categories: ["test"]
-toc: true
+summary: "" # appears in list of posts
+categories: ["example", "style"] # main category; shown in post metadata
+tags: ["css", "mathematics"] # list of related tags
+
+slug: "first-post"
+toc: true # table of contents button in post
+# featured posts are shown on the homepage, and are shown first
+# in the category/tags pages
+featured: false
+draft: false
+
+weight: 1000 # smaller values are listed first
+
+# full-width featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+header_image:
+    caption: "Clouds in wind."
+    img_link: "https://unsplash.com/photos/BX0Mm9fazTI" # source of figure
+    list_only: false # don't show image in post; only in list views
 ---
 
 # Headings

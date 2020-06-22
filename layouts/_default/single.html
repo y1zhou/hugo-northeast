@@ -1,13 +1,17 @@
 {{ define "main" }}
-<article class="sm:mx-12">
-    <div class="article-container max-w-screen-md xl:max-w-screen-lg mx-auto">
+<article class="sm:mx-4">
+    {{/* Post tags, title, metadata and banner image */}}
+    <div class="py-2">
         {{ partial "post-tags" . }}
-        <h1 class="text-center my-2">
-            {{ .Title }}
-        </h1>
-        {{partial "post-metadata" . }}
-        {{ .Content }}
+        <h1 class="text-center py-2 px-6">{{ .Title }}</h1>
+        {{ partial "post-metadata" . }}
+        {{ partial "post-featured-image" . }}
     </div>
+
+    <div class="article-container max-w-screen-md xl:max-w-screen-lg mx-auto">
+    {{ .Content }}
+    </div>
+    {{/* Buttons at the bottom-right */}}
     <div class="fixed block" style="bottom: 1.2rem; right: 1.2rem;">
         {{partial "back-to-top-button" }}
         {{partial "table-of-contents" . }}
