@@ -30,15 +30,4 @@
 
     {{/*  Font Awesome 5  */}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous">
-
-    {{/*  highlight.js  */}}
-    {{ if site.Params.highlight_enabled }}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ site.Params.hljs_version }}/styles/{{ site.Params.hljs_light_style }}.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/{{ site.Params.hljs_version }}/styles/{{ site.Params.hljs_dark_style }}.min.css">
-        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@{{ site.Params.hljs_version }}/build/highlight.min.js"></script>
-        {{ range site.Params.hljs_languages }}
-            <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@{{ site.Params.hljs_version }}/build/languages/{{ . }}.min.js"></script>
-        {{ end }}
-        <script>hljs.initHighlightingOnLoad();</script>
-    {{ end }}
 </head>
