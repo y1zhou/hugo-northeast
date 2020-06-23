@@ -36,26 +36,26 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
     -   [x] Tags
     -   [x] xx min read
     -   [x] Category
-    -   [ ] Featured picture
+    -   [x] Featured picture
     -   [x] Tables
     -   [x] Blockquotes
-    -   [x] Inline code
-    -   [x] References
+    -   [x] Code highlighting
+    -   [x] Math rendering
     -   [x] Footnote back reference
     -   [ ] Previous/next post in the same category
--   [ ] Category page
+    -   [ ] Related posts
+-   [ ] Categories/Tags page
     -   [ ] Feature picture
     -   [ ] List of posts
+    -   [ ] Sort based on featured & post time
 -   [ ] Publications
     -   [ ] Support `.bib` files
     -   [ ] External link to DOI/PDF
--   [ ] Widgets
+-   [ ] Shortcodes
+    -   [x] Highlight (mark) in post
+    -   [x] Figure w/ captions, links and numbering
+-   [x] Partials
     -   [x] Go back to top
-    -   [ ] Search screen w/ Algolia
     -   [x] Table of contents
-    -   [x] Highlight in post
--   [ ] Extra functions
-    -   [x] Math rendering
-    -   [ ] Figure popout / image gallary
-    -   [x] Code highlighting
-    -   [x] Read from config files
+    -   [ ] Search screen w/ Algolia
+    -   [x] List of social links (footer)

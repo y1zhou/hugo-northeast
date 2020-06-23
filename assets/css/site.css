@@ -135,6 +135,15 @@ article {
     @apply my-4 max-w-full mx-auto;
 }
 
+.article-container figcaption.numbered {
+    counter-increment: captions;
+}
+
+.article-container figcaption.numbered:before {
+    @apply font-bold;
+    content: attr(data-pre) counter(captions) attr(data-post);
+}
+
 /* Lists */
 .article-container ul {
     @apply list-disc list-outside pl-4;
@@ -182,7 +191,7 @@ a.footnote-ref::after {
 /* #       Table of contents       # */
 /* ################################# */
 #toc-list ol {
-    @apply pl-6 text-gray-700 border-l-2 border-gray-300;
+    @apply pl-6 text-gray-800 border-l-2 border-gray-300;
     counter-reset: tocitem;
 }
 
@@ -196,10 +205,10 @@ a.footnote-ref::after {
 }
 
 #toc-list a {
-    @apply inline-block w-full rounded px-1 leading-relaxed transition-none;
+    @apply inline-block w-full rounded -ml-2 px-1 leading-relaxed transition-none;
 }
 #toc-list ol > li {
-    @apply -ml-1 block;
+    @apply block;
     counter-increment: tocitem;
 }
 
