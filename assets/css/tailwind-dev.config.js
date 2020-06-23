@@ -2,17 +2,6 @@ const themeDir = __dirname + "/../../";
 const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
     important: true,
-    purge: {
-        enabled: true,
-        content: [
-            themeDir + "layouts/**/*.html",
-            themeDir + "content/**/*.html",
-            "layouts/**/*.html",
-            "content/**/*.html",
-            "exampleSite/layouts/**/*.html",
-            "exampleSite/content/**/*.html",
-        ],
-    },
     theme: {
         extend: {
             fontFamily: {

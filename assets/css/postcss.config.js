@@ -5,7 +5,11 @@ module.exports = {
         require("postcss-import")({
             path: [themeDir],
         }),
-        require("tailwindcss")(themeDir + "assets/css/tailwind.config.js"),
+        process.env.HUGO_ENVIRONMENT === "production"
+            ? require("tailwindcss")(themeDir + "assets/css/tailwind.config.js")
+            : require("tailwindcss")(
+                  themeDir + "assets/css/tailwind-dev.config.js"
+              ),
         require("autoprefixer")({
             path: [themeDir],
         }),
