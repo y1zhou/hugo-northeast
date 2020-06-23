@@ -1,9 +1,10 @@
-theme = "hugo-northeast"
-languageCode = "en-us"
-baseurl = "http://example.com/"
 title = "Hugo Northeast"
-
 author = "John Doe"
+baseurl = "http://example.com/"
+languageCode = "en-us"
+
+theme = "hugo-northeast"
+enableGitInfo = true
 copyright = "2019-{year} &copy;"
 
 [markup]
