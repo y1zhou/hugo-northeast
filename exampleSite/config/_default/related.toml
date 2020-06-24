@@ -1,0 +1,19 @@
+threshold = 80
+includeNewer = true
+toLower = true
+
+[[indices]]
+name = "categories"
+weight = 10
+
+[[indices]]
+name = "featured"
+weight = 9
+
+[[indices]]
+name = "tags"
+weight = 5
+
+[[indices]]
+name = "date"
+weight = 1

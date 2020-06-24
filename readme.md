@@ -67,7 +67,7 @@ Files in the `public/` directory can now be served.
 -   [x] Footer
     -   [x] Social links
     -   [x] Copyright
--   [ ] Post
+-   [x] Post
     -   [x] Tags
     -   [x] xx min read
     -   [x] Category
@@ -78,7 +78,7 @@ Files in the `public/` directory can now be served.
     -   [x] Math rendering
     -   [x] Footnote back reference
     -   [x] Previous/next post in the same category
-    -   [ ] Related posts
+    -   [x] Related posts
 -   [ ] Categories/Tags page
     -   [ ] Feature picture
     -   [x] List of posts

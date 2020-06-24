@@ -78,26 +78,6 @@ blockquote::before {
     left: 0.5rem;
 }
 
-/* Table */
-table {
-    @apply table-auto w-full max-w-full my-4 overflow-y-hidden;
-    @apply bg-white border-b-2 border-gray-400;
-}
-
-tr th {
-    @apply px-4 py-1 border-b-2 border-gray-400;
-}
-tr td {
-    @apply border px-4 py-2 border-gray-400;
-}
-
-tbody tr:nth-child(even) {
-    @apply bg-gray-100;
-}
-tbody tr:hover {
-    @apply bg-gray-300;
-}
-
 /* Code highlight */
 :not(pre) > code {
     @apply text-red-600 bg-red-100 rounded;
@@ -160,6 +140,26 @@ article {
 
 .article-container p {
     @apply py-1 mb-2 text-lg leading-relaxed text-left break-normal;
+}
+
+/* Tables */
+.article-container table {
+    @apply table-auto w-full max-w-full my-4 overflow-y-hidden;
+    @apply bg-white border-b-2 border-gray-400;
+}
+
+.article-container tr th {
+    @apply px-4 py-1 border-b-2 border-gray-400;
+}
+.article-container tr td {
+    @apply border px-4 py-2 border-gray-400;
+}
+
+.article-container tbody tr:nth-child(even) {
+    @apply bg-gray-100;
+}
+.article-container tbody tr:hover {
+    @apply bg-gray-300;
 }
 
 /* Overflow long math equations for MathJax */
