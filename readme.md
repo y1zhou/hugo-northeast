@@ -89,7 +89,7 @@ Files in the `public/` directory can now be served.
 -   [x] Shortcodes
     -   [x] Highlight (mark) in post
     -   [x] Figure w/ captions, links and numbering
-    -   [ ] Alert (note and warning)
+    -   [x] Alert (note and warning)
 -   [ ] Partials
     -   [x] Go back to top
     -   [x] Table of contents

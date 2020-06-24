@@ -53,3 +53,15 @@ Here's the Vimeo video:
 
 And here's a Youtube video:
 {{< youtube w7Ft2ymGmfc >}}
+
+## Alert shortcodes
+
+There are two types of alerts: `note` and `warning`.
+
+{{< alert note >}}
+**This is a note**. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+{{</alert>}}
+
+{{< alert warning >}}
+**This is a warning**. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+{{</alert>}}

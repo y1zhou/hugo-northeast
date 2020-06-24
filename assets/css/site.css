@@ -67,7 +67,7 @@ mark {
 
 /* Blockquote */
 blockquote {
-    @apply pl-16 pr-8 py-4 my-2 relative border-l-2 border-yellow-400;
+    @apply pl-16 pr-4 py-4 my-2 relative border-l-2 border-yellow-400;
 }
 
 blockquote::before {
