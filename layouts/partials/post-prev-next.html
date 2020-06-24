@@ -1,5 +1,5 @@
 <nav class="flex flex-row w-full justify-between">
-    <div class="flex-initial order-first text-left justify-start">
+    <div class="flex-initial order-first text-left justify-start" style="max-width: 50%;">
         {{/* prev/next labels are reversed in Hugo */}}
         {{with .NextInSection}}
         <a
@@ -18,7 +18,7 @@
         </a>
         {{end}}
     </div>
-    <div class="flex-initial order-last text-right justify-end">
+    <div class="flex-initial order-last text-right justify-end" style="max-width: 50%;">
         {{with .PrevInSection}}
         <a
             href="{{ .Permalink }}"
