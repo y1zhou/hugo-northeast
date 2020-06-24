@@ -1,9 +1,9 @@
 ---
 title: "Style Guide: see what this theme looks like"
 date: 2020-06-18
-summary: "" # appears in list of posts
+summary: "Markdown text tests, and some extended features in the theme." # appears in list of posts
 categories: ["example", "style"] # main category; shown in post metadata
-tags: ["css", "mathematics"] # list of related tags
+tags: ["css", "mathematics", "media", "more", "tags", "break", "single", "row"] # list of related tags
 
 slug: "first-post"
 toc: true # table of contents button in post
@@ -12,7 +12,7 @@ toc: true # table of contents button in post
 featured: false
 draft: false
 
-weight: 1000 # smaller values are listed first
+weight: 10 # smaller values are listed first
 
 # full-width featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.

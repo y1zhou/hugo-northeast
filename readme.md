@@ -1,8 +1,10 @@
 # Hugo Theme NorthEast
 
-A [Hugo](https://gohugo.io) theme with [Tailwind CSS](https://tailwindcss.com), setup with the [starter theme by dirkolbrich](https://github.com/dirkolbrich/hugo-theme-tailwindcss-starter).
+A [Hugo](https://gohugo.io) theme with [Tailwind CSS](https://tailwindcss.com).
 
 ## Prerequisites
+
+You'll need `git` and `npm` installed.
 
 Make sure to install `postcss-cli` and `autoprefixer` globally in your environment, as Hugo Pipe's PostCSS requires it.
 
@@ -11,6 +13,39 @@ npm install -g postcss-cli autoprefixer
 ```
 
 Make sure to use a minimum Hugo version of v0.69.0 and above.
+
+## Installation
+
+Go to the root directory of your Hugo website, or create a new site with
+
+```bash
+hugo new site hugo-example-site
+cd hugo-example-site
+git init
+```
+
+Now you can add the theme with
+
+```bash
+git submodule add https://github.com/y1zhou/hugo-northeast.git themes/hugo-northeast
+```
+
+To install the node modules (most importantly Tailwind CSS),
+
+```bash
+cd themes/hugo-northeast
+npm install
+```
+
+Finally, add `theme = "hugo-northeast` in the `config.toml` file in the root directory of your Hugo website.
+
+The website is now good to go! Run `hugo server -D` to see a live preview of it. To build the website for deployment, run
+
+```bash
+hugo --gc && hugo --minify
+```
+
+Files in the `public/` directory can now be served.
 
 ## Features
 
@@ -42,7 +77,7 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
     -   [x] Code highlighting
     -   [x] Math rendering
     -   [x] Footnote back reference
-    -   [ ] Previous/next post in the same category
+    -   [x] Previous/next post in the same category
     -   [ ] Related posts
 -   [ ] Categories/Tags page
     -   [ ] Feature picture
@@ -51,11 +86,17 @@ Make sure to use a minimum Hugo version of v0.69.0 and above.
 -   [ ] Publications
     -   [ ] Support `.bib` files
     -   [ ] External link to DOI/PDF
--   [ ] Shortcodes
+-   [x] Shortcodes
     -   [x] Highlight (mark) in post
     -   [x] Figure w/ captions, links and numbering
--   [x] Partials
+    -   [ ] Alert (note and warning)
+-   [ ] Partials
     -   [x] Go back to top
     -   [x] Table of contents
     -   [ ] Search screen w/ Algolia
     -   [x] List of social links (footer)
+
+# Credits
+
+-   [Starter theme by @dirkolbrich](https://github.com/dirkolbrich/hugo-theme-tailwindcss-starter)
+-   [Academic theme by @gcushen](https://sourcethemes.com/academic/)

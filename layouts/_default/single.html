@@ -11,10 +11,17 @@
     <div class="article-container max-w-screen-md xl:max-w-screen-lg mx-auto">
     {{ .Content }}
     </div>
+
+    {{/* Previous/Next posts in the same category, and other suggested posts
+    */}}
+    <hr class="mt-16" />
+    <div>
+        {{partial "post-prev-next" . }} {{partial "post-suggestions" . }}
+    </div>
+
     {{/* Buttons at the bottom-right */}}
     <div class="fixed block" style="bottom: 1.2rem; right: 1.2rem;">
-        {{partial "back-to-top-button" }}
-        {{partial "table-of-contents" . }}
+        {{partial "back-to-top-button" }} {{partial "table-of-contents" . }}
     </div>
 </article>
 {{ end }}
