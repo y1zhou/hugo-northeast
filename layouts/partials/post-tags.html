@@ -1,14 +1,14 @@
-<div class="flex justify-center space-x-2">
+<div class="flex flex-wrap justify-center space-x-2">
     {{ range (.GetTerms "tags") }}
-    <div
-        class="bg-yellow-400 hover:bg-yellow-500 px-1 py-0 rounded flex-shrink"
+    <span
+        class="inline-block bg-yellow-400 hover:bg-yellow-500 px-3 py-0 my-1 rounded-full"
     >
         <a
             href="{{ .Permalink }}"
-            class="text-gray-700 text-sm uppercase no-underline hover:bg-transparent tracking-tight leading-tight"
+            class="text-gray-700 text-sm no-underline hover:bg-transparent tracking-tight font-semibold"
         >
-            {{ .LinkTitle }}</a
+            #{{ .LinkTitle }}</a
         >
-    </div>
+    </span>
     {{ end }}
 </div>

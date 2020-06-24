@@ -3,11 +3,11 @@
     {{ partial "head.html" . }}
     <body class="flex flex-col min-h-screen">
         {{- partial "dev-size-indicator.html" . -}}
-        {{- partial "header.html" . -}}
+        {{- partialCached "header.html" . -}}
         <main class="flex-1 mx-4 pb-12 md:mx-12 lg:mx-24 mt-4 sm:mt-16">
         {{- block "main" . }}{{- end }}
         </main>
         {{- partial "dev-parameters.html" . -}}
-        {{- partial "footer.html" . -}}
+        {{- partialCached "footer.html" . -}}
     </body>
 </html>

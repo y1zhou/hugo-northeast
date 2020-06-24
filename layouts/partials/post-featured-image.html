@@ -7,9 +7,11 @@ directory as the post. */}}
     {{ $medium := $img.Resize "800x" }}
     {{ $large := $img.Resize "1200x" }}
     {{ $xlarge := $img.Resize "1500x" }}
-    <figure class="w-full overflow-hidden my-8 rounded">
+    <figure class="w-full">
+    {{ if (.Scratch.Get "set_img_link") }}
     {{ with .Params.header_image.img_link }}
         <a href="{{ . }}" target="_blank" rel="noreferrer">
+    {{ end -}}
     {{ end -}}
     <img
         src="{{ $img.RelPermalink }}"
@@ -28,6 +30,6 @@ directory as the post. */}}
         {{ end }}'
         {{ with .Params.header_image.caption }}alt="{{.}}"{{end}}
     />
-    {{- if .Params.header_image.img_link }}</a>{{ end }}
+    {{- if (and .Params.header_image.img_link (.Scratch.Get "set_img_link")) }}</a>{{ end }}
     </figure>
 {{ end }}

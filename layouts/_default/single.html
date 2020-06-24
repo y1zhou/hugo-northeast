@@ -5,11 +5,14 @@
         {{ partial "post-tags" . }}
         <h1 class="text-center py-2 px-6">{{ .Title }}</h1>
         {{ partial "post-metadata" . }}
-        {{ partial "post-featured-image" . }}
+        <div class="my-8 rounded overflow-hidden">
+            {{ .Scratch.Set "set_img_link" true }}
+            {{ partial "post-featured-image" . }}
+        </div>
     </div>
 
     <div class="article-container max-w-screen-md xl:max-w-screen-lg mx-auto">
-    {{ .Content }}
+        {{ .Content }}
     </div>
 
     {{/* Previous/Next posts in the same category, and other suggested posts
