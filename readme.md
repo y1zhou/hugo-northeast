@@ -81,7 +81,7 @@ Files in the `public/` directory can now be served.
     -   [ ] Related posts
 -   [ ] Categories/Tags page
     -   [ ] Feature picture
-    -   [ ] List of posts
+    -   [x] List of posts
     -   [ ] Sort based on featured & post time
 -   [ ] Publications
     -   [ ] Support `.bib` files

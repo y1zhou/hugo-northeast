@@ -1,0 +1,34 @@
+<div
+    class="max-w-sm rounded overflow-hidden shadow hover:shadow-md transition ease-in-out duration-100"
+>
+    <a href="{{ .RelPermalink }}">
+        {{/* Show banner image if set */}}
+        {{ .Scratch.Set "set_img_link" false}}
+        {{ partial "post-featured-image" . }}
+        
+        {{/* Title and summary */}}
+        <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">{{- .Title -}}</div>
+            <p class="text-gray-700 text-base">
+                {{ .Params.summary | default ( .Content | plainify | emojify | truncate 250 ) }}
+            </p>
+        </div>
+
+        {{/* Tags */}}
+        {{/* TODO: use the post-tags partial template here */}}
+        <div class="flex flex-wrap justify-left px-1 pb-4 space-x-2">
+            {{ range (.GetTerms "tags") }}
+            <div
+                class="inline-block bg-gray-200 hover:bg-yellow-400 px-3 py-0 my-1 rounded-full"
+            >
+                <a
+                    href="{{ .Permalink }}"
+                    class="text-gray-700 text-sm no-underline hover:bg-transparent tracking-tight leading-tight font-semibold"
+                >
+                    #{{ .LinkTitle }}
+                </a>
+            </div>
+            {{ end }}
+        </div>
+    </a>
+</div>

@@ -1,9 +1,10 @@
 <footer
-    class="w-full h-32 text-center py-4 pt-8 inset-0 text-sm text-gray-200 bg-gray-800"
+    class="w-full h-32 text-center px-4 pb-4 pt-8 inset-0 text-sm text-gray-200 bg-gray-800"
 >
     {{ partial "social-list" }}
     <p class="text-gray-500">
-        {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}
+        {{ with site.Copyright -}}
+        {{ replace . "{year}" now.Year | markdownify -}}
         {{ end }} Powered by the
         <a
             href="https://github.com/y1zhou/hugo-northeast"
@@ -17,8 +18,11 @@
     </p>
 </footer>
 
+{{/* Masonry for waterfall feed */}}
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
 {{/* Mathjax import */}}
- {{ $mathjax_config := resources.Get "js/mathjax-config.js" }}
+{{ $mathjax_config := resources.Get "js/mathjax-config.js" }}
 <script src="{{ $mathjax_config.RelPermalink }}"></script>
 <script
     async
