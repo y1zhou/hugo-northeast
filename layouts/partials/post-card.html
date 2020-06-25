@@ -1,7 +1,7 @@
 <div
     class="max-w-sm rounded overflow-hidden shadow hover:shadow-md transition ease-in-out duration-100"
 >
-    <a href="{{ .RelPermalink }}">
+    <a href="{{ .Permalink }}">
         {{/* Show banner image if set */}}
         {{ .Scratch.Set "set_img_link" false}}
         {{ partial "post-featured-image" . }}

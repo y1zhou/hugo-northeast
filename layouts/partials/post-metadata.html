@@ -1,5 +1,5 @@
 <div
-    class="flex flex-row overflow-y-hidden overflow-x-auto w-full justify-center items-center space-x-4 text-gray-500 text-sm font-bold divide-x-2 "
+    class="flex flex-row overflow-y-hidden overflow-x-auto w-full justify-start sm:justify-center items-center space-x-4 text-gray-500 text-sm font-bold divide-x-2 "
 >
     {{ with .Param "publishdate" }}
     <div class="flex-shrink-0">
@@ -13,7 +13,7 @@
         <i class="fas fa-folder mr-1"></i>
         {{- range $index, $value := (.GetTerms "categories") -}}
             {{- if gt $index 0 }}, {{ end -}}
-            <a href="{{ .RelPermalink }}" class="no-underline">{{ humanize .LinkTitle }}</a>
+            <a href="{{ .Permalink }}" class="no-underline">{{- humanize .LinkTitle -}}</a>
         {{- end -}}
     </div>
     {{ end }}
@@ -24,6 +24,7 @@
         {{ . }} min read
     </div>
     {{ end }}
+
     {{ with .Lastmod }}
     <div class="pl-4 flex-shrink-0">
         <i class="fas fa-pencil-alt mr-1"></i>

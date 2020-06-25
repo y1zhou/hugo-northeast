@@ -7,10 +7,6 @@ name = "categories"
 weight = 10
 
 [[indices]]
-name = "featured"
-weight = 9
-
-[[indices]]
 name = "tags"
 weight = 5
 
