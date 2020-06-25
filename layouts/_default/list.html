@@ -1,12 +1,18 @@
 {{ define "main" }}
-<div
-    class="grid mx-auto"
-    data-masonry='{ "itemSelector": ".masonry-item", "gutter": 5, "fitWidth": true }'
->
+<div class="grid mx-auto">
     {{ range .Pages }}
     <div class="masonry-item mb-2" style="width: 25rem;">
         {{partial "post-card" . }}
     </div>
     {{ end }}
 </div>
+{{/* Masonry for waterfall feed */}}
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI="
+    crossorigin="anonymous"
+></script>
+{{ $masonry := resources.Get "js/masonry.js" }}
+<script src="{{ $masonry.RelPermalink }}"></script>
 {{ end }}
