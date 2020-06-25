@@ -1,19 +1,20 @@
 {{/* Featured images can be set in the header_image.src parameter in the front
 matter. We look for "featured.jpg" or "featured.png" in the same
-directory as the post. */}}
+directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
 {{ if (and $img (not .Params.header_image.list_only)) }}
     {{ $small := $img.Resize "640x" }}
     {{ $medium := $img.Resize "800x" }}
     {{ $large := $img.Resize "1200x" }}
     {{ $xlarge := $img.Resize "1500x" }}
-    <figure class="w-full">
+    <figure class="w-full relative overflow-hidden" style="max-height: 50rem;">
     {{ if (.Scratch.Get "set_img_link") }}
-    {{ with .Params.header_image.img_link }}
-        <a href="{{ . }}" target="_blank" rel="noreferrer">
-    {{ end -}}
+        {{ with .Params.header_image.unsplash_id }}
+            <a href="https://unsplash.com/photos/{{- . -}}" target="_blank" rel="noreferrer">
+        {{ end -}}
     {{ end -}}
     <img
+        class="object-cover object-center w-full h-full"
         src="{{ $img.RelPermalink }}"
         srcset='
         {{ if ge $img.Width "640" }}
@@ -30,6 +31,31 @@ directory as the post. */}}
         {{ end }}'
         {{ with .Params.header_image.caption }}alt="{{.}}"{{end}}
     />
-    {{- if (and .Params.header_image.img_link (.Scratch.Get "set_img_link")) }}</a>{{ end }}
+    {{ with .Params.header_image.caption }}
+    <div class="absolute bottom-0 right-0 text-gray-300 bg-gray-900 bg-opacity-50 px-2">
+        {{ . | markdownify | emojify }}
+    </div>
+    {{ end }}
+    {{- if (and .Params.header_image.unsplash_id (.Scratch.Get "set_img_link")) }}</a>{{ end }}
+    </figure>
+
+{{ else if .Params.header_image.unsplash_id }}
+    <figure class="relative overflow-hidden" style="max-height: 50rem;">
+    {{ if (.Scratch.Get "set_img_link") }}
+        <a href="https://unsplash.com/photos/{{- .Params.header_image.unsplash_id -}}"
+            target="_blank"
+            rel="noreferrer">
+    {{ end -}}
+    <img
+        class="object-cover object-center w-full h-full"
+        src="https://source.unsplash.com/{{- .Params.header_image.unsplash_id -}}"
+        {{ with .Params.header_image.caption }}alt="{{.}}"{{end}}
+    />
+    {{ with .Params.header_image.caption }}
+    <div class="absolute bottom-0 right-0 text-gray-300 bg-gray-900 bg-opacity-50 px-2">
+        {{ . | markdownify | emojify }}
+    </div>
+    {{ end }}
+    {{- if (and .Params.header_image.unsplash_id (.Scratch.Get "set_img_link")) }}</a>{{ end }}
     </figure>
 {{ end }}

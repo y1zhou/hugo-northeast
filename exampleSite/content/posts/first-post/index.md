@@ -9,7 +9,7 @@ slug: "first-post"
 toc: true # table of contents button in post
 # featured posts are shown on the homepage, and are shown first
 # in the category/tags pages
-featured: false
+featured: true
 draft: false
 
 weight: 10 # smaller values are listed first
@@ -17,8 +17,8 @@ weight: 10 # smaller values are listed first
 # full-width featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 header_image:
-    caption: "Clouds in wind."
-    img_link: "https://unsplash.com/photos/BX0Mm9fazTI" # source of figure
+    caption: "Clouds in wind."  # Give credits here, or whatever captions you want to add (support markdown)
+    unsplash_id: "BX0Mm9fazTI"  # Unsplash ID of the picture
     list_only: false # don't show image in post; only in list views
 ---
 

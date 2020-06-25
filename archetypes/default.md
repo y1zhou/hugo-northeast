@@ -17,7 +17,7 @@ weight: 1000  # smaller values are listed first
 # full-width featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 header_image:
-    caption: ""
-    img_link: ""  # source of figure
+    caption: ""  # Give credits here, or whatever captions you want to add (support markdown)
+    unsplash_id: ""  # Unsplash ID of the picture
     list_only: false  # don't show image in post; only in list views
 ---
