@@ -56,13 +56,13 @@ Files in the `public/` directory can now be served.
     -   [ ] Recent posts
     -   [ ] Pagination
     -   [ ] Tag cloud
--   [ ] Header
-    -   [ ] Logo
-    -   [x] Title if logo doesn't exist
-    -   [ ] Menu of links
+-   [x] Header
+    -   [x] Logo if it exists
+    -   [x] Title
+    -   [x] Menu of links
         -   [x] Large screen
-        -   [ ] Mobile
-    -   [x] Search
+        -   [x] Mobile
+    -   [ ] Search
     -   [ ] Light/dark theme toggle
 -   [x] Footer
     -   [x] Social links

@@ -1,33 +1,50 @@
-<header class="w-full px-8 pt-4 sm:px-4">
-    <nav class="flex items-center justify-between flex-wrap">
-        <a
+<header id="site-header" class="relative md:flex md:items-center">
+    {{/* Single row on large screens; two rows on mobile */}}
+    <div class="block relative mx-auto md:flex md:flex-grow md:max-w-screen-lg">
+        {{/* Logo and site title */}}
+        {{/* Left on large screen; top-row center on mobile */}}
+        <div class="flex justify-center items-center flex-shrink-0 mr-0 md:mr-3">
+            <a
             id="nav-homepage"
             href="{{ .Site.Home.Permalink }}"
-            class="flex items-start order-first text-gray-800 font-bold font-serif text-lg"
-        >
-            {{ .Site.Title }}
-        </a>
-
-        <ul
-            id="nav-menu"
-            class="flex items-center w-auto mt-2 sm:mt-0 space-x-4 md:space-x-8 lg:space-x-10 text-gray-700 font-serif"
-        >
-            {{ with .Site.GetPage "/about" }}
-            <li>
-                <a href="{{ .Permalink }}" class="hover:text-blue-400">
-                    {{ .Title }}
-                </a>
-            </li>
-            {{ end }} {{ range .Site.Sections }}
-            <li>
-                <a href="{{ .Permalink }}" class="hover:text-blue-400">
-                    {{ .Title }}
-                </a>
-            </li>
+            class="flex items-center m-0 py-3 px-4 md:flex-none font-bold font-serif text-lg tracking-tight text-gray-800 hover:bg-transparent"
+            >
+            {{/* Show logo if file exists */}}
+            {{ $logo := resources.Get "images/logo.png" | default (resources.Get "images/logo.svg") }}
+            {{ with $logo }}
+                {{ $logo_proc := .Resize "x30" }}
+                <img src="{{ $logo_proc.RelPermalink }}" class="inline-block" />
             {{ end }}
-        </ul>
-        <i
-            class="fas fa-search order-last text-gray-500 hover:text-blue-400"
-        ></i>
-    </nav>
+            {{- .Site.Title -}}
+            </a>
+        </div>
+
+        {{/* Navbar menu */}}
+        <div class="flex flex-shrink-0 flex-grow justify-center overflow-x-auto p-0 md:items-center text-gray-700">
+            {{/* nav links */}}
+            <div class="flex justify-start items-center p-0 mr-0 md:mr-auto">
+            {{ range .Site.Sections }}
+                <a
+                    href="{{ .Permalink }}"
+                    class="py-1 px-2 rounded hover:bg-gray-300"
+                >
+                    {{ .Title }}
+                </a>
+            {{ end }}
+            {{ with .Site.GetPage "/about" }}
+                <a
+                    href="{{ .Permalink }}"
+                    class="py-1 px-2 rounded hover:bg-gray-300"
+                >
+                    {{ .Title }}
+                </a>
+            {{ end }}
+            </div>
+            {{/* Search and theme-toggle buttons */}}
+            <div class="flex justify-start items-center p-0 ml-0 md:ml-auto">
+                <i class="fas fa-search p-2 rounded hover:bg-gray-300"></i>
+                <i class="far fa-sun p-2 rounded hover:bg-gray-300"></i>
+            </div>
+        </div>
+    </div>
 </header>
