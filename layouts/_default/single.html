@@ -26,8 +26,9 @@
     </div>
 
     {{/* Buttons at the bottom-right */}}
-    <div class="fixed block" style="bottom: 1.2rem; right: 1.2rem;">
-        {{partial "back-to-top-button" }} {{partial "table-of-contents" . }}
+    <div class="fixed bottom-0 right-0 pb-5 pr-5">
+        {{partial "back-to-top-button" }} {{partial "toc-button" . }}
     </div>
+    {{partial "table-of-contents" . }}
 </article>
 {{ end }}
