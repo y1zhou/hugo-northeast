@@ -228,7 +228,7 @@ a.footnote-ref::after {
 .search-hidden {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 150ms ease-in;
+    transition: opacity 300ms ease-in;
 }
 #toc-background-mask,
 #search-screen {

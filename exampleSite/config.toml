@@ -5,7 +5,7 @@ languageCode = "en-us"
 
 theme = "hugo-northeast"
 enableGitInfo = true
-copyright = "2019-{year} &copy;"
+copyright = "2019-{year}"
 
 [markup]
   defaultMarkdownHandler = "goldmark"
@@ -23,8 +23,11 @@ copyright = "2019-{year} &copy;"
     endLevel = 3
     ordered = true
 
-    github_user = "dirkolbrich"
-    github_repo = "https://github.com/dirkolbrich/hugo-theme-tailwindcss-starter"
-    github_banner = true
+[outputs]
+    home = ["HTML", "RSS", "MiniSearch"]
 
-    favicon = "favicon.ico"
+[outputFormats.MiniSearch]
+    mediaType = "application/json"
+    baseName = "minisearch"
+    isPlainText = true
+    notAlternative = true

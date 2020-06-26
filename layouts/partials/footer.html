@@ -18,9 +18,16 @@
     </p>
 </footer>
 
-{{/* Masonry for waterfall feed */}}
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-
+{{/* MinSearch for search bar */}}
+{{ if site.Params.minisearch_enabled }}
+<script src="https://cdn.jsdelivr.net/npm/minisearch@2.4.1/dist/umd/index.min.js"></script>
+{{ $minisearch := resources.Get "js/minisearch-config.js" | minify | fingerprint }}
+<script
+    src="{{- $minisearch.RelPermalink -}}"
+    integrity="{{- $minisearch.Data.Integrity -}}"
+></script>
+{{ partialCached "search" . }}
+{{ end }}
 {{/* Mathjax import */}}
 {{ $mathjax_config := resources.Get "js/mathjax-config.js" }}
 <script src="{{ $mathjax_config.RelPermalink }}"></script>

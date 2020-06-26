@@ -1,0 +1,52 @@
+<div
+    id="search-screen"
+    class="search-hidden fixed block inset-0"
+    style="backdrop-filter: blur(8px);"
+>
+    <div
+        id="search-wrapper"
+        class="w-4/5 md:w-3/5 max-w-md mt-24 mx-auto bg-white rounded-md overflow-hidden transform -translate-y-4 transition-transform duration-150 ease-in"
+    >
+        {{/* Search input */}}
+        <div class="relative border-b border-gray-300">
+            <div id="search-input" class="border-none rounded-md text-gray-500">
+                <input
+                    class="pl-8 pr-6 py-2 block w-full text-gray-700 focus:outline-none"
+                    type="text"
+                    placeholder="Search..."
+                />
+                <div class="absolute inset-y-0 left-0 pl-2 flex items-center">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+
+        {{/* Popular tags */}}
+        <div id="search-popular-tags" class="block px-4 py-2">
+            <div
+                class="w-full text-gray-500 text-base tracking-tight font-semibold"
+            >
+                Popular Tags
+            </div>
+            <div
+                class="flex flex-row flex-wrap justify-start space-x-2 text-gray-700 text-sm font-semibold"
+            >
+                {{ range first 5 site.Taxonomies.tags.ByCount }}
+                <a
+                    href="/tags/{{ .Name }}"
+                    class="my-1 bg-gray-200 hover:bg-yellow-400 px-3 py-0 rounded-full"
+                    >#{{- .Name -}}</a
+                >
+                {{ end }}
+            </div>
+        </div>
+
+        {{/* Search results filled in by js */}}
+        <div
+            class="block px-4 overflow-y-auto w-full"
+            style="max-height: 50vh;"
+        >
+            <ul class="search-results text-gray-700 leading-6 px-6"></ul>
+        </div>
+    </div>
+</div>

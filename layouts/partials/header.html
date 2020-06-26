@@ -1,19 +1,19 @@
 <header id="site-header" class="relative md:flex md:items-center">
     {{/* Single row on large screens; two rows on mobile */}}
-    <div class="block relative mx-auto md:flex md:flex-grow md:max-w-screen-lg">
+    <div class="block relative mx-auto md:flex md:flex-grow md:max-w-screen-lg md:px-3">
         {{/* Logo and site title */}}
         {{/* Left on large screen; top-row center on mobile */}}
-        <div class="flex justify-center items-center flex-shrink-0 mr-0 md:mr-3">
+        <div class="flex justify-center items-center flex-shrink-0 mr-0 md:mr-5">
             <a
             id="nav-homepage"
             href="{{ .Site.Home.Permalink }}"
-            class="flex items-center m-0 py-3 px-4 md:flex-none font-bold font-serif text-lg tracking-tight text-gray-800 hover:bg-transparent"
+            class="flex items-center m-0 py-3 md:flex-none font-bold font-serif text-lg tracking-tight text-gray-800 hover:bg-transparent"
             >
             {{/* Show logo if file exists */}}
             {{ $logo := resources.Get "images/logo.png" | default (resources.Get "images/logo.svg") }}
             {{ with $logo }}
                 {{ $logo_proc := .Resize "x30" }}
-                <img src="{{ $logo_proc.RelPermalink }}" class="inline-block" />
+                <img src="{{ $logo_proc.RelPermalink }}" class="inline-block pr-1" />
             {{ end }}
             {{- .Site.Title -}}
             </a>
@@ -40,10 +40,18 @@
                 </a>
             {{ end }}
             </div>
+
             {{/* Search and theme-toggle buttons */}}
             <div class="flex justify-start items-center p-0 ml-0 md:ml-auto">
-                <i class="fas fa-search p-2 rounded hover:bg-gray-300"></i>
-                <i class="far fa-sun p-2 rounded hover:bg-gray-300"></i>
+                {{ if site.Params.minisearch_enabled }}
+                <span id="header-search-button">
+                    <i class="fas fa-search p-2 rounded hover:bg-gray-300"></i>
+                </span>
+                {{ end }}
+                <i
+                    id="theme-button"
+                    class="far fa-sun p-2 rounded hover:bg-gray-300"
+                ></i>
             </div>
         </div>
     </div>

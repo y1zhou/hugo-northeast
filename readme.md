@@ -42,7 +42,7 @@ Finally, add `theme = "hugo-northeast` in the `config.toml` file in the root dir
 The website is now good to go! Run `hugo server -D` to see a live preview of it. To build the website for deployment, run
 
 ```bash
-hugo --gc && hugo --minify
+hugo --gc --minify
 ```
 
 Files in the `public/` directory can now be served.
@@ -62,7 +62,7 @@ Files in the `public/` directory can now be served.
     -   [x] Menu of links
         -   [x] Large screen
         -   [x] Mobile
-    -   [ ] Search
+    -   [x] Search
     -   [ ] Light/dark theme toggle
 -   [x] Footer
     -   [x] Social links
@@ -90,10 +90,10 @@ Files in the `public/` directory can now be served.
     -   [x] Highlight (mark) in post
     -   [x] Figure w/ captions, links and numbering
     -   [x] Alert (note and warning)
--   [ ] Partials
+-   [x] Partials
     -   [x] Go back to top
     -   [x] Table of contents
-    -   [ ] Search screen w/ Algolia
+    -   [x] Search screen
     -   [x] List of social links (footer)
 
 # Credits
