@@ -200,7 +200,7 @@ a.footnote-ref::after {
     @apply inline-block text-gray-500 font-bold bg-white pr-2 transform -translate-y-4;
 }
 
-#toc-list #TableOfContents > ol {
+#toc-list > #TableOfContents > ol {
     @apply border-0;
 }
 
@@ -215,4 +215,22 @@ a.footnote-ref::after {
 #toc-list li > a::before {
     @apply pr-2 font-bold;
     content: counters(tocitem, ".");
+}
+
+/* ################################# */
+/* #         TOC & Search          # */
+/* ################################# */
+#toc-background-mask.active,
+#search-screen.active {
+    opacity: 1;
+}
+.toc-hidden,
+.search-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 150ms ease-in;
+}
+#toc-background-mask,
+#search-screen {
+    background-color: rgba(0, 0, 0, 0.6);
 }

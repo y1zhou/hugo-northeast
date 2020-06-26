@@ -1,19 +1,21 @@
 {{ if and (gt .WordCount 400 ) (.Params.toc) }}
 <div
     id="toc-background-mask"
-    class="bg-opacity-0 invisible fixed inset-0 bg-black transition-all duration-150 ease-linear"
-></div>
-<div
-    id="toc-container"
-    class="opacity-0 transform translate-x-full fixed inset-y-0 right-0 bg-white rounded overflow-auto m-2 p-4 sm:m-3 sm:left-auto transition-all duration-150 ease-linear"
+    class="toc-hidden fixed inset-0"
+    style="backdrop-filter: blur(8px);"
 >
     <div
-        id="toc-top-divider"
-        class="block relative border-t-2 border-gray-300 mt-2 mb-0 transform translate-y-3"
-    ></div>
+        id="toc-container"
+        class="fixed inset-y-0 right-0 bg-white rounded overflow-auto m-2 p-4 sm:m-3 sm:left-auto transform translate-x-full transition-transform duration-150 ease-linear"
+    >
+        <div
+            id="toc-top-divider"
+            class="block relative border-t-2 border-gray-300 mt-2 mb-0 transform translate-y-3"
+        ></div>
 
-    <div id="toc-list">
-        {{ .TableOfContents }}
+        <div id="toc-list">
+            {{ .TableOfContents }}
+        </div>
     </div>
 </div>
 

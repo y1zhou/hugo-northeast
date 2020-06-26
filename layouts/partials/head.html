@@ -19,10 +19,12 @@
     {{/*  Site CSS  */}}
     {{- $styles := resources.Get "css/northeast-tailwind.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
     {{- if .Site.IsServer }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+        <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
     {{ else }}
-        {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
-    <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
+        {{- $styles := $styles | minify | fingerprint | resources.PostProcess -}}
+        <link rel="preload" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"></noscript>
     {{ end -}}
 
     {{/*  Google Fonts  */}}
