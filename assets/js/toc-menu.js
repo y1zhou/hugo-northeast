@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 tocMenu.classList.add("translate-x-full");
                 setTimeout(function () {
                     tocMask.style.visibility = "";
-                }, 150);
+                }, 300);
             } else {
                 tocMask.style.visibility = "visible";
                 tocMenu.classList.remove("translate-x-full");

@@ -13,6 +13,9 @@
     integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI="
     crossorigin="anonymous"
 ></script>
-{{ $masonry := resources.Get "js/masonry.js" }}
-<script src="{{ $masonry.RelPermalink }}"></script>
+{{ $masonry := resources.Get "js/masonry.js" | minify | fingerprint }}
+<script
+    src="{{- $masonry.RelPermalink -}}"
+    integrity="{{- $masonry.Data.Integrity -}}"
+></script>
 {{ end }}
