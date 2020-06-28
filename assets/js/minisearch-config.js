@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let searchResults = [];
+document.addEventListener("DOMContentLoaded", () => {
+    let res = [];
     const searchButton = document.getElementById("header-search-button");
     const searchScreen = document.getElementById("search-screen");
     const searchWrapper = document.getElementById("search-wrapper");
 
     const searchInput = searchWrapper.querySelector("input");
     const searchPopularTags = document.getElementById("search-popular-tags");
-    const searchResultElement = searchWrapper.querySelector(".search-results");
+    const searchResult = searchWrapper.querySelector(".search-results");
 
     [searchButton, searchScreen].forEach((el) => {
         el.addEventListener("click", () => {
@@ -19,52 +19,63 @@ document.addEventListener("DOMContentLoaded", function () {
                 searchScreen.style.visibility = "visible";
                 searchWrapper.classList.remove("-translate-y-4");
                 searchInput.focus();
+                searchInput.select();
             }
             searchScreen.classList.toggle("active");
         });
     });
 
-    function tags(tags, searchString) {
-        let tagHTML = (tags.split(" ; ") || [])
-            .filter(function (i) {
-                return i && i.length > 0;
-            })
-            .map(function (i) {
-                return "<span class='tag'>" + mark(i, searchString) + "</span>";
-            });
-        return tagHTML.join("");
+    searchInput.addEventListener("click", (event) => {
+        // Prevent closing the search screen on clicking the input bar
+        event.stopPropagation();
+        event.target.focus();
+    });
+
+    function timestamp2Date(s) {
+        let ans = new Date(s);
+        let month = ans.getMonth().toString();
+        if (month.length == 1) {
+            month = "0" + month;
+        }
+        return `${ans.getFullYear()}-${month}-${ans.getDate()}`;
     }
 
-    function mark(content, search) {
-        if (search) {
-            let pattern = /^[a-zA-Z0-9]*:/i;
-            search.split(" ").forEach(function (s) {
-                if (pattern.test(s)) {
-                    s = s.replace(pattern, "");
-                }
-                if (s && s.startsWith("+")) {
-                    s = s.substring(1);
-                }
-                if (
-                    s &&
-                    s.indexOf("~") > 0 &&
-                    s.length > s.indexOf("~") &&
-                    parseInt(s.substring(s.indexOf("~") + 1)) ==
-                        s.substring(s.indexOf("~") + 1)
-                ) {
-                    s = s.substring(0, s.indexOf("~"));
-                }
-                if (!s || s.startsWith("-")) {
-                    return;
-                }
-                let re = new RegExp(s, "i");
-                content = content.replace(re, function (m) {
-                    return "<mark>" + m + "</mark>";
-                });
-            });
+    function pickSnippetTerm(hit) {
+        let ans = hit.terms[0];
+        hit.terms.forEach((term) => {
+            if (hit.match[term].length > hit.match[ans].length) {
+                ans = term;
+            }
+        });
+        return ans;
+    }
+
+    function snippetSubstr(s, substr, contextLen = 200) {
+        let pos = s.toLowerCase().indexOf(substr.toLowerCase());
+        if (pos < 0 || s.length < contextLen * 2) {
+            return s;
         }
 
-        return content;
+        let startPos = Math.max(pos - contextLen, 0);
+        let ans = s.slice(startPos, pos + contextLen).trim();
+        startPos = pos > 0 ? ans.indexOf(" ") : 0;
+        ans = ans.substr(startPos).replace("/s+/g", " ").trim();
+        return `...${ans}...`;
+    }
+
+    function markMatches(hit) {
+        let term = pickSnippetTerm(hit);
+
+        const re = new RegExp(`(${hit.terms.join("|")})`, "gi");
+
+        let matches = {};
+        hit.match[term].forEach((field) => {
+            let ans = snippetSubstr(hit[field], term);
+            ans = ans.replace(re, `<mark>$1</mark>`);
+            matches[field] = ans;
+        });
+
+        return matches;
     }
 
     fetch("/minisearch.json")
@@ -88,30 +99,43 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             searchIndex.addAll(searchContent);
 
-            searchInput.addEventListener("click", (event) => {
-                event.stopPropagation();
-                event.target.focus();
-            });
-
             searchInput.addEventListener("keyup", (e) => {
                 let searchString = e.target.value;
                 if (searchString && searchString.length > 2) {
-                    searchResults = searchIndex.search(searchString);
+                    res = searchIndex.search(searchString);
                 } else {
-                    searchResults = [];
+                    res = [];
+                    searchResult.innerHTML = "";
                 }
 
-                if (searchResults.length > 0) {
+                if (res.length > 0) {
                     searchPopularTags.classList.add("hidden");
-                    searchResultElement.innerHTML = searchResults
-                        .map((res) => {
-                            return `<li><a href="${res.href}">${res.title}</a>`;
+                    searchResult.innerHTML = res
+                        .map((hit) => {
+                            let ans = markMatches(hit);
+                            if (!("title" in ans)) {
+                                ans.title = hit.title;
+                            }
+                            if (!("content" in ans)) {
+                                if ("summary" in ans) {
+                                    ans.content = ans.summary;
+                                } else {
+                                    ans.content = hit.content;
+                                }
+                            }
+                            return `<li><a href="${hit.href}">
+                            <div class="search-res-header">
+                            <span class="search-res-title">${ans.title}</span>
+                            <span class="search-res-date">${timestamp2Date(
+                                hit.date
+                            )}</span>
+                            </div>
+                            <div class="search-res-content">${ans.content}</div>
+                            </a></li>`;
                         })
                         .join("");
                 } else {
                     searchPopularTags.classList.remove("hidden");
-                    searchResultElement.innerHTML =
-                        "<li><p class='no-result'>No results found</p></li>";
                 }
             });
         })

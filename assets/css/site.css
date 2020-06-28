@@ -191,7 +191,8 @@ a.footnote-ref::after {
 /* #       Table of contents       # */
 /* ################################# */
 #toc-list ol {
-    @apply pl-6 text-gray-800 border-l-2 border-gray-300;
+    @apply pl-3 m-1 text-gray-800 border-l-2 border-gray-300;
+
     counter-reset: tocitem;
 }
 
@@ -205,15 +206,15 @@ a.footnote-ref::after {
 }
 
 #toc-list a {
-    @apply inline-block w-full rounded -ml-2 px-1 leading-relaxed transition-none;
+    @apply inline-block w-full rounded px-3 leading-relaxed transition-none;
 }
 #toc-list ol > li {
-    @apply block;
+    @apply block my-1;
     counter-increment: tocitem;
 }
 
 #toc-list li > a::before {
-    @apply pr-2 font-bold;
+    @apply mr-2 -ml-3 font-semibold;
     content: counters(tocitem, ".");
 }
 
@@ -233,4 +234,35 @@ a.footnote-ref::after {
 #toc-background-mask,
 #search-screen {
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* ################################# */
+/* #        Search results         # */
+/* ################################# */
+ul.search-results {
+    @apply text-gray-700 leading-6;
+}
+
+ul.search-results li {
+    @apply py-1 border-b border-gray-300 px-4;
+}
+
+ul.search-results li:hover {
+    @apply bg-gray-200;
+}
+
+.search-results .search-res-header {
+    @apply flex flex-row justify-between;
+}
+
+.search-results .search-res-title {
+    @apply text-gray-800 font-semibold;
+}
+
+.search-results .search-res-date {
+    @apply flex-shrink-0 text-gray-500 text-sm;
+}
+
+.search-results .search-res-content {
+    @apply text-gray-700 text-sm;
 }

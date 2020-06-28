@@ -5,7 +5,7 @@
 >
     <div
         id="search-wrapper"
-        class="w-4/5 md:w-3/5 max-w-md mt-24 mx-auto bg-white rounded-md overflow-hidden transform -translate-y-4 transition-transform duration-150 ease-in"
+        class="w-11/12 md:w-3/5 max-w-2xl mt-24 mx-auto bg-white rounded-md shadow-md overflow-hidden transform -translate-y-4 transition-transform duration-150 ease-in"
     >
         {{/* Search input */}}
         <div class="relative border-b border-gray-300">
@@ -42,11 +42,8 @@
         </div>
 
         {{/* Search results filled in by js */}}
-        <div
-            class="block px-4 overflow-y-auto w-full"
-            style="max-height: 50vh;"
-        >
-            <ul class="search-results text-gray-700 leading-6 px-6"></ul>
+        <div class="block overflow-y-auto w-full" style="max-height: 70vh;">
+            <ul class="search-results"></ul>
         </div>
     </div>
 </div>
