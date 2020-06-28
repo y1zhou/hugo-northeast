@@ -33,11 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function timestamp2Date(s) {
         let ans = new Date(s);
-        let month = ans.getMonth().toString();
+        let month = (ans.getMonth() + 1).toString();
         if (month.length == 1) {
             month = "0" + month;
         }
-        return `${ans.getFullYear()}-${month}-${ans.getDate()}`;
+        let date = ans.getDate().toString();
+        if (date.length == 1) {
+            date = "0" + date;
+        }
+        return `${ans.getFullYear()}-${month}-${date}`;
     }
 
     function pickSnippetTerm(hit) {
@@ -113,6 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     searchResult.innerHTML = res
                         .map((hit) => {
                             let ans = markMatches(hit);
+                            ans.date = timestamp2Date(hit.date);
+                            ans.featured = hit.featured
+                                ? `<i class="fas fa-star text-yellow-400 pr-1"></i>`
+                                : "";
                             if (!("title" in ans)) {
                                 ans.title = hit.title;
                             }
@@ -120,15 +128,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                 if ("summary" in ans) {
                                     ans.content = ans.summary;
                                 } else {
-                                    ans.content = hit.content;
+                                    ans.content = hit.summary;
                                 }
                             }
                             return `<li><a href="${hit.href}">
                             <div class="search-res-header">
-                            <span class="search-res-title">${ans.title}</span>
-                            <span class="search-res-date">${timestamp2Date(
-                                hit.date
-                            )}</span>
+                            <span class="search-res-title">${ans.title} ${ans.featured}</span>
+                            <span class="search-res-date">${ans.date}</span>
                             </div>
                             <div class="search-res-content">${ans.content}</div>
                             </a></li>`;
@@ -143,3 +149,4 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error(error);
         });
 });
+
