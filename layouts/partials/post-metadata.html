@@ -1,33 +1,32 @@
 <div
-    class="flex flex-row overflow-y-hidden overflow-x-auto w-full justify-start sm:justify-center items-center space-x-4 text-gray-500 text-sm font-bold divide-x-2 "
->
+    class="flex flex-row overflow-y-hidden overflow-x-auto w-full justify-start md:justify-center items-center space-x-4 text-gray-500 text-sm font-bold divide-x-2 ">
     {{ with .Param "publishdate" }}
-    <div class="flex-shrink-0">
-        <i class="fas fa-calendar-day mr-1"></i>
+    <div class="flex flex-shrink-0 items-center">
+        <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
         {{ dateFormat "Jan 2, 2006" .Local -}}
     </div>
     {{ end }}
-    
+
     {{ if .Params.categories }}
-    <div class="pl-4 flex-shrink-0">
-        <i class="fas fa-folder mr-1"></i>
+    <div class="pl-4 flex flex-shrink-0 items-center">
+        <i data-feather="folder" class="mr-1 w-4 h-4"></i>
         {{- range $index, $value := (.GetTerms "categories") -}}
-            {{- if gt $index 0 }}, {{ end -}}
-            <a href="{{ .Permalink }}" class="no-underline">{{- humanize .LinkTitle -}}</a>
+        {{- if gt $index 0 }}, {{ end -}}
+        <a href="{{ .Permalink }}" class="no-underline">{{- humanize .LinkTitle -}}</a>
         {{- end -}}
     </div>
     {{ end }}
 
     {{ with .ReadingTime }}
-    <div class="pl-4 flex-shrink-0">
-        <i class="fas fa-stopwatch mr-1"></i>
+    <div class="pl-4 flex flex-shrink-0 items-center">
+        <i data-feather="clock" class="mr-1 w-4 h-4"></i>
         {{ . }} min read
     </div>
     {{ end }}
 
     {{ with .Lastmod }}
-    <div class="pl-4 flex-shrink-0">
-        <i class="fas fa-pencil-alt mr-1"></i>
+    <div class="pl-4 flex flex-shrink-0 items-center">
+        <i data-feather="edit" class="mr-1 w-4 h-4"></i>
         {{ dateFormat "Jan 2, 2006 15:04 MST" .Local -}}
     </div>
     {{ end }}

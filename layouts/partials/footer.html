@@ -3,9 +3,9 @@
 >
     {{ partial "social-list" }}
     <p class="text-gray-500">
-        {{ with site.Copyright }}
-        {{- replace . "{year}" now.Year | markdownify -}}
-        {{ end }} &copy; Powered by the
+        {{ with site.Copyright }} {{- replace . "{year}" now.Year | markdownify -}} {{ end }}
+        <a href="{{- site.BaseURL -}}" class="text-gray-200 hover:text-gray-800">{{- site.Title -}}</a>
+        &copy; Powered by the
         <a
             href="https://github.com/y1zhou/hugo-northeast"
             target="_blank"
@@ -14,7 +14,10 @@
         >
             Northeast theme</a
         >
-        for <a href="https://gohugo.io" class="text-gray-200 hover:text-gray-800"> Hugo</a>.
+        for
+        <a href="https://gohugo.io" class="text-gray-200 hover:text-gray-800">
+            Hugo</a
+        >.
     </p>
 </footer>
 
@@ -28,6 +31,7 @@
 ></script>
 {{ partialCached "search" . }}
 {{ end }}
+
 {{/* Mathjax import */}}
 {{ $mathjax_config := resources.Get "js/mathjax-config.js" | minify | fingerprint }}
 <script
@@ -39,3 +43,7 @@
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     crossorigin="anonymous"
 ></script>
+
+{{/*  Feather icons  */}}
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>feather.replace()</script>

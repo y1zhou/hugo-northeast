@@ -2,7 +2,7 @@
 matter. We look for "featured.jpg" or "featured.png" in the same
 directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
-{{ if (and $img (not .Params.header_image.list_only)) }}
+{{ if $img }}
     {{ $small := $img.Resize "640x" }}
     {{ $medium := $img.Resize "800x" }}
     {{ $large := $img.Resize "1200x" }}

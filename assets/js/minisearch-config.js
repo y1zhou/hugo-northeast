@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             let ans = markMatches(hit);
                             ans.date = timestamp2Date(hit.date);
                             ans.featured = hit.featured
-                                ? `<i class="fas fa-star text-yellow-400 pr-1"></i>`
+                                ? `<span class="text-yellow-400 ml-1">${feather.icons.star.toSvg({ 'width': 16, 'height': 16, 'fill': '#f6e05e' })}</span>`
                                 : "";
                             if (!("title" in ans)) {
                                 ans.title = hit.title;
@@ -140,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             </a></li>`;
                         })
                         .join("");
+                    feather.replace()
                 } else {
                     searchPopularTags.classList.remove("hidden");
                 }

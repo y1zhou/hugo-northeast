@@ -20,9 +20,9 @@
         </div>
 
         {{/* Navbar menu */}}
-        <div class="flex flex-shrink-0 flex-grow justify-center overflow-x-auto p-0 md:items-center text-gray-700">
+        <div class="flex flex-shrink-0 flex-grow justify-center p-0 md:items-center text-gray-700">
             {{/* nav links */}}
-            <div class="flex justify-start items-center p-0 mr-0 md:mr-auto">
+            <div class="flex justify-start items-center overflow-x-auto p-0 mr-0 md:mr-auto">
             {{ range .Site.Sections }}
                 <a
                     href="{{ .Permalink }}"
@@ -45,13 +45,10 @@
             <div class="flex justify-start items-center p-0 ml-0 md:ml-auto">
                 {{ if site.Params.minisearch_enabled }}
                 <span id="header-search-button">
-                    <i class="fas fa-search p-2 rounded hover:bg-gray-300"></i>
+                    <i data-feather="search" class="p-2 rounded hover:bg-gray-300 w-8 h-8"></i>
                 </span>
                 {{ end }}
-                <i
-                    id="theme-button"
-                    class="far fa-sun p-2 rounded hover:bg-gray-300"
-                ></i>
+                <i data-feather="sun" class="p-2 rounded hover:bg-gray-300 w-8 h-8"></i>
             </div>
         </div>
     </div>
