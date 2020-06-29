@@ -40,15 +40,26 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     </figure>
 
 {{ else if .Params.header_image.unsplash_id }}
+    {{ $img_url := printf "https://source.unsplash.com/%s" .Params.header_image.unsplash_id}}
+    {{ $small := printf "%s/640x640" $img_url }}
+    {{ $medium := printf "%s/800x800" $img_url }}
+    {{ $large := printf "%s/1200x1200" $img_url }}
+    {{ $xlarge := printf "%s/1500x1500" $img_url }}
     <figure class="relative overflow-hidden" style="max-height: 50rem;">
     {{ if (.Scratch.Get "set_img_link") }}
         <a href="https://unsplash.com/photos/{{- .Params.header_image.unsplash_id -}}"
             target="_blank"
             rel="noreferrer">
     {{ end -}}
+    
     <img
         class="object-cover object-center w-full h-full"
-        src="https://source.unsplash.com/{{- .Params.header_image.unsplash_id -}}"
+        src="{{ $img_url }}"
+        srcset='
+            {{ $small }} 640w,
+            {{ $medium }} 800w,
+            {{ $large }} 1200w,
+            {{ $xlarge }} 1500w'
         {{ with .Params.header_image.caption }}alt="{{.}}"{{end}}
     />
     {{ with .Params.header_image.caption }}
