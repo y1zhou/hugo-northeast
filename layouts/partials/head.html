@@ -1,10 +1,10 @@
 <head>
-    {{/*  Metadata  */}}
+    {{/* Metadata  */}}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ block "title" . }}
-    {{- .Title }} - {{ .Site.Title -}}
-    {{ end }}</title>
+        {{- .Title }} - {{ .Site.Title -}}
+        {{ end }}</title>
     {{- if .Description }}
     <meta name="description" content="{{ .Description }}" />
     {{ end -}}
@@ -16,20 +16,26 @@
     {{ end -}}
     {{ hugo.Generator }}
 
-    {{/*  Site CSS  */}}
+    {{/* Site CSS  */}}
     {{- $styles := resources.Get "css/northeast-tailwind.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
     {{- if .Site.IsServer }}
-        <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
+    <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
     {{ else }}
-        {{- $styles := $styles | minify | fingerprint | resources.PostProcess -}}
-        <link rel="preload" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" as="style" onload="this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"></noscript>
+    {{- $styles := $styles | minify | fingerprint | resources.PostProcess -}}
+    <link rel="preload" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" as="style"
+        onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"></noscript>
     {{ end -}}
 
-    {{/*  Google Fonts  */}}
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    {{/* Google Fonts  */}}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 
-    {{/*  Font Awesome 5  */}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous">
+    {{/* glide.js base styles  */}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css"
+        integrity="sha256-Ev8y2mML/gGa4LFVZgNpMTjKwj34q4pC4DcseWeRb9w=" crossorigin="anonymous">
 </head>

@@ -1,49 +1,39 @@
-<footer
-    class="w-full h-32 text-center px-4 pb-4 pt-8 inset-0 text-sm text-gray-200 bg-gray-800"
->
+<footer class="w-full h-32 text-center px-4 pb-4 pt-8 inset-0 text-sm text-gray-200 bg-gray-800">
     {{ partial "social-list" }}
     <p class="text-gray-500">
         {{ with site.Copyright }} {{- replace . "{year}" now.Year | markdownify -}} {{ end }}
         <a href="{{- site.BaseURL -}}" class="text-gray-200 hover:text-gray-800">{{- site.Title -}}</a>
         &copy; Powered by the
-        <a
-            href="https://github.com/y1zhou/hugo-northeast"
-            target="_blank"
-            rel="noopener"
-            class="text-gray-200 hover:text-gray-800"
-        >
-            Northeast theme</a
-        >
+        <a href="https://github.com/y1zhou/hugo-northeast" target="_blank" rel="noopener"
+            class="text-gray-200 hover:text-gray-800">
+            Northeast theme</a>
         for
         <a href="https://gohugo.io" class="text-gray-200 hover:text-gray-800">
-            Hugo</a
-        >.
+            Hugo</a>.
     </p>
 </footer>
+
+
+{{/* glide.js for homepage carousel */}}
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"
+    integrity="sha256-CnNQJd80jPuIDyeQRRq7+Wgt+++Kl0dZLt4ETNmxMIw=" crossorigin="anonymous"></script>
+<script>
+    new Glide('.glide', { autoplay: 5000, focusAt: "center", peek: 0 }).mount()
+</script>
 
 {{/* MinSearch for search bar */}}
 {{ if site.Params.minisearch_enabled }}
 <script src="https://cdn.jsdelivr.net/npm/minisearch@2.4.1/dist/umd/index.min.js"></script>
 {{ $minisearch := resources.Get "js/minisearch-config.js" | minify | fingerprint }}
-<script
-    src="{{- $minisearch.RelPermalink -}}"
-    integrity="{{- $minisearch.Data.Integrity -}}"
-></script>
+<script src="{{- $minisearch.RelPermalink -}}" integrity="{{- $minisearch.Data.Integrity -}}"></script>
 {{ partialCached "search" . }}
 {{ end }}
 
 {{/* Mathjax import */}}
 {{ $mathjax_config := resources.Get "js/mathjax-config.js" | minify | fingerprint }}
-<script
-    src="{{- $mathjax_config.RelPermalink -}}"
-    integrity="{{- $mathjax_config.Data.Integrity -}}"
-></script>
-<script
-    async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    crossorigin="anonymous"
-></script>
+<script src="{{- $mathjax_config.RelPermalink -}}" integrity="{{- $mathjax_config.Data.Integrity -}}"></script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
 
-{{/*  Feather icons  */}}
+{{/* Feather icons  */}}
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script>feather.replace()</script>
