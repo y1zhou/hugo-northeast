@@ -1,3 +1,4 @@
+
 {{/* Get background image link, using featured.png/jpg by default  */}}
 {{ $img_src := "" }}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
@@ -10,30 +11,49 @@
 {{ end }}
 
 <div class="relative overflow-hidden rounded-md" style="height: 30rem;">
+    {{ if (.Scratch.Get "feat_card_href" | default true) }}
     <a href="{{ .Permalink }}">
+    {{ end }}
         {{/* background image */}}
         <img src="{{ $img_src }}" loading="lazy" class="object-cover object-center w-full h-full"
             {{ with .Params.header_image.caption }}alt="{{.}}" {{end}} style="filter: brightness(0.7);" />
 
-        {{/* Page information */}}
+        {{/* Page categories */}}
         {{ if .Params.categories }}
         <div class="absolute top-0 text-gray-200 font-bold tracking-tight w-4/5 pl-4 sm:pl-8 pt-10 sm:pt-32">
+            <i data-feather="bookmark" class=" inline-block mr-1 w-4 h-4"></i>
             {{- range $index, $value := (.GetTerms "categories") -}}
             {{- if gt $index 0 }} | {{ end -}}
             {{- humanize .LinkTitle -}}
             {{- end -}}
         </div>
         {{ end }}
+
+        {{/* Page title */}}
         <h2 class="absolute top-0 text-white w-4/5 pl-4 sm:pl-8 pt-20 sm:pt-40">{{ .Title }}</h2>
+
+        {{ if (.Scratch.Get "feat_card_content" | default false) }}
+        <div class="post-feat-card-content absolute top-0 text-gray-200 w-11/12 pl-4 sm:pl-8 pt-48 sm:pt-56">
+            {{ .Content }}
+        </div>
+        {{ end }}
+
+        {{/* Page publish date and reading time */}}
+        {{ if (.Scratch.Get "feat_card_metadata" | default true) }}
         <div class="absolute bottom-0 text-gray-200 font-bold tracking-tight pl-4 sm:pl-8 pb-4">
-            {{ with .Param "publishdate" }}
+            {{ with .PublishDate }}
             {{- dateFormat "Jan 2, 2006" .Local }} |
             {{ end }}
             {{ with .ReadingTime }}
             {{ . }} min read
             {{ end }}
         </div>
+        {{ end }}
+    {{ if (.Scratch.Get "feat_card_href" | default true) }}
     </a>
+    {{ end }}
+
+    {{ if (.Scratch.Get "feat_card_controls" | default false) }}
     <div data-glide-el="controls" class="glide__arrows absolute bottom-0 text-white right-0 pr-4 pb-2 hidden sm:block">
         <button data-glide-dir="<" class="glide-prev" aria-label="Previous">
             <i data-feather="chevron-left" class="w-6 h-6 mx-1"></i>
@@ -42,4 +62,5 @@
             <i data-feather="chevron-right" class="w-6 h-6 mx-1"></i>
         </button>
     </div>
+    {{ end }}
 </div>
