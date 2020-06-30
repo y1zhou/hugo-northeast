@@ -1,13 +1,13 @@
 {
     "name": "hugo-northeast",
-    "version": "0.1.0",
+    "version": "0.9.0",
     "description": "A Hugo theme with Tailwindcss",
     "main": "index.js",
     "repository": "https://github.com/y1zhou/hugo-northeast",
     "author": "Yi Zhou",
     "license": "MIT",
     "scripts": {
-        "start": "hugo --gc"
+        "start": "hugo --gc --minify"
     },
     "devDependencies": {
         "autoprefixer": "^9.8.0",

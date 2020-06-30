@@ -1,0 +1,55 @@
+{{- define "main" -}}
+<article class="sm:mx-4">
+  {{/* Post title, authors and links */}}
+  <h1 class="text-center px-6 text-3xl sm:text-5xl">{{ .Title }}</h1>
+  <div class="flex flex-col justify-center items-center space-y-2 text-lg text-gray-600">
+    <div class="block text-center items-center">
+      {{ with .Params.authors }}
+      <i data-feather="users" class="inline-block mr-1 w-4 h-4"></i>
+      {{ range $i, $author := . }}
+      {{- if gt $i 0 -}}, {{ end -}}
+      {{- $author | markdownify -}}
+      {{- end -}}
+      {{ end }}
+    </div>
+
+    <div class="flex flex-row justify-center items-center">
+      {{ with .Date }}
+      <i data-feather="calendar" class="inline-block mr-1 w-4 h-4"></i>
+      {{ dateFormat "Jan 2, 2006" .Local -}}
+      {{ end }}
+    </div>
+
+    <div class="flex flex-row justify-center items-center space-x-2">
+      {{ with .Params.doi }}
+      <a href="https://doi.org/{{ . }}" alt="DOI" title="DOI"
+        class="bg-white hover:bg-yellow-400 rounded-full shadow-md hover:shadow-lg h-8 w-8 flex items-center justify-center">
+        <i data-feather="link" class="w-5 h-5"></i>
+      </a>
+      {{ end }}
+      {{ with .Params.pdf_url }}
+      <a href="{{ . }}" alt="PDF" title="PDF"
+        class="bg-white hover:bg-yellow-400 rounded-full shadow-md hover:shadow-lg h-8 w-8 flex items-center justify-center">
+        <i data-feather="file-text" class="w-5 h-5"></i>
+      </a>
+      {{ end }}
+      {{ with .Params.cite_url }}
+      <a href="{{ . }}" alt="Cite" title="Cite"
+        class="bg-white hover:bg-yellow-400 rounded-full shadow-md hover:shadow-lg h-8 w-8 flex items-center justify-center">
+        <i data-feather="paperclip" class="w-5 h-5"></i>
+      </a>
+      {{ end }}
+    </div>
+
+  </div>
+
+  <div class="article-container text-xl mt-8 max-w-screen-md xl:max-w-screen-lg mx-auto">
+    {{ .Content }}
+  </div>
+
+  <hr class="mt-16" />
+  <div class="mx-auto max-w-screen-md xl:max-w-screen-lg">
+    {{partial "post-prev-next" . }}
+  </div>
+</article>
+{{- end -}}

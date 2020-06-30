@@ -23,7 +23,7 @@
         <div class="flex flex-shrink-0 flex-grow justify-center p-0 md:items-center text-gray-700">
             {{/* nav links */}}
             <div class="flex justify-start items-center overflow-x-auto p-0 mr-0 md:mr-auto">
-            {{ range .Site.Sections }}
+            {{ range .Site.Sections.ByWeight }}
                 <a
                     href="{{ .Permalink }}"
                     class="py-1 px-2 rounded hover:bg-gray-300"
