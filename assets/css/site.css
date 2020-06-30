@@ -266,3 +266,10 @@ ul.search-results li:hover {
 .search-results .search-res-content {
     @apply text-gray-700 text-sm;
 }
+
+@media (min-width: 768px) {
+.home-post-card {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+}

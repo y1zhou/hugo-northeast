@@ -19,5 +19,4 @@ weight: 1000  # smaller values are listed first
 header_image:
     caption: ""  # Give credits here, or whatever captions you want to add (support markdown)
     unsplash_id: ""  # Unsplash ID of the picture
-    list_only: false  # don't show image in post; only in list views
 ---

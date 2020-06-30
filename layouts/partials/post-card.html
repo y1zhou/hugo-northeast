@@ -1,34 +1,59 @@
-<div
-    class="max-w-sm rounded overflow-hidden shadow hover:shadow-md transition ease-in-out duration-100"
->
+<div class="relative p-0 rounded overflow-hidden border border-gray-100 shadow hover:shadow-lg transition ease-in-out duration-100"
+    style="min-height: 20rem; max-height: 38rem;">
     <a href="{{ .Permalink }}">
         {{/* Show banner image if set */}}
+        {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
+        {{ $show_img := (or $img .Params.header_image.unsplash_id) }}
+        {{ if $show_img }}
         {{ .Scratch.Set "set_img_link" false}}
-        {{ partial "post-featured-image" . }}
-        
-        {{/* Title and summary */}}
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{- .Title -}}</div>
-            <p class="text-gray-700 text-base">
+        <div class="block relative overflow-hidden w-full" style="max-height: 16rem;">
+            {{ partial "post-featured-image" . }}
+        </div>
+        {{ end }}
+
+        {{/* featured */}}
+        {{ if .Params.featured }}
+        <i data-feather="star" class="absolute right-0 top-0 pr-4 pt-4 w-10 h-10 text-yellow-400" fill="#f6e05e"></i>
+        {{ end }}
+
+        <div class="px-2 sm:px-6">
+            {{/* Title */}}
+            <h3 class="font-sans mt-2 tracking-tight">{{- .Title -}}</h3>
+
+            {{/* Date and read time */}}
+            <div class="flex flex-row justify-start items-center space-x-4 text-gray-500 text-base divide-x-2 mb-2">
+                {{ with .Param "publishdate" }}
+                <div class="flex flex-shrink-0 items-center">
+                    {{ dateFormat "Jan 2, 2006" .Local -}}
+                </div>
+                {{ end }}
+                {{ with .ReadingTime }}
+                <div class="pl-4 flex flex-shrink-0 items-center">
+                    {{ . }} min read
+                </div>
+                {{ end }}
+            </div>
+
+
+            {{/* Summary */}}
+            {{ if (not $show_img) }}
+            <p class="text-gray-700 text-lg leading-relaxed">
                 {{ .Params.summary | default ( .Content | plainify | emojify | truncate 250 ) }}
             </p>
+            {{ end }}
         </div>
 
         {{/* Tags */}}
-        {{/* TODO: use the post-tags partial template here */}}
-        <div class="flex flex-wrap justify-left px-1 pb-4 space-x-2">
+        <div class="flex flex-wrap justify-left px-1 my-2 space-x-2">
             {{ range (.GetTerms "tags") }}
-            <div
-                class="inline-block bg-gray-200 hover:bg-yellow-400 px-3 py-0 my-1 rounded-full"
-            >
-                <a
-                    href="{{ .Permalink }}"
-                    class="text-gray-700 text-sm no-underline hover:bg-transparent tracking-tight leading-tight font-semibold"
-                >
+            <div class="inline-block bg-gray-200 hover:bg-yellow-400 px-3 py-0 my-1 rounded-full">
+                <a href="{{ .Permalink }}"
+                    class="text-gray-700 text-sm no-underline hover:bg-transparent tracking-tight leading-tight font-semibold">
                     #{{ .LinkTitle }}
                 </a>
             </div>
             {{ end }}
         </div>
+
     </a>
 </div>

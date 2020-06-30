@@ -15,6 +15,7 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     {{ end -}}
     <img
         class="object-cover object-center w-full h-full"
+        loading="lazy"
         src="{{ $img.RelPermalink }}"
         srcset='
         {{ if ge $img.Width "640" }}
@@ -53,6 +54,7 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     {{ end -}}
     <img
         class="object-cover object-center w-full h-full"
+        loading="lazy"
         src="{{ $img_url }}"
         srcset='
             {{ $small }} 640w,

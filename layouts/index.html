@@ -1,6 +1,43 @@
 {{ define "main" }}
-<article class="text-center font-sans text-gray-800 leading-relaxed text-lg">
-    <h1 class="font-serif text-5xl text-gray-500">{{ .Title }}</h1>
+<article class="flex flex-col justify-center mx-1 sm:mx-4">
+    {{/*<div class="mx-auto text-center">
+        {{ $avatar := resources.Get "images/avatar.png" | default (resources.Get "images/avatar.svg") }}
+    {{ with $avatar }}
+    {{ $avatar_proc := .Resize "x100" }}
+    <img src="{{ $avatar_proc.RelPermalink }}" class="inline-block rounded-full" />
+    {{ end }}
     {{ .Content }}
+    </div>*/}}
+
+    {{/* Carousel of featured posts */}}
+    <div class="glide w-full mx-auto rounded-md overflow-hidden max-w-4xl" style="height: 30rem;">
+        <div class="glide__track h-full" data-glide-el="track">
+            <div class="glide__slides h-full flex flex-row flex-no-wrap">
+                {{ range where site.RegularPages "Params.featured" true }}
+                <div class="glide__slide flex flex-shrink-0 overflow-hidden">
+                    {{ partial "post-featured-card" . }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    {{/* Card view of other posts */}}
+    <div class="flex flex-initial flex-row flex-wrap justify-center mx-auto my-8 max-w-4xl">
+        <div class="flex flex-wrap mb-2 flex-grow max-w-full">
+            {{ range first 10 site.RegularPages.ByPublishDate.Reverse }}
+            <div class="home-post-card relative p-0 my-1 w-full md:px-1">
+                {{partial "post-card" . }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    <div class="mx-auto">
+        <a href="/posts" class="block w-8 h-8 rounded-full shadow-md bg-white hover:bg-yellow-400 hover:shadow-lg">
+            <button class="w-8 h-8 text-gray-800 font-bold focus:outline-none">
+                <i data-feather="activity" class="mx-auto w-5 h-5"></i>
+            </button>
+        </a>
+    </div>
 </article>
 {{ end }}

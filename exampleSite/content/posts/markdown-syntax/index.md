@@ -9,7 +9,7 @@ slug: "full-test-of-markdown"
 toc: true # table of contents button in post
 # featured posts are shown on the homepage, and are shown first
 # in the category/tags pages
-featured: false
+featured: true
 draft: false
 
 weight: 30 # smaller values are listed first
@@ -17,9 +17,9 @@ weight: 30 # smaller values are listed first
 # full-width featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 header_image:
-    caption:  # Give credits here, or whatever captions you want to add (support markdown)
-    unsplash_id: "odK_zjiLqnk"  # Unsplash ID of the picture
-    list_only: false  # don't show image in post; only in list views
+    caption: # Give credits here, or whatever captions you want to add (support markdown)
+    unsplash_id: "odK_zjiLqnk" # Unsplash ID of the picture
+    list_only: false # don't show image in post; only in list views
 ---
 
 # Markdown: Syntax
@@ -32,25 +32,17 @@ header_image:
     <li><a href="/projects/markdown/dingus" title="Online Markdown Web Form">Dingus</a></li>
 </ul>
 
--   [Overview](#overview)
-    -   [Philosophy](#philosophy)
-    -   [Inline HTML](#html)
-    -   [Automatic Escaping for Special Characters](#autoescape)
--   [Block Elements](#block)
-    -   [Paragraphs and Line Breaks](#p)
-    -   [Headers](#header)
-    -   [Blockquotes](#blockquote)
-    -   [Lists](#list)
-    -   [Code Blocks](#precode)
-    -   [Horizontal Rules](#hr)
--   [Span Elements](#span)
-    -   [Links](#link)
-    -   [Emphasis](#em)
-    -   [Code](#code)
-    -   [Images](#img)
--   [Miscellaneous](#misc)
-    -   [Backslash Escapes](#backslash)
-    -   [Automatic Links](#autolink)
+- [Markdown: Syntax](#markdown-syntax)
+  - [Overview](#overview)
+    - [Philosophy](#philosophy)
+    - [Headers](#headers)
+    - [Blockquotes](#blockquotes)
+    - [Lists](#lists)
+    - [Links](#links)
+    - [Emphasis](#emphasis)
+    - [Code](#code)
+    - [Images](#images)
+  - [Miscellaneous](#miscellaneous)
 
 **Note:** This document is itself written using Markdown; you
 can [see the source for it by adding '.text' to the URL][src].
@@ -59,9 +51,9 @@ can [see the source for it by adding '.text' to the URL][src].
 
 ---
 
-<h2 id="overview">Overview</h2>
+## Overview
 
-<h3 id="philosophy">Philosophy</h3>
+### Philosophy
 
 Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
 
@@ -220,7 +212,7 @@ work best -- and look better -- when you format them with hard breaks.
 [bq]: #blockquote
 [l]: #list
 
-<h3 id="header">Headers</h3>
+### Headers
 
 Markdown supports two styles of headers, [Setext][1] and [atx][2].
 
@@ -256,7 +248,7 @@ determines the header level.) :
 
     ### This is an H3 ######
 
-<h3 id="blockquote">Blockquotes</h3>
+### Blockquotes
 
 Markdown uses email-style `>` characters for blockquoting. If you're
 familiar with quoting passages of text in an email message, then you
@@ -305,7 +297,7 @@ Any decent text editor should make email-style quoting easy. For
 example, with BBEdit, you can make a selection and choose Increase
 Quote Level from the Text menu.
 
-<h3 id="list">Lists</h3>
+### Lists
 
 Markdown supports ordered (numbered) and unordered (bulleted) lists.
 
@@ -546,7 +538,7 @@ following lines will produce a horizontal rule:
 
 <h2 id="span">Span Elements</h2>
 
-<h3 id="link">Links</h3>
+### Links
 
 Markdown supports two style of links: _inline_ and _reference_.
 
@@ -699,7 +691,7 @@ allowing you to move the markup-related metadata out of the paragraph,
 you can add links without interrupting the narrative flow of your
 prose.
 
-<h3 id="em">Emphasis</h3>
+### Emphasis
 
 Markdown treats asterisks (`*`) and underscores (`_`) as indicators of
 emphasis. Text wrapped with one `*` or `_` will be wrapped with an
@@ -740,7 +732,7 @@ escape it:
 
     \*this text is surrounded by literal asterisks\*
 
-<h3 id="code">Code</h3>
+### Code
 
 To indicate a span of code, wrap it with backtick quotes (`` ` ``).
 Unlike a pre-formatted code block, a code span indicates code within a
@@ -794,7 +786,7 @@ to produce:
     <p><code>&amp;#8212;</code> is the decimal-encoded
     equivalent of <code>&amp;mdash;</code>.</p>
 
-<h3 id="img">Images</h3>
+### Images
 
 Admittedly, it's fairly difficult to devise a "natural" syntax for
 placing images into a plain text document format.
@@ -832,7 +824,7 @@ use regular HTML `<img>` tags.
 
 ---
 
-<h2 id="misc">Miscellaneous</h2>
+## Miscellaneous
 
 <h3 id="autolink">Automatic Links</h3>
 

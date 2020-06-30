@@ -1,13 +1,14 @@
 {{/* Get background image link, using featured.png/jpg by default  */}}
 {{ $img_src := "" }}
-{{ with .Params.header_image.unsplash_id }}
-{{ $img_src = printf "https://source.unsplash.com/%s/1000x1000" . }}
-{{ end }}
-
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
 {{ if $img }}
 {{ $img_src = ($img.Resize "1000x").RelPermalink }}
+{{ else if .Params.header_image.unsplash_id }}
+{{ $img_src = printf "https://source.unsplash.com/%s/1000x1000" .Params.header_image.unsplash_id }}
+{{ else }}
+{{ $img_src = printf "https://source.unsplash.com/1000x1000/?nature,city" }}
 {{ end }}
+
 <div class="relative overflow-hidden rounded-md" style="height: 30rem;">
     <a href="{{ .Permalink }}">
         {{/* background image */}}

@@ -51,10 +51,9 @@ Files in the `public/` directory can now be served.
 
 -   [ ] Homepage
     -   [ ] Introduction section
-    -   [ ] Featured posts
+    -   [x] Featured posts
     -   [ ] Featured publications
-    -   [ ] Recent posts
-    -   [ ] Pagination
+    -   [x] Recent posts
     -   [ ] Tag cloud
 -   [x] Header
     -   [x] Logo if it exists
