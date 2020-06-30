@@ -78,10 +78,9 @@ Files in the `public/` directory can now be served.
     -   [x] Footnote back reference
     -   [x] Previous/next post in the same category
     -   [x] Related posts
--   [ ] Categories/Tags page
-    -   [ ] Feature picture
+-   [x] Categories/Tags page
+    -   [x] Feature picture
     -   [x] List of posts
-    -   [ ] Sort based on featured & post time
 -   [ ] Publications
     -   [ ] Support `.bib` files
     -   [ ] External link to DOI/PDF

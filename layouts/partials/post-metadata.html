@@ -1,6 +1,6 @@
 <div
     class="flex flex-row overflow-y-hidden overflow-x-auto w-full justify-start md:justify-center items-center space-x-4 text-gray-500 text-sm font-bold divide-x-2 ">
-    {{ with .Param "publishdate" }}
+    {{ with .PublishDate }}
     <div class="flex flex-shrink-0 items-center">
         <i data-feather="calendar" class="mr-1 w-4 h-4"></i>
         {{ dateFormat "Jan 2, 2006" .Local -}}

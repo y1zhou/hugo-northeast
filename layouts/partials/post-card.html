@@ -22,7 +22,7 @@
 
             {{/* Date and read time */}}
             <div class="flex flex-row justify-start items-center space-x-4 text-gray-500 text-base divide-x-2 mb-2">
-                {{ with .Param "publishdate" }}
+                {{ with .PublishDate }}
                 <div class="flex flex-shrink-0 items-center">
                     {{ dateFormat "Jan 2, 2006" .Local -}}
                 </div>
