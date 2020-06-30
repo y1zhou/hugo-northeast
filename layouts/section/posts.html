@@ -1,0 +1,24 @@
+{{ define "main" }}
+<h2 class="text-center text-gray-500">{{ .Title }}</h2>
+<div class="flex flex-col space-y-1 text-xl text-gray-700">
+    {{ range .Pages.GroupByDate "2006" }}
+    <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
+    {{ range .Pages.ByPublishDate.Reverse }}
+        <a href="{{ .Permalink }}" class="hover:bg-transparent">
+            <div class="flex flex-row items-center justify-start py-1 px-1 hover:bg-gray-200">
+                <div class="flex flex-row flex-shrink-0 items-center text-gray-500 font-semibold tracking-tighter text-sm">
+                    {{ if .Params.featured }}
+                    <i data-feather="star" class="inline-block mr-1 text-sm text-yellow-400 w-4 h-4" fill="#f6e05e"></i>
+                    {{ end }}
+                    {{- dateFormat "Jan 02" .PublishDate -}}
+                </div>
+
+                <div class="flex flex-row flex-wrap items-center font-serif pl-4">
+                    {{- .Title -}}
+                </div>
+            </div>
+        </a>
+    {{ end }}
+    {{ end }}
+</div>
+{{ end }}

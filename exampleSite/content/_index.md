@@ -1,7 +1,5 @@
 ---
-author: Dirk Olbrich
-title: Hi, and welcome.
-date: 2019-05-15
+author: Yi Zhou
+title: Welcome to Hugo theme Northeast
+date: 2020-06-18
 ---
-
-Live long and code.
