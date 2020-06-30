@@ -273,3 +273,7 @@ ul.search-results li:hover {
     max-width: 50%;
 }
 }
+
+.post-feat-card-content * {
+    @apply text-gray-200;
+}
