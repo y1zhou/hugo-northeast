@@ -1,4 +1,4 @@
-{{/* Featured images can be set in the header_image.src parameter in the front
+{{/* Featured images can be set in the header_image.unsplash_id parameter in the front
 matter. We look for "featured.jpg" or "featured.png" in the same
 directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}

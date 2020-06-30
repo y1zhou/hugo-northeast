@@ -9,7 +9,7 @@
         {{ range . }}
         <tr class="hover:bg-gray-200 cursor-pointer" onclick="window.location = {{ .Permalink }}">
             <td class="pl-1 lg:pl-4 w-12 lg:w-20 font-semibold tracking-tighter text-sm">
-                {{- dateFormat "JAN 02" .PublishDate -}}
+                {{- dateFormat "Jan 02" .PublishDate -}}
             </td>
             <td class="px-2 font-serif truncate">
                 <a href="{{ .Permalink }}" class="hover:bg-transparent">
