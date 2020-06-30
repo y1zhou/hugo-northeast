@@ -7,13 +7,10 @@
     {{ range .Pages.ByDate.Reverse }}
     <div class="flex flex-row items-center justify-start py-1 px-1">
         <div class="flex flex-row flex-shrink-0 items-center text-gray-500 font-semibold tracking-tighter text-sm">
-            {{ if .Params.featured }}
-            <i data-feather="star" class="inline-block mr-1 text-sm text-yellow-400 w-4 h-4" fill="#f6e05e"></i>
-            {{ end }}
             {{- dateFormat "Jan 02" .Date -}}
         </div>
 
-        <div class="flex flex-row flex-wrap items-center font-serif pl-4">
+        <div class="flex flex-row flex-grow flex-wrap items-center font-serif pl-4">
             <p class="text-gray-700">
                 {{ with .Params.authors }}
                 {{ range $i, $author := . }}
@@ -32,6 +29,10 @@
                 <span> ({{ dateFormat "2006" .Date }}).</span>
             </p>
         </div>
+
+        {{ if .Params.featured }}
+            <i data-feather="star" class="inline-block mr-1 text-sm text-yellow-400 w-4 h-4" fill="#f6e05e"></i>
+        {{ end }}
     </div>
     {{ end }}
     {{ end }}
