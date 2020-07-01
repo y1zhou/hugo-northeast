@@ -1,6 +1,6 @@
 {{ define "main" }}
 <h2 class="text-center text-gray-500">{{ .Title }}</h2>
-<div class="flex flex-col space-y-1 text-xl text-gray-700">
+<div class="flex flex-col space-y-1 text-xl text-gray-700 max-w-6xl mx-auto">
     {{ range .Pages.GroupByDate "2006" }}
     <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
     {{ range .Pages.ByPublishDate.Reverse }}

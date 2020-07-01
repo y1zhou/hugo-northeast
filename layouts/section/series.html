@@ -2,8 +2,10 @@
 {{ .Scratch.Set "feat_card_href" false }}
 {{ .Scratch.Set "feat_card_content" true }}
 {{ .Scratch.Set "feat_card_metadata" false }}
-{{ partial "post-featured-card" . }}
-<div class="flex flex-col space-y-1 text-xl text-gray-700">
+<div class="max-w-6xl mx-auto">
+    {{ partial "post-featured-card" . }}
+</div>
+<div class="flex flex-col space-y-1 text-xl text-gray-700 max-w-6xl mx-auto">
     {{ range .Pages.GroupByDate "2006" }}
     <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
     {{ range .Pages.ByWeight }}
