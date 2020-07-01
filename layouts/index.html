@@ -1,14 +1,5 @@
 {{ define "main" }}
 <article class="flex flex-col justify-center mx-1 sm:mx-4">
-    {{/*<div class="mx-auto text-center">
-        {{ $avatar := resources.Get "images/avatar.png" | default (resources.Get "images/avatar.svg") }}
-    {{ with $avatar }}
-    {{ $avatar_proc := .Resize "x100" }}
-    <img src="{{ $avatar_proc.RelPermalink }}" class="inline-block rounded-full" />
-    {{ end }}
-    {{ .Content }}
-    </div>*/}}
-
     {{/* Carousel of featured posts */}}
     <div class="glide w-full mx-auto rounded-md overflow-hidden max-w-4xl" style="height: 30rem;">
         <div class="glide__track h-full" data-glide-el="track">

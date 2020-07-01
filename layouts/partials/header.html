@@ -13,7 +13,7 @@
             {{ $logo := resources.Get "images/logo.png" | default (resources.Get "images/logo.svg") }}
             {{ with $logo }}
                 {{ $logo_proc := .Resize "x30" }}
-                <img src="{{ $logo_proc.RelPermalink }}" class="inline-block pr-1" />
+                <img src="{{ $logo_proc.RelPermalink }}" class="inline-block pr-1" alt="{{ site.Title }}" />
             {{ end }}
             {{- .Site.Title -}}
             </a>

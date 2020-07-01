@@ -5,16 +5,26 @@
     <title>{{ block "title" . }}
         {{- .Title }} - {{ .Site.Title -}}
         {{ end }}</title>
-    {{- if .Description }}
-    <meta name="description" content="{{ .Description }}" />
-    {{ end -}}
-    {{- if .Keywords }}
-    <meta name="keywords" content="{{ delimit .Keywords "," }}" />
-    {{ end -}}
-    {{- if .Params.Author }}
-    <meta name="author" content="{{ .Params.Author}}" />
-    {{ end -}}
+    {{ $description := "" }}
+    {{ if .Description }}
+        {{ $description = .Description }}
+    {{ else if .Params.summary }}
+        {{ $description = .Params.summary }}
+    {{ else if site.Params.description }}
+        {{ $description = site.Params.description }}
+    {{ end }}
+    <meta name="description" content="{{ $description }}" />
+    <meta name="author" content="{{ .Params.Author | default site.Params.author }}" />
     {{ hugo.Generator }}
+
+    {{/* Favicons  */}}
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     {{/* Site CSS  */}}
     {{- $styles := resources.Get "css/northeast-tailwind.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
@@ -40,6 +50,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css"
         integrity="sha256-Ev8y2mML/gGa4LFVZgNpMTjKwj34q4pC4DcseWeRb9w=" crossorigin="anonymous">
 
-    {{/* Google analytics  */}}
-    {{ template "_internal/google_analytics_async.html" . }}
+    {{/* Hugo internal templates  */}}
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/google_news.html" . }}
+    {{ template "_internal/schema.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
 </head>
