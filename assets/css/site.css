@@ -266,7 +266,11 @@ ul.search-results li:hover {
 }
 
 .search-results .search-res-title {
-    @apply text-gray-800 flex flex-row items-center font-semibold;
+    @apply block text-gray-800 font-semibold;
+}
+
+.search-results .search-res-title mark {
+    @apply px-1;
 }
 
 .search-results .search-res-date {
