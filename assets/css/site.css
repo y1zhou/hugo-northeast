@@ -26,7 +26,7 @@ h4,
 h5,
 h6 {
     @apply font-serif font-bold text-gray-800 text-xl;
-    @apply pt-3 pb-2;
+    @apply pt-4 pb-2;
 }
 h1 {
     @apply text-5xl;
@@ -62,12 +62,12 @@ hr {
 }
 
 mark {
-    @apply bg-yellow-400;
+    @apply bg-yellow-300;
 }
 
 /* Blockquote */
 blockquote {
-    @apply pl-16 pr-4 py-4 my-2 relative border-l-2 border-yellow-400;
+    @apply ml-4 pl-16 pr-4 py-4 my-2 relative border-l-2 border-yellow-400 bg-yellow-100;
 }
 
 blockquote::before {
@@ -126,11 +126,15 @@ article {
 
 /* Lists */
 .article-container ul {
-    @apply list-disc list-outside pl-4;
+    @apply list-disc list-outside pl-8 text-gray-800;
 }
 
 .article-container ol {
-    @apply list-decimal list-outside pl-6;
+    @apply list-decimal list-outside pl-8 text-gray-800;
+}
+
+.article-container li {
+    @apply py-1;
 }
 
 /* Text elements */
@@ -144,12 +148,13 @@ article {
 
 /* Tables */
 .article-container table {
-    @apply table-auto w-full max-w-full my-4 overflow-y-hidden;
+    @apply table-auto mx-auto my-4;
+    @apply overflow-y-hidden overflow-x-auto;
     @apply bg-white border-b-2 border-gray-400;
 }
 
 .article-container tr th {
-    @apply px-4 py-1 border-b-2 border-gray-400;
+    @apply px-4 py-1 border-b-2 border-gray-400 text-left;
 }
 .article-container tr td {
     @apply border px-4 py-2 border-gray-400;
@@ -169,6 +174,11 @@ mjx-container[display="true"] {
 }
 
 /* Better looking footnotes */
+section.footnotes:before {
+    content: "Footnotes";
+    @apply absolute text-gray-500 font-bold bg-white pr-2 transform -translate-y-4;
+}
+
 a.footnote-ref {
     @apply no-underline font-bold;
 }
@@ -180,11 +190,11 @@ a.footnote-ref::after {
 }
 
 .footnotes p {
-    @apply mt-0 mb-2 py-0 text-base font-serif;
+    @apply py-0 text-base font-serif;
 }
 
 .footnotes ol {
-    @apply text-base font-serif;
+    @apply text-base font-serif pl-4;
 }
 
 /* ################################# */
@@ -267,6 +277,9 @@ ul.search-results li:hover {
     @apply text-gray-700 text-sm;
 }
 
+/* ################################# */
+/* #      Specific elements        # */
+/* ################################# */
 @media (min-width: 768px) {
 .home-post-card {
     flex-basis: 50%;
@@ -276,4 +289,8 @@ ul.search-results li:hover {
 
 .post-feat-card-content * {
     @apply text-gray-200;
+}
+
+iframe.instagram-media, .twitter-tweet {
+    @apply mx-auto !important;
 }
