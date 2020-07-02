@@ -1,6 +1,6 @@
 {{ if and (gt .WordCount 400 ) (.Params.toc) }}
 <button id="toc-button" aria-label="Table of Contents"
-    class="block my-2 rounded-full shadow-md bg-white hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none w-8 h-8 text-gray-800 font-bold">
+    class="block my-2 rounded-full shadow-md bg-white dark:bg-gray-600 sm:hover:bg-yellow-400 active:bg-yellow-400 focus:outline-none w-8 h-8 text-gray-800 dark:text-gray-200 dark:hover:text-gray-700 font-bold">
     <i data-feather="align-left" class="w-5 h-5 mx-auto"></i>
 </button>
 {{ end }}

@@ -2,14 +2,14 @@
 {{ $inner := .Inner }}
 {{ with .Get 0 }}
 {{- if (eq . "warning") -}}
-<div class="relative pl-16 pr-4 py-4 my-2 rounded-md text-red-600 bg-red-100">
+<div class="relative pl-16 pr-4 py-4 my-2 rounded-md text-red-600 bg-red-100 dark:bg-red-200">
     <div>
         <i data-feather="alert-triangle" class="absolute w-8 h-8" style="left: 0.75rem;"></i>
         {{- $inner | markdownify | emojify -}}
     </div>
 </div>
 {{ else }}
-<div class="relative pl-16 pr-4 py-4 my-2 rounded-md text-blue-700 bg-blue-100">
+<div class="relative pl-16 pr-4 py-4 my-2 rounded-md text-blue-700 bg-blue-200">
     <div>
         <i data-feather="info" class="absolute w-8 h-8" style="left: 0.75rem;"></i>
         {{- $inner | markdownify | emojify -}}

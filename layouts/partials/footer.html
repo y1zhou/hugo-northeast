@@ -1,4 +1,4 @@
-<footer class="w-full h-32 text-center px-4 pb-4 pt-8 inset-0 text-sm text-gray-200 bg-gray-800">
+<footer class="w-full h-32 text-center px-4 pb-4 pt-8 inset-0 text-sm text-gray-200 bg-gray-800 dark:border-t border-gray-400">
     {{ partial "social-list" }}
     <p class="text-gray-500">
         {{ with site.Copyright }} {{- replace . "{year}" now.Year | markdownify -}} {{ end }}

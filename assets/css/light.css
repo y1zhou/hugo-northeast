@@ -1,0 +1,89 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply text-gray-800;
+}
+
+p {
+    @apply text-gray-800;
+}
+
+a:hover {
+    @apply bg-gray-300 text-gray-800;
+}
+
+mark {
+    @apply bg-yellow-300;
+}
+
+blockquote {
+    @apply border-yellow-400 bg-yellow-100;
+}
+
+:not(pre) > code {
+    @apply text-red-600 bg-red-100 rounded-sm;
+}
+
+.article-container ul,
+.article-container ol  {
+    @apply text-gray-800;
+}
+
+.article-container table {
+    @apply bg-white border-gray-400;
+}
+
+.article-container tbody tr:nth-child(even) {
+    @apply bg-gray-100;
+}
+.article-container tbody tr:hover {
+    @apply bg-gray-300;
+}
+
+section.footnotes:before {
+    @apply text-gray-500 bg-white;
+}
+
+#toc-list ol {
+    @apply text-gray-800 border-gray-300;
+}
+
+#toc-top-divider::after {
+    @apply text-gray-500 bg-white;
+}
+
+#toc-background-mask,
+#search-screen {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+ul.search-results {
+    @apply text-gray-700;
+}
+
+ul.search-results li {
+    @apply border-gray-300;
+}
+
+ul.search-results li:hover {
+    @apply bg-gray-200;
+}
+
+.search-results .search-res-title {
+    @apply text-gray-800;
+}
+
+.search-results .search-res-date {
+    @apply text-gray-500;
+}
+
+.search-results .search-res-content {
+    @apply text-gray-700;
+}
+
+.post-feat-card-content * {
+    @apply text-gray-200;
+}

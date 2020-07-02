@@ -25,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-serif font-bold text-gray-800 text-xl;
+    @apply font-serif font-bold text-xl;
     @apply pt-4 pb-2;
 }
 h1 {
@@ -46,28 +46,20 @@ h6 {
 
 /* Text elements */
 p {
-    @apply font-sans text-gray-800;
+    @apply font-sans;
 }
 
 a {
     @apply transition-all duration-150 ease-linear;
 }
 
-a:hover {
-    @apply bg-gray-300 text-gray-800;
-}
-
 hr {
     @apply my-6 py-2;
 }
 
-mark {
-    @apply bg-yellow-300;
-}
-
 /* Blockquote */
 blockquote {
-    @apply ml-4 pl-16 pr-4 py-4 my-2 relative border-l-2 border-yellow-400 bg-yellow-100;
+    @apply ml-4 pl-16 pr-4 py-4 my-2 relative border-l-2;
 }
 
 blockquote::before {
@@ -79,10 +71,6 @@ blockquote::before {
 }
 
 /* Code highlight */
-:not(pre) > code {
-    @apply text-red-600 bg-red-100 rounded;
-}
-
 pre {
     @apply overflow-auto py-3;
 }
@@ -126,11 +114,11 @@ article {
 
 /* Lists */
 .article-container ul {
-    @apply list-disc list-outside pl-8 text-gray-800;
+    @apply list-disc list-outside pl-8;
 }
 
 .article-container ol {
-    @apply list-decimal list-outside pl-8 text-gray-800;
+    @apply list-decimal list-outside pl-8;
 }
 
 .article-container li {
@@ -150,7 +138,6 @@ article {
 .article-container table {
     @apply table-auto mx-auto my-4;
     @apply overflow-y-hidden overflow-x-auto;
-    @apply bg-white border-b-2 border-gray-400;
 }
 
 .article-container tr th {
@@ -158,13 +145,6 @@ article {
 }
 .article-container tr td {
     @apply border px-4 py-2 border-gray-400;
-}
-
-.article-container tbody tr:nth-child(even) {
-    @apply bg-gray-100;
-}
-.article-container tbody tr:hover {
-    @apply bg-gray-300;
 }
 
 /* Overflow long math equations for MathJax */
@@ -176,7 +156,7 @@ mjx-container[display="true"] {
 /* Better looking footnotes */
 section.footnotes:before {
     content: "Footnotes";
-    @apply absolute text-gray-500 font-bold bg-white pr-2 transform -translate-y-4;
+    @apply absolute font-bold pr-2 transform -translate-y-4;
 }
 
 a.footnote-ref {
@@ -201,8 +181,7 @@ a.footnote-ref::after {
 /* #       Table of contents       # */
 /* ################################# */
 #toc-list ol {
-    @apply pl-3 m-1 text-gray-800 border-l-2 border-gray-300;
-
+    @apply pl-3 m-1 border-l-2;
     counter-reset: tocitem;
 }
 
@@ -241,24 +220,16 @@ a.footnote-ref::after {
     visibility: hidden;
     transition: opacity 300ms ease-in;
 }
-#toc-background-mask,
-#search-screen {
-    background-color: rgba(0, 0, 0, 0.6);
-}
 
 /* ################################# */
 /* #        Search results         # */
 /* ################################# */
 ul.search-results {
-    @apply text-gray-700 leading-6;
+    @apply leading-6;
 }
 
 ul.search-results li {
-    @apply py-1 border-b border-gray-300 px-4;
-}
-
-ul.search-results li:hover {
-    @apply bg-gray-200;
+    @apply py-1 border-b px-4;
 }
 
 .search-results .search-res-header {
@@ -266,7 +237,7 @@ ul.search-results li:hover {
 }
 
 .search-results .search-res-title {
-    @apply block text-gray-800 font-semibold;
+    @apply block font-semibold;
 }
 
 .search-results .search-res-title mark {
@@ -274,11 +245,11 @@ ul.search-results li:hover {
 }
 
 .search-results .search-res-date {
-    @apply flex-shrink-0 text-gray-500 text-sm;
+    @apply flex-shrink-0 text-sm;
 }
 
 .search-results .search-res-content {
-    @apply text-gray-700 text-sm;
+    @apply text-sm;
 }
 
 /* ################################# */
@@ -289,10 +260,6 @@ ul.search-results li:hover {
     flex-basis: 50%;
     max-width: 50%;
 }
-}
-
-.post-feat-card-content * {
-    @apply text-gray-200;
 }
 
 iframe.instagram-media, .twitter-tweet {

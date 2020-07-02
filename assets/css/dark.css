@@ -1,0 +1,101 @@
+body {
+    @apply bg-gray-800;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply text-gray-200;
+}
+
+p {
+    @apply text-gray-300;
+}
+
+a:hover {
+    @apply bg-gray-500 text-gray-800;
+}
+
+mark {
+    @apply bg-yellow-500;
+}
+
+blockquote {
+    @apply border-yellow-500 bg-gray-700;
+}
+
+:not(pre) > code {
+    @apply text-red-600 bg-red-200 rounded-sm;
+}
+
+.article-container img {
+    filter: brightness(0.85) contrast(1.2);
+}
+
+.article-container img:hover {
+    filter: none;
+}
+
+.article-container ul,
+.article-container ol  {
+    @apply text-gray-300;
+}
+
+.article-container table {
+    @apply bg-gray-800 border-gray-400 text-gray-300;
+}
+
+.article-container tbody tr:nth-child(even) {
+    @apply bg-gray-700;
+}
+.article-container tbody tr:hover {
+    @apply bg-gray-600;
+}
+
+section.footnotes:before {
+    @apply text-gray-500 bg-gray-800;
+}
+
+#toc-list ol {
+    @apply text-gray-300 border-gray-300;
+}
+
+#toc-top-divider::after {
+    @apply text-gray-500 bg-gray-800;
+}
+
+#toc-background-mask,
+#search-screen {
+    background-color: rgba(20, 20, 20, 0.6);
+}
+
+ul.search-results {
+    @apply text-gray-300;
+}
+
+ul.search-results li {
+    @apply border-gray-600;
+}
+
+ul.search-results li:hover {
+    @apply bg-gray-600;
+}
+
+.search-results .search-res-title {
+    @apply text-gray-200;
+}
+
+.search-results .search-res-date {
+    @apply text-gray-500;
+}
+
+.search-results .search-res-content {
+    @apply text-gray-300;
+}
+
+.post-feat-card-content * {
+    @apply text-gray-200;
+}
