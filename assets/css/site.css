@@ -140,15 +140,24 @@ article {
 
 /* Tables */
 .article-container table {
-    @apply table-auto mx-auto my-4;
+    @apply block mx-auto my-4 border-gray-400;
     @apply overflow-y-hidden overflow-x-auto;
+    max-width: fit-content;
 }
 
 .article-container tr th {
-    @apply px-4 py-1 border-b-2 border-gray-400 text-left;
+    @apply px-4 py-1 border-b-2 text-left;
 }
 .article-container tr td {
-    @apply border px-4 py-2 border-gray-400;
+    @apply border px-4 py-2;
+}
+
+.article-container tr td:first-child {
+    @apply border-l-0;
+}
+
+.article-container tr td:last-child {
+    @apply border-r-0;
 }
 
 /* Overflow long math equations for MathJax */
