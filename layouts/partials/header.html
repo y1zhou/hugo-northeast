@@ -7,7 +7,7 @@
             <a
             id="nav-homepage"
             href="{{ .Site.Home.Permalink }}"
-            class="flex items-center m-0 py-3 md:flex-none font-bold font-serif text-lg tracking-tight text-gray-800 dark:text-gray-200 hover:bg-transparent"
+            class="flex items-center m-0 py-3 md:flex-none font-bold font-serif tracking-tight hover:bg-transparent"
             >
             {{/* Show logo if file exists */}}
             {{ $logo := resources.Get "images/logo.png" | default (resources.Get "images/logo.svg") }}
@@ -20,13 +20,13 @@
         </div>
 
         {{/* Navbar menu */}}
-        <div class="flex flex-shrink-0 flex-grow justify-center p-0 md:items-center text-gray-700 dark:text-gray-300 text-lg">
+        <div class="flex flex-shrink-0 flex-grow justify-center p-0 md:items-center">
             {{/* nav links */}}
             <div class="flex justify-start items-center overflow-x-auto p-0 mr-0 md:mr-auto">
             {{ range .Site.Sections.ByWeight }}
                 <a
                     href="{{ .Permalink }}"
-                    class="py-1 px-2 rounded hover:bg-gray-300 dark:hover:text-gray-700"
+                    class="site-header-navlink py-1 px-2 rounded"
                 >
                     {{ .Title }}
                 </a>
@@ -34,7 +34,7 @@
             {{ with .Site.GetPage "/about" }}
                 <a
                     href="{{ .Permalink }}"
-                    class="py-1 px-2 rounded hover:bg-gray-300 dark:hover:text-gray-700"
+                    class="site-header-navlink py-1 px-2 rounded"
                 >
                     {{ .Title }}
                 </a>
@@ -45,10 +45,10 @@
             <div class="flex justify-start items-center p-0 ml-0 md:ml-auto">
                 {{ if site.Params.minisearch_enabled }}
                 <span id="header-search-button">
-                    <i data-feather="search" class="p-2 rounded hover:bg-gray-300 dark:hover:text-gray-700 w-8 h-8"></i>
+                    <i data-feather="search" class="site-header-navlink p-2 rounded w-8 h-8 cursor-pointer"></i>
                 </span>
                 {{ end }}
-                <i data-feather="sun" class="p-2 rounded hover:bg-gray-300 dark:hover:text-gray-700 w-8 h-8"></i>
+                <i data-feather="sun" class="site-header-navlink p-2 rounded w-8 h-8 cursor-pointer"></i>
             </div>
         </div>
     </div>

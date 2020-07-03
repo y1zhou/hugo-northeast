@@ -134,6 +134,10 @@ article {
     @apply py-1 mb-2 text-lg leading-relaxed text-left break-normal;
 }
 
+.article-container figcaption {
+    @apply block mt-3 mb-6 text-base font-serif leading-normal text-center;
+}
+
 /* Tables */
 .article-container table {
     @apply table-auto mx-auto my-4;
@@ -256,12 +260,31 @@ ul.search-results li {
 /* #      Specific elements        # */
 /* ################################# */
 @media (min-width: 768px) {
-.home-post-card {
-    flex-basis: 50%;
-    max-width: 50%;
-}
+    .home-post-card {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
 }
 
-iframe.instagram-media, .twitter-tweet {
+.site-header-navlink {
+    @apply transition-all duration-150 ease-linear;
+}
+
+.post-feat-card-content * {
+    @apply text-gray-200;
+}
+
+.post-card {
+    min-height: 20rem;
+    max-height: 38rem;
+    @apply shadow transition ease-in-out duration-300;
+}
+
+.post-card:hover {
+    @apply shadow-lg;
+}
+
+iframe.instagram-media,
+.twitter-tweet {
     @apply mx-auto !important;
 }

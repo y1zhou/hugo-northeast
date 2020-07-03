@@ -5,10 +5,10 @@
 </div>
 
 <table class="table-fixed text-lg leading-loose w-full mx-auto">
-    <tbody class="text-gray-700 dark:text-gray-300">
+    <tbody class="post-footer">
         {{ range . }}
-        <tr class="hover:bg-gray-200 dark:hover:bg-gray-500 dark:hover:text-gray-800 cursor-pointer" onclick="window.location = {{ .Permalink }}">
-            <td class="pl-1 lg:pl-4 w-12 lg:w-20 font-semibold tracking-tighter text-sm">
+        <tr class="hover:bg-gray-300 cursor-pointer" onclick="window.location = {{ .Permalink }}">
+            <td class="pl-1 lg:pl-4 w-16 lg:w-20 font-semibold tracking-tighter text-sm">
                 {{- dateFormat "Jan 02" .PublishDate -}}
             </td>
             <td class="px-2 font-serif truncate">
@@ -16,7 +16,7 @@
                     {{- .Title -}}
                 </a>
             </td>
-            <td class="pr-1 lg:pr-4 w-24 lg:w-32 text-sm text-gray-500 dark:text-gray-400 tracking-tighter text-right">
+            <td class="pr-1 lg:pr-4 w-24 lg:w-32 text-sm text-gray-600 tracking-tighter text-right">
                 {{ if .Params.featured }}
                 <i data-feather="star" class="inline-block text-yellow-400 pr-1 w-5 h-5" fill="#f6e05e"></i>
                 {{ end }} {{- .ReadingTime }} min read

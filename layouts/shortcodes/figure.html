@@ -59,9 +59,7 @@
       {{ if eq (.Get "numbered") "true" }}
         data-pre="{{ index $figure 0 }}"
         data-post="{{ index $figure 1 }}"
-        class="numbered block mt-3 mb-6 text-base text-gray-700 dark:text-gray-300 font-serif leading-normal text-center"
-      {{ else }}
-        class="block mt-3 mb-6 text-base text-gray-700 dark:text-gray-300 font-serif leading-normal text-center"
+        class="numbered"
       {{ end }}>
       {{ $caption | markdownify | emojify }}
     </figcaption>

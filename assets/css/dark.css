@@ -1,3 +1,4 @@
+/* Text elements */
 body {
     @apply bg-gray-800;
 }
@@ -40,7 +41,7 @@ blockquote {
 }
 
 .article-container ul,
-.article-container ol  {
+.article-container ol {
     @apply text-gray-300;
 }
 
@@ -55,12 +56,25 @@ blockquote {
     @apply bg-gray-600;
 }
 
+.article-container figcaption {
+    @apply text-gray-300;
+}
+
+.article-container .alert-warning {
+    @apply text-red-600 bg-red-200;
+}
+
 section.footnotes:before {
     @apply text-gray-500 bg-gray-800;
 }
 
+/* TOC and search screen */
 #toc-list ol {
     @apply text-gray-300 border-gray-300;
+}
+
+#toc-container {
+    @apply bg-gray-800;
 }
 
 #toc-top-divider::after {
@@ -70,6 +84,16 @@ section.footnotes:before {
 #toc-background-mask,
 #search-screen {
     background-color: rgba(20, 20, 20, 0.6);
+}
+
+#search-wrapper {
+    @apply bg-gray-800;
+}
+#search-input {
+    @apply border-b border-gray-700;
+}
+#search-input input {
+    @apply bg-gray-800 text-gray-300;
 }
 
 ul.search-results {
@@ -96,6 +120,70 @@ ul.search-results li:hover {
     @apply text-gray-300;
 }
 
-.post-feat-card-content * {
-    @apply text-gray-200;
+/* Unified buttons style */
+.round-button {
+    @apply rounded-full shadow-md bg-gray-600 transition-all duration-150 ease-linear;
+}
+
+.round-button button,
+button.round-button {
+    @apply font-bold text-gray-200;
+}
+.round-button button:hover,
+button.round-button:hover {
+    @apply text-gray-700;
+}
+
+/* Site header */
+#site-header {
+    @apply text-gray-300 text-lg;
+}
+
+#nav-homepage:hover {
+    @apply text-gray-400;
+}
+
+.site-header-navlink:hover {
+    @apply bg-gray-400 text-gray-700;
+}
+
+.post-card {
+    @apply border border-gray-700 text-gray-300;
+}
+
+.post-card:hover {
+    @apply transform -translate-y-2;
+}
+
+.gray-tag {
+    @apply text-gray-300 bg-gray-700;
+}
+
+.gray-tag:hover {
+    @apply text-gray-700;
+}
+
+.post-footer {
+    @apply text-gray-300;
+}
+
+a.post-footer:hover {
+    @apply text-gray-700;
+}
+
+.post-footer tr:hover {
+    @apply text-gray-800;
+}
+
+/* Publication related */
+#publication-metadata {
+    @apply text-gray-300;
+}
+
+.listview-wrapper {
+    @apply text-gray-300;
+}
+
+.listview-row:hover {
+    @apply bg-gray-400 text-gray-700;
 }

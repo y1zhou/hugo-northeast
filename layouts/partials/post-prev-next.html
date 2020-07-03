@@ -2,11 +2,11 @@
     <div class="flex-initial order-first text-left justify-start" style="max-width: 50%;">
         {{/* prev/next labels are reversed in Hugo */}}
         {{with .NextInSection}}
-        <a href="{{ .Permalink }}" class="flex flex-row items-center justify-center px-2 hover:bg-gray-300">
+        <a href="{{ .Permalink }}" class="post-footer flex flex-row items-center justify-center px-2 hover:bg-gray-300">
             <div class="mr-4 order-first text-gray-500">
                 <i data-feather="chevron-left" class="w-6 h-6"></i>
             </div>
-            <div class="order-last text-gray-700 dark:text-gray-300 dark:hover:text-gray-800">
+            <div class="order-last">
                 <div class="text-gray-500 font-bold text-base">Previous</div>
                 <div class="font-serif transition-none">
                     {{ .Title }}
@@ -17,11 +17,11 @@
     </div>
     <div class="flex-initial order-last text-right justify-end" style="max-width: 50%;">
         {{with .PrevInSection}}
-        <a href="{{ .Permalink }}" class="flex flex-row items-center justify-center px-2 hover:bg-gray-300">
+        <a href="{{ .Permalink }}" class="post-footer flex flex-row items-center justify-center px-2 hover:bg-gray-300">
             <div class="ml-4 order-last text-gray-500">
                 <i data-feather="chevron-right" class="w-6 h-6"></i>
             </div>
-            <div class="order-first text-gray-700 dark:text-gray-300 dark:hover:text-gray-800">
+            <div class="order-first">
                 <div class="text-gray-500 font-bold text-base">Next</div>
                 <div class="font-serif transition-none">
                     {{ .Title }}

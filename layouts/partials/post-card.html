@@ -1,5 +1,4 @@
-<div class="relative p-0 rounded overflow-hidden border border-gray-100 dark:border-gray-500 shadow hover:shadow-lg transition ease-in-out duration-100"
-    style="min-height: 20rem; max-height: 38rem;">
+<div class="post-card relative p-0 rounded overflow-hidden">
     <a href="{{ .Permalink }}">
         {{/* Show banner image if set */}}
         {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
@@ -37,7 +36,7 @@
 
             {{/* Summary */}}
             {{ if (not $show_img) }}
-            <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+            <p class="text-lg leading-relaxed">
                 {{ .Params.summary | default ( .Content | plainify | emojify | truncate 250 ) }}
             </p>
             {{ end }}
@@ -47,7 +46,7 @@
     <div class="flex flex-wrap justify-left px-1 my-2 space-x-2">
         {{ range (.GetTerms "tags") }}
         <a href="{{ .Permalink }}"
-            class="inline-block px-3 py-1 my-1 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-yellow-400 text-gray-700 dark:text-gray-300 dark:hover:text-gray-700 text-sm no-underline hover:bg-transparent tracking-tight leading-tight font-semibold">
+            class="gray-tag inline-block px-3 py-1 my-1 rounded-full hover:bg-yellow-400 text-sm no-underline tracking-tight leading-tight font-semibold">
             #{{ .LinkTitle }}
         </a>
         {{ end }}

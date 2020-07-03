@@ -1,6 +1,6 @@
 {{ define "main" }}
 <h2 class="text-center text-gray-500">{{if (eq .Type "tags") }}#{{ end }}{{ .Title }}</h2>
-<div class="flex flex-col space-y-1 text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">
+<div class="listview-wrapper flex flex-col space-y-1 text-xl max-w-4xl mx-auto">
     {{ range .Pages.GroupByDate "2006" }}
     <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
     {{ range .Pages.ByPublishDate.Reverse }}
@@ -9,14 +9,14 @@
         {{ else }}
         <a href="{{ .Permalink }}" class="hover:bg-transparent">
         {{ end }}
-            <div class="flex flex-row items-center justify-between py-1 px-1 hover:bg-gray-200 dark:hover:bg-gray-400">
+            <div class="listview-row flex flex-row items-center justify-between py-1 px-1">
                 <div class="flex flex-row flex-wrap items-center font-serif">
                     {{ if (not .IsPage) }}
                     <i data-feather="folder" class=" inline-block mr-1 w-4 h-4"></i>
                     {{ end }}
                     {{- .Title -}}
                 </div>
-            
+
                 <div class="flex flex-row flex-shrink-0 items-center text-gray-500 font-semibold tracking-tighter text-sm">
                     {{ if .Params.featured }}
                     <i data-feather="star" class="inline-block mr-1 text-sm text-yellow-400 w-4 h-4" fill="#f6e05e"></i>

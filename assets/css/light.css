@@ -1,3 +1,4 @@
+/* Text elements */
 h1,
 h2,
 h3,
@@ -28,7 +29,7 @@ blockquote {
 }
 
 .article-container ul,
-.article-container ol  {
+.article-container ol {
     @apply text-gray-800;
 }
 
@@ -43,12 +44,25 @@ blockquote {
     @apply bg-gray-300;
 }
 
+.article-container figcaption {
+    @apply text-gray-700;
+}
+
+.article-container .alert-warning {
+    @apply text-red-600 bg-red-100;
+}
+
 section.footnotes:before {
     @apply text-gray-500 bg-white;
 }
 
+/* TOC and search screen */
 #toc-list ol {
     @apply text-gray-800 border-gray-300;
+}
+
+#toc-container {
+    @apply bg-white;
 }
 
 #toc-top-divider::after {
@@ -58,6 +72,16 @@ section.footnotes:before {
 #toc-background-mask,
 #search-screen {
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+#search-wrapper {
+    @apply bg-white shadow-md;
+}
+#search-input {
+    @apply border-b border-gray-300;
+}
+#search-input input {
+    @apply text-gray-700;
 }
 
 ul.search-results {
@@ -84,6 +108,47 @@ ul.search-results li:hover {
     @apply text-gray-700;
 }
 
-.post-feat-card-content * {
-    @apply text-gray-200;
+/* Unified buttons style */
+.round-button {
+    @apply rounded-full shadow-md bg-white transition-all duration-150 ease-linear;
+}
+
+.round-button button,
+button.round-button {
+    @apply font-bold text-gray-800;
+}
+
+/* Site header */
+#site-header {
+    @apply text-gray-700 text-lg;
+}
+
+.site-header-navlink:hover {
+    @apply bg-gray-300;
+}
+
+/* Styling cards and elements */
+.post-card {
+    @apply border border-gray-100 text-gray-700;
+}
+
+.gray-tag {
+    @apply text-gray-700 bg-gray-200;
+}
+
+.post-footer {
+    @apply text-gray-700;
+}
+
+/* Publication related */
+#publication-metadata {
+    @apply text-gray-600;
+}
+
+.listview-wrapper {
+    @apply text-gray-700;
+}
+
+.listview-row:hover {
+    @apply bg-gray-200;
 }
