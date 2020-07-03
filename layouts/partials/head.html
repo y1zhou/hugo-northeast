@@ -50,31 +50,17 @@
     {{- $light_theme := resources.Get "css/light.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
     {{- $dark_theme := resources.Get "css/dark.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
     {{- $light_theme := $light_theme | minify | fingerprint | resources.PostProcess -}}
-    <link rel="preload"
+    <link rel="stylesheet"
         href="{{ $light_theme.RelPermalink }}"
         integrity="{{ $light_theme.Data.Integrity }}"
-        as="style"
-        onload="this.onload=null;this.rel='stylesheet'"
         media="(prefers-color-scheme: light)">
-    <noscript>
-        <link rel="stylesheet"
-            href="{{ $light_theme.RelPermalink }}"
-            integrity="{{ $light_theme.Data.Integrity }}"
-            media="(prefers-color-scheme: light)">
-    </noscript>
     {{- $dark_theme := $dark_theme | minify | fingerprint | resources.PostProcess -}}
-    <link rel="preload"
+    <link rel="stylesheet"
         href="{{ $dark_theme.RelPermalink }}"
         integrity="{{ $dark_theme.Data.Integrity }}"
-        as="style"
-        onload="this.onload=null;this.rel='stylesheet'"
         media="(prefers-color-scheme: dark)">
-    <noscript>
-        <link rel="stylesheet"
-            href="{{ $dark_theme.RelPermalink }}"
-            integrity="{{ $dark_theme.Data.Integrity }}"
-            media="(prefers-color-scheme: dark)">
-    </noscript>
+    {{ $toggleTheme := resources.Get "js/theme-toggle.js" | minify | fingerprint }}
+    <script src="{{- $toggleTheme.RelPermalink -}}" integrity="{{- $toggleTheme.Data.Integrity -}}"></script>
 
     {{/* Google Fonts  */}}
     <link rel="preload"
