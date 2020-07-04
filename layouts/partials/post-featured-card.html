@@ -5,9 +5,9 @@
 {{ if $img }}
 {{ $img_src = ($img.Resize "1000x").RelPermalink }}
 {{ else if .Params.header_image.unsplash_id }}
-{{ $img_src = printf "https://source.unsplash.com/%s/1000x1000" .Params.header_image.unsplash_id }}
+{{ $img_src = printf "https://source.unsplash.com/%s/1200x1200" .Params.header_image.unsplash_id }}
 {{ else }}
-{{ $img_src = printf "https://source.unsplash.com/1000x1000/?nature,city" }}
+{{ $img_src = printf "https://source.unsplash.com/1200x1200/?nature,city" }}
 {{ end }}
 
 <div class="relative overflow-hidden rounded-md" style="height: 30rem;">

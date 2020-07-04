@@ -7,6 +7,7 @@
         {{ partial "post-metadata" . }}
         <div class="my-8 rounded overflow-hidden">
             {{ .Scratch.Set "set_img_link" true }}
+            {{ .Scratch.Set "get_large" true }}
             {{ partial "post-featured-image" . }}
         </div>
     </div>
