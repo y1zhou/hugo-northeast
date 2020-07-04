@@ -3,10 +3,10 @@ matter. We look for "featured.jpg" or "featured.png" in the same
 directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
 {{ if $img }}
-    {{ $small := $img.Fill "640x640" }}
-    {{ $medium := $img.Fill "800x800" }}
-    {{ $large := $img.Fill "1200x1200" }}
-    {{ $xlarge := $img.Fill "1800x1800" }}
+    {{ $small := $img.Resize "640x" }}
+    {{ $medium := $img.Resize "800x" }}
+    {{ $large := $img.Resize "1200x" }}
+    {{ $xlarge := $img.Resize "1800x" }}
     <figure class="w-full relative overflow-hidden" style="max-height: 50rem;">
     {{ if (.Scratch.Get "set_img_link") }}
         {{ with .Params.header_image.unsplash_id }}
@@ -34,10 +34,12 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
         {{ end }}'
         {{ with .Params.header_image.caption }}alt="{{.}}"{{end}}
     />
+    {{ if (.Scratch.Get "set_img_caption") }}
     {{ with .Params.header_image.caption }}
     <div class="absolute bottom-0 right-0 text-gray-300 bg-gray-900 bg-opacity-50 px-2">
         {{ . | markdownify | emojify }}
     </div>
+    {{ end }}
     {{ end }}
     {{- if (and .Params.header_image.unsplash_id (.Scratch.Get "set_img_link")) }}</a>{{ end }}
     </figure>
@@ -60,17 +62,19 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
         src="{{ $img_url }}"
         srcset='
             {{ $small }} 640w,
-            {{ if (.Scratch.Get "set_img_link") }}
+            {{ if (.Scratch.Get "get_large") }}
             {{ $medium }} 800w,
             {{ $large }} 1200w,
             {{ $xlarge }} 1500w
             {{- end }}'
         {{ with .Params.header_image.caption }}alt="{{.}}"{{end}}
     />
+    {{ if (.Scratch.Get "set_img_caption") }}
     {{ with .Params.header_image.caption }}
     <div class="absolute bottom-0 right-0 text-gray-300 bg-gray-900 bg-opacity-50 px-2">
         {{ . | markdownify | emojify }}
     </div>
+    {{ end }}
     {{ end }}
     {{- if (and .Params.header_image.unsplash_id (.Scratch.Get "set_img_link")) }}</a>{{ end }}
     </figure>
