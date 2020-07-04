@@ -79,12 +79,13 @@ pre {
     @apply my-2 ml-2;
 }
 
+.highlight > div {
+    @apply rounded-md;
+}
+
 /* First one is the line numbers, second one is the actual code */
 .highlight td:first-child pre {
     @apply pl-3 rounded-l-md;
-}
-.highlight td:last-child pre {
-    @apply rounded-r-md;
 }
 
 .highlight tr:hover {
