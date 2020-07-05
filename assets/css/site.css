@@ -59,7 +59,13 @@ hr {
 
 /* Blockquote */
 blockquote {
-    @apply ml-4 pl-16 pr-4 py-4 my-2 relative border-l-2;
+    @apply pl-10 pr-2 py-4 my-2 relative border-l-2;
+}
+
+@media (min-width: 768px) {
+    blockquote {
+        @apply pl-16 ml-4 pr-4;
+    }
 }
 
 blockquote::before {
@@ -88,8 +94,8 @@ pre {
     @apply pl-3 rounded-l-md;
 }
 
-.highlight tr:hover {
-    @apply bg-transparent;
+.highlight tbody tr:hover {
+    @apply bg-transparent !important;
 }
 
 /* ################################# */

@@ -6,7 +6,7 @@
     {{ partial "post-featured-card" . }}
 </div>
 <div class="listview-wrapper flex flex-col space-y-1 text-xl max-w-6xl mx-auto">
-    {{ range .Pages.GroupByDate "2006" }}
+    {{ range (.Pages.GroupByDate "2006").Reverse }}
     <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
     {{ range .Pages.ByWeight }}
         {{ if .IsPage }}
