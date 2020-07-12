@@ -54,7 +54,7 @@ a {
 }
 
 hr {
-    @apply my-6 py-2;
+    @apply mt-6 py-2;
 }
 
 /* Blockquote */
@@ -177,9 +177,12 @@ mjx-container[display="true"] {
 }
 
 /* Better looking footnotes */
+section.footnotes {
+    @apply mt-12;
+}
 section.footnotes:before {
     content: "Footnotes";
-    @apply absolute font-bold pr-2 transform -translate-y-4;
+    @apply absolute font-serif font-bold pr-2 transform -translate-y-4;
 }
 
 a.footnote-ref {
