@@ -16,10 +16,6 @@ p {
     @apply text-gray-300;
 }
 
-a:hover {
-    @apply bg-gray-500 text-gray-800;
-}
-
 mark {
     @apply bg-yellow-500;
 }
@@ -38,6 +34,10 @@ blockquote {
 
 .article-container img:hover {
     filter: none;
+}
+
+.article-container a {
+    @apply text-blue-300;
 }
 
 .article-container ul,
@@ -71,6 +71,10 @@ section.footnotes:before {
 /* TOC and search screen */
 #toc-list ol {
     @apply text-gray-300 border-gray-300;
+}
+
+#toc-list a:hover {
+    @apply bg-gray-500 text-gray-800;
 }
 
 #toc-container {

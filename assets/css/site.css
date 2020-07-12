@@ -136,6 +136,9 @@ article {
 .article-container a {
     @apply underline;
 }
+.article-container a:hover {
+    @apply bg-yellow-400 text-gray-800;
+}
 
 .article-container p {
     @apply py-1 mb-2 text-lg leading-relaxed text-left break-normal;
@@ -217,6 +220,7 @@ a.footnote-ref::after {
 #toc-list a {
     @apply inline-block w-full rounded px-3 leading-relaxed transition-none;
 }
+
 #toc-list ol > li {
     @apply block my-1;
     counter-increment: tocitem;
