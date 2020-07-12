@@ -9,6 +9,11 @@
             {{ .Scratch.Set "set_img_link" true }}
             {{ .Scratch.Set "set_img_caption" true }}
             {{ .Scratch.Set "get_large" true }}
+            {{ with .Params.summary }}
+                <div class="post-summary mb-4 text-center italic text-xl">
+                    {{ . }}
+                </div>
+            {{ end }}
             {{ partial "post-featured-image" . }}
         </div>
     </div>

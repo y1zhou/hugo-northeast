@@ -144,6 +144,10 @@ button.round-button {
     @apply text-gray-700;
 }
 
+.post-summary {
+    @apply text-gray-600;
+}
+
 /* Publication related */
 #publication-metadata {
     @apply text-gray-600;

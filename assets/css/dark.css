@@ -179,6 +179,10 @@ a.post-footer:hover {
     @apply text-gray-800;
 }
 
+.post-summary {
+    @apply text-gray-500;
+}
+
 /* Publication related */
 #publication-metadata {
     @apply text-gray-300;
