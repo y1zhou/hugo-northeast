@@ -74,7 +74,7 @@ section.footnotes:before {
 }
 
 #toc-list a:hover {
-    @apply bg-gray-500 text-gray-800;
+    @apply bg-gray-500;
 }
 
 #toc-container {

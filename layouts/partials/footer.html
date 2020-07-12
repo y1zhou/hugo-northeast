@@ -2,13 +2,13 @@
     {{ partial "social-list" }}
     <p class="text-gray-500">
         {{ with site.Copyright }} {{- replace . "{year}" now.Year | markdownify -}} {{ end }}
-        <a href="{{- site.BaseURL -}}" class="text-gray-200 hover:text-gray-800">{{- site.Title -}}</a>
+        <a href="{{- site.BaseURL -}}" class="text-gray-200 hover:underline">{{- site.Title -}}</a>
         &copy; Powered by the
         <a href="https://github.com/y1zhou/hugo-northeast" target="_blank" rel="noopener"
-            class="text-gray-200 hover:text-gray-800">
+            class="text-gray-200 hover:underline">
             Northeast theme</a>
         for
-        <a href="https://gohugo.io" class="text-gray-200 hover:text-gray-800">
+        <a href="https://gohugo.io" class="text-gray-200 hover:underline">
             Hugo</a>.
     </p>
 </footer>
