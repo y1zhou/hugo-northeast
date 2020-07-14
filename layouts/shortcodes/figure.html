@@ -18,29 +18,27 @@
 
   {{/* Create smaller versions if the figure is local */}}
   {{ if $asset }}
-    {{ $small := $asset.Resize "640x" }}
-    {{ $medium := $asset.Resize "800x" }}
-    {{ $large := $asset.Resize "1200x" }}
-    {{ $xlarge := $asset.Resize "1500x" }}
     {{ $image_src = $asset.RelPermalink }}
-    <img src="{{$image_src}}"
+    <img src="{{- $image_src -}}"
     srcset='
-    {{ if ge $asset.Width "640" }}
-        {{with $small.RelPermalink }}{{.}} 640w,{{- end }}
-    {{ end }}
-    {{ if ge $asset.Width "800" }}
-        {{with $medium.RelPermalink }}{{.}} 800w,{{- end }}
-    {{ end }}
-    {{ if ge $asset.Width "1200" }}
-        {{with $large.RelPermalink }}{{.}} 1200w,{{- end }}
-    {{ end }}
-    {{ if ge $asset.Width "1500" }}
-        {{with $xlarge.RelPermalink }}{{.}} 1500w{{- end }}
-    {{ end }}'
+    {{- if ge $asset.Width "640" -}}
+        {{- $small := $asset.Resize "640x" -}}
+        {{- with $small.RelPermalink }}{{.}} 640w, {{ end -}}
+    {{- end }}
+    {{- if ge $asset.Width "800" }}
+        {{- $medium := $asset.Resize "800x" -}}
+        {{- with $medium.RelPermalink }}{{.}} 800w, {{ end -}}
+    {{- end }}
+    {{- if ge $asset.Width "1000" }}
+        {{- $large := $asset.Resize "1000x" -}}
+        {{- with $large.RelPermalink }}{{.}} 1000w, {{ end -}}
+    {{- end }}
+    {{- $image_src }} {{$asset.Width -}}w
+    '
     loading="lazy"
     alt="{{ with .Get "alt" }}{{.}}{{end}}"
-    {{ with (.Get "width") }}width="{{.}}"{{end}}
-    {{ with (.Get "height") }}height="{{.}}"{{end}}>
+    width="{{ with (.Get "width") }} {{- . -}} {{ else }} {{- $asset.Width -}} {{end}}"
+    height="{{ with (.Get "height") }} {{- . -}} {{ else }} {{- $asset.Height -}} {{end}}">
   {{ else }}
     {{/* Lazy loading for modern browsers */}}
     <img src="{{$image_src}}"

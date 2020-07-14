@@ -5,6 +5,7 @@
         {{ $show_img := (or $img .Params.header_image.unsplash_id) }}
         {{ if $show_img }}
         {{ .Scratch.Set "set_img_link" false}}
+        {{ .Scratch.Set "set_img_caption" false}}
         {{ .Scratch.Set "get_large" false }}
         <div class="block relative overflow-hidden w-full" style="max-height: 16rem;">
             {{ partial "post-featured-image" . }}

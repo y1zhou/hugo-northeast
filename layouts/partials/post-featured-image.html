@@ -3,10 +3,6 @@ matter. We look for "featured.jpg" or "featured.png" in the same
 directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
 {{ if $img }}
-    {{ $small := $img.Resize "640x" }}
-    {{ $medium := $img.Resize "800x" }}
-    {{ $large := $img.Resize "1200x" }}
-    {{ $xlarge := $img.Resize "1800x" }}
     <figure class="w-full relative overflow-hidden" style="max-height: 50rem;">
     {{ if (.Scratch.Get "set_img_link") }}
         {{ with .Params.header_image.unsplash_id }}
@@ -18,21 +14,22 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
         loading="lazy"
         src="{{ $img.RelPermalink }}"
         srcset='
-        {{ if ge $img.Width "640" }}
-            {{with $small.RelPermalink }}{{.}} 640w,{{- end }}
-        {{ end }}
-        {{ if (.Scratch.Get "get_large") }}
-        {{ if ge $img.Width "800" }}
-            {{with $medium.RelPermalink }}{{.}} 800w,{{- end }}
-        {{ end }}
-        {{ if ge $img.Width "1200" }}
-            {{with $large.RelPermalink }}{{.}} 1200w,{{- end }}
-        {{ end }}
-        {{ if ge $img.Width "1800" }}
-            {{with $xlarge.RelPermalink }}{{.}} 1800w{{- end }}
-        {{ end }}
-        {{ end }}'
-        {{ with .Params.header_image.caption }}alt="{{.}}"{{end}}
+        {{- if ge $img.Width "640" -}}
+            {{- $small := $img.Resize "640x" -}}
+            {{- with $small.RelPermalink -}}{{.}} 640w,{{- end -}}
+        {{- end -}}
+        {{- if (.Scratch.Get "get_large") -}}
+        {{- if ge $img.Width "800" -}}
+            {{- $medium := $img.Resize "800x" -}}
+            {{- with $medium.RelPermalink -}}{{.}} 800w,{{- end -}}
+        {{- end -}}
+        {{- if ge $img.Width "1200" -}}
+            {{- $large := $img.Resize "1200x" -}}
+            {{- with $large.RelPermalink -}}{{.}} 1200w,{{- end -}}
+        {{- end -}}
+        {{- $img.RelPermalink }} {{ $img.Width -}}w
+        {{- end -}}'
+        alt="{{ with .Params.header_image.caption }} {{- . -}} {{end}}"
     />
     {{ if (.Scratch.Get "set_img_caption") }}
     {{ with .Params.header_image.caption }}
@@ -61,13 +58,13 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
         loading="lazy"
         src="{{ $img_url }}"
         srcset='
-            {{ $small }} 640w,
-            {{ if (.Scratch.Get "get_large") }}
-            {{ $medium }} 800w,
-            {{ $large }} 1200w,
-            {{ $xlarge }} 1500w
-            {{- end }}'
-        {{ with .Params.header_image.caption }}alt="{{.}}"{{end}}
+            {{- $small }} 640w,
+            {{- if (.Scratch.Get "get_large") -}}
+            {{- $medium }} 800w,
+            {{- $large }} 1200w,
+            {{- $xlarge }} 1500w
+            {{- end -}}'
+        alt="{{ with .Params.header_image.caption }} {{- . -}} {{end}}"
     />
     {{ if (.Scratch.Get "set_img_caption") }}
     {{ with .Params.header_image.caption }}
