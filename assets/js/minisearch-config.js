@@ -82,72 +82,100 @@ document.addEventListener("DOMContentLoaded", () => {
         return matches;
     }
 
-    fetch("/minisearch.json")
-        .then((response) => response.json())
-        .then((searchContent) => {
-            let searchIndex = new MiniSearch({
-                idField: "objectID",
-                fields: ["title", "summary", "content"], // fields to index for full-text search
-                storeFields: [
-                    "title",
-                    "date",
-                    "href",
-                    "featured",
-                    "summary",
-                    "content",
-                ], // fields to return with search results
-                searchOptions: {
-                    boost: { title: 3, summary: 2 },
-                    prefix: true,
-                },
-            });
-            searchIndex.addAll(searchContent);
+    async function cachedFetch(cacheKey) {
+        // https://www.sitepoint.com/cache-fetched-ajax-requests/
+        let expiry = 43200; // 12 hours
+        // Use the URL as the cache key to sessionStorage
+        let cached = localStorage.getItem(cacheKey);
+        let whenCached = localStorage.getItem(cacheKey + ":ts");
+        if (cached !== null && whenCached !== null) {
+            let age = (Date.now() - whenCached) / 1000;
+            if (age < expiry) {
+                return Promise.resolve().then(() => {
+                    return JSON.parse(cached);
+                });
+            } else {
+                localStorage.removeItem(cacheKey);
+                localStorage.removeItem(cacheKey + ":ts");
+            }
+        }
+        const response = await fetch(cacheKey);
+        let content = await response.json();
+        localStorage.setItem(cacheKey + ":ts", Date.now());
+        localStorage.setItem(cacheKey, JSON.stringify(content));
+        return content;
+    }
 
-            searchInput.addEventListener("keyup", (e) => {
-                let searchString = e.target.value;
-                if (searchString && searchString.length > 2) {
-                    res = searchIndex.search(searchString);
-                } else {
-                    res = [];
-                    searchResult.innerHTML = "";
-                }
+    searchButton.addEventListener("click", () => {
+        cachedFetch("/minisearch.json")
+            .then((searchContent) => {
+                let searchIndex = new MiniSearch({
+                    idField: "objectID",
+                    fields: ["title", "summary", "content"], // fields to index for full-text search
+                    storeFields: [
+                        "title",
+                        "date",
+                        "href",
+                        "featured",
+                        "summary",
+                        "content",
+                    ], // fields to return with search results
+                    searchOptions: {
+                        boost: { title: 3, summary: 2 },
+                        prefix: true,
+                    },
+                });
+                searchIndex.addAll(searchContent);
 
-                if (res.length > 0) {
-                    searchPopularTags.classList.add("hidden");
-                    searchResult.innerHTML = res
-                        .map((hit) => {
-                            let ans = markMatches(hit);
-                            ans.date = timestamp2Date(hit.date);
-                            ans.featured = hit.featured
-                                ? `<span class="text-yellow-400 ml-1">${feather.icons.star.toSvg({ 'width': 16, 'height': 16, 'fill': '#f6e05e' })}</span>`
-                                : "";
-                            if (!("title" in ans)) {
-                                ans.title = hit.title;
-                            }
-                            if (!("content" in ans)) {
-                                if ("summary" in ans) {
-                                    ans.content = ans.summary;
-                                } else {
-                                    ans.content = hit.summary;
+                searchInput.addEventListener("keyup", (e) => {
+                    let searchString = e.target.value;
+                    if (searchString && searchString.length > 2) {
+                        res = searchIndex.search(searchString);
+                    } else {
+                        res = [];
+                        searchResult.innerHTML = "";
+                    }
+
+                    if (res.length > 0) {
+                        searchPopularTags.classList.add("hidden");
+                        searchResult.innerHTML = res
+                            .map((hit) => {
+                                let ans = markMatches(hit);
+                                ans.date = timestamp2Date(hit.date);
+                                let star = feather.icons.star.toSvg({
+                                    class: "inline-block mb-1 text-yellow-400",
+                                    width: 16,
+                                    height: 16,
+                                    fill: "#f6e05e",
+                                });
+                                ans.featured = hit.featured ? star : "";
+                                if (!("title" in ans)) {
+                                    ans.title = hit.title;
                                 }
-                            }
-                            return `<li><a href="${hit.href}">
+                                if (!("content" in ans)) {
+                                    if ("summary" in ans) {
+                                        ans.content = ans.summary;
+                                    } else {
+                                        ans.content = hit.summary;
+                                    }
+                                }
+                                return `<li><a href="${hit.href}">
                             <div class="search-res-header">
                             <span class="search-res-title">${ans.title} ${ans.featured}</span>
                             <span class="search-res-date">${ans.date}</span>
                             </div>
                             <div class="search-res-content">${ans.content}</div>
                             </a></li>`;
-                        })
-                        .join("");
-                    feather.replace()
-                } else {
-                    searchPopularTags.classList.remove("hidden");
-                }
+                            })
+                            .join("");
+                        feather.replace();
+                    } else {
+                        searchPopularTags.classList.remove("hidden");
+                    }
+                });
+            })
+            .catch((error) => {
+                console.error(error);
             });
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+    });
 });
-

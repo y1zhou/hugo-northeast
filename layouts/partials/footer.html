@@ -23,22 +23,19 @@
 </script>
 {{ end }}
 
-{{/* MinSearch for search bar */}}
-{{ if site.Params.minisearch_enabled }}
-<script src="https://cdn.jsdelivr.net/npm/minisearch@2.4.1/dist/umd/index.min.js"></script>
-{{ $minisearch := resources.Get "js/minisearch-config.js" | minify | fingerprint }}
-<script src="{{- $minisearch.RelPermalink -}}" integrity="{{- $minisearch.Data.Integrity -}}"></script>
-{{ partialCached "search" . }}
-{{ end }}
+{{/* Feather icons  */}}
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>feather.replace()</script>
 
 {{/* Mathjax import */}}
 {{ $mathjax_config := resources.Get "js/mathjax-config.js" | minify | fingerprint }}
 <script defer src="{{- $mathjax_config.RelPermalink -}}" integrity="{{- $mathjax_config.Data.Integrity -}}"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
 
-{{/* Feather icons  */}}
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-<script>feather.replace()</script>
+{{/* MinSearch for search bar */}}
+{{ if site.Params.minisearch_enabled }}
+{{ partialCached "search" . }}
+{{ end }}
 
 {{ if (not .Site.IsServer) }}
 {{ template "_internal/google_analytics_async.html" . }}
