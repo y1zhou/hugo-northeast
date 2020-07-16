@@ -172,8 +172,7 @@ article {
 
 /* Overflow long math equations for MathJax */
 mjx-container[display="true"] {
-    overflow-x: auto;
-    overflow-y: hidden;
+    @apply overflow-x-auto overflow-y-hidden min-w-0 !important;
 }
 
 /* Better looking footnotes */
@@ -264,7 +263,7 @@ ul.search-results li {
 }
 
 .search-results .search-res-title {
-    @apply block font-semibold;
+    @apply font-semibold;
 }
 
 .search-results .search-res-title mark {
