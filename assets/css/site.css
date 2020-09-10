@@ -14,6 +14,9 @@ html {
         scroll-behavior: auto;
     }
 }
+body {
+    counter-reset: captions;
+}
 
 /* ################################# */
 /* #         Overall design        # */
