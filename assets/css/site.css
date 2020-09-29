@@ -18,6 +18,10 @@ body {
     counter-reset: captions;
 }
 
+body {
+    counter-reset: captions;
+}
+
 /* ################################# */
 /* #         Overall design        # */
 /* ################################# */
