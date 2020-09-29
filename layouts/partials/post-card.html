@@ -1,47 +1,52 @@
-<div class="post-card relative p-0 rounded overflow-hidden">
+<div class="post-card relative p-0 rounded border-b border-gray-300 sm:border-none overflow-hidden">
     <a href="{{ .Permalink }}">
-        {{/* Show banner image if set */}}
-        {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
-        {{ $show_img := (or $img .Params.header_image.unsplash_id) }}
-        {{ if $show_img }}
+        {{/* Show banner image or default header image */}}
         {{ .Scratch.Set "set_img_link" false}}
         {{ .Scratch.Set "set_img_caption" false}}
         {{ .Scratch.Set "get_large" false }}
-        <div class="block relative overflow-hidden w-full" style="max-height: 16rem;">
+        <div class="block relative overflow-hidden w-full rounded" style="max-height: 16rem;">
             {{ partial "post-featured-image" . }}
         </div>
-        {{ end }}
 
         {{/* featured */}}
         {{ if .Params.featured }}
         <i data-feather="star" class="absolute right-0 top-0 pr-4 pt-4 w-10 h-10 text-yellow-400" fill="#f6e05e"></i>
         {{ end }}
 
-        <div class="px-2 sm:px-6">
-            {{/* Title */}}
-            <h3 class="font-sans mt-2 tracking-tight">{{- .Title -}}</h3>
+        <div class="px-1">
+            <div class="flex flex-row justify-between content-center mt-2">
+                {{/* Page categories */}}
+                {{ if .Params.categories }}
+                <div class="flex flex-shrink font-serif text-gray-600 tracking-tight">
+                    {{- range $index, $value := (.GetTerms "categories") -}}
+                    {{- if gt $index 0 }} | {{ end -}}
+                    {{- humanize .LinkTitle -}}
+                    {{- end -}}
+                </div>
+                {{ end }}
 
-            {{/* Date and read time */}}
-            <div class="flex flex-row justify-start items-center space-x-4 text-gray-500 text-base divide-x-2 mb-2">
-                {{ with .PublishDate }}
-                <div class="flex flex-shrink-0 items-center">
-                    {{ dateFormat "Jan 2, 2006" .Local -}}
+                {{/* Date and category */}}
+                <div class="flex flex-row justify-start items-center space-x-2 text-gray-500 text-sm divide-x-2">
+                    {{ with .PublishDate }}
+                    <div class="flex flex-shrink-0 items-center">
+                        {{ dateFormat "Jan 2, 2006" .Local -}}
+                    </div>
+                    {{ end }}
+                    {{ with .ReadingTime }}
+                    <div class="pl-2 flex flex-shrink-0 items-center">
+                        {{ . }} min read
+                    </div>
+                    {{ end }}
                 </div>
-                {{ end }}
-                {{ with .ReadingTime }}
-                <div class="pl-4 flex flex-shrink-0 items-center">
-                    {{ . }} min read
-                </div>
-                {{ end }}
             </div>
 
+            {{/* Title */}}
+            <h4 class="font-serif tracking-tight py-0">{{- .Title -}}</h4>
 
             {{/* Summary */}}
-            {{ if (not $show_img) }}
-            <p class="text-lg leading-relaxed">
-                {{ .Params.summary | default ( .Content | plainify | emojify | truncate 250 ) }}
+            <p class="text-base leading-relaxed">
+                {{ .Params.summary | default ( .Content | plainify | emojify | truncate 150 ) }}
             </p>
-            {{ end }}
         </div>
     </a>
     {{/* Tags */}}
