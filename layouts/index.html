@@ -1,10 +1,10 @@
 {{ define "main" }}
-<article class="flex flex-col justify-center mx-1 sm:mx-4">
+<article class="flex flex-col justify-center items-center mx-1 sm:mx-4">
     {{/* Carousel of featured posts */}}
-    <div class="glide w-full mx-auto rounded-md overflow-hidden max-w-4xl" style="height: 30rem;">
+    <div class="glide w-full rounded-md overflow-hidden max-w-5xl" style="height: 30rem;">
         <div class="glide__track h-full" data-glide-el="track">
             <div class="glide__slides h-full flex flex-row flex-no-wrap">
-                {{ range where site.RegularPages "Params.featured" true }}
+                {{ range first 7 (where site.RegularPages.ByPublishDate.Reverse "Params.featured" true) }}
                 <div class="glide__slide flex flex-shrink-0 overflow-hidden">
                     {{ .Scratch.Set "feat_card_controls" true }}
                     {{ partial "post-featured-card" . }}
@@ -15,24 +15,18 @@
     </div>
 
     {{/* Card view of other posts */}}
-    <div class="flex flex-initial flex-row flex-wrap justify-center mx-auto my-8 max-w-4xl">
+    {{ $homepage_types := slice "posts" "series" }}
+    {{ $paginator := .Paginate (where site.RegularPages.ByPublishDate.Reverse "Type" "in" $homepage_types) }}
+    <div class="flex flex-initial flex-row flex-wrap justify-center my-8 max-w-5xl">
         <div class="flex flex-wrap mb-2 flex-grow max-w-full">
-            {{ range first 10 (where site.RegularPages.ByPublishDate.Reverse "Section" "posts") }}
-            <div class="home-post-card relative p-0 my-1 w-full md:px-1">
+            {{ range $paginator.Pages }}
+            <div class="home-post-card relative p-0 my-2 w-full md:px-3">
                 {{partial "post-card" . }}
             </div>
             {{ end }}
         </div>
     </div>
-    <div class="mx-auto">
-        <a href="/posts"
-            class="round-button hover:bg-yellow-400 block w-8 h-8">
-            <button
-                class="w-8 h-8 focus:outline-none"
-                aria-label="All Posts">
-                <i data-feather="activity" class="mx-auto w-5 h-5"></i>
-            </button>
-        </a>
-    </div>
+
+    {{ template "_internal/pagination.html" . }}
 </article>
 {{ end }}

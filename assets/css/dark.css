@@ -152,11 +152,7 @@ button.round-button:hover {
 }
 
 .post-card {
-    @apply border border-gray-700 text-gray-300;
-}
-
-.post-card:hover {
-    @apply transform -translate-y-2;
+    @apply text-gray-300;
 }
 
 .gray-tag {
@@ -194,4 +190,21 @@ a.post-footer:hover {
 
 .listview-row:hover {
     @apply bg-gray-400 text-gray-700;
+}
+
+/* Homepage pagination */
+ul.pagination {
+    @apply border-gray-600;
+}
+
+li.page-item {
+    @apply border-gray-600 text-gray-500;
+}
+
+li.page-item.active {
+    @apply text-gray-400 border-t-2 border-yellow-400;
+}
+
+li.page-item.disabled {
+    @apply text-gray-700;
 }

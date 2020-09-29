@@ -300,13 +300,36 @@ ul.search-results li {
 }
 
 .post-card {
-    min-height: 20rem;
-    max-height: 38rem;
-    @apply shadow transition ease-in-out duration-300;
+    @apply transition ease-in-out duration-300;
+}
+
+@media (min-width: 768px) {
+    .post-card {
+        min-height: 20rem;
+        max-height: 38rem;
+    }
 }
 
 .post-card:hover {
-    @apply shadow-lg;
+    @apply transform -translate-y-1;
+}
+
+ul.pagination {
+    @apply flex flex-row flex-wrap w-full items-center justify-center border-t;
+}
+
+li.page-item {
+    @apply py-1 px-2;
+}
+
+@media (min-width: 768px) {
+    li.page-item {
+        @apply px-4;
+    }
+}
+
+li.page-item.active {
+    @apply font-bold border-t-2;
 }
 
 iframe.instagram-media,

@@ -133,7 +133,7 @@ button.round-button {
 
 /* Styling cards and elements */
 .post-card {
-    @apply border border-gray-100 text-gray-700;
+    @apply text-gray-700;
 }
 
 .gray-tag {
@@ -159,4 +159,20 @@ button.round-button {
 
 .listview-row:hover {
     @apply bg-gray-200;
+}
+
+/* Homepage pagination */
+ul.pagination {
+    @apply border-gray-200;
+}
+
+li.page-item {
+    @apply border-gray-200 text-gray-600;
+}
+
+li.page-item.active {
+    @apply text-gray-700 border-yellow-400;
+}
+li.page-item.disabled {
+    @apply text-gray-400;
 }
