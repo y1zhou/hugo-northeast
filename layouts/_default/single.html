@@ -14,7 +14,10 @@
                     {{ . }}
                 </div>
             {{ end }}
-            {{ partial "post-featured-image" . }}
+            {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
+            {{ if (or $img .Params.header_image.unsplash_id ) }}
+                {{ partial "post-featured-image" . }}
+            {{ end }}
         </div>
     </div>
 

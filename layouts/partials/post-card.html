@@ -14,10 +14,10 @@
         {{ end }}
 
         <div class="px-1">
-            <div class="flex flex-row justify-between content-center mt-2">
+            <div class="flex flex-row flex-wrap justify-between content-center tracking-tighter mt-2">
                 {{/* Page categories */}}
                 {{ if .Params.categories }}
-                <div class="flex flex-shrink font-serif text-gray-600 tracking-tight">
+                <div class="flex flex-shrink font-serif text-gray-600 pr-2">
                     {{- range $index, $value := (.GetTerms "categories") -}}
                     {{- if gt $index 0 }} | {{ end -}}
                     {{- humanize .LinkTitle -}}
