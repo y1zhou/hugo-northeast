@@ -1,7 +1,7 @@
 {{/* Featured images can be set in the header_image.unsplash_id parameter in the front
 matter. We look for "featured.jpg" or "featured.png" in the same
 directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
-<figure class="w-full relative overflow-hidden" style="max-height: 50rem;"></figure>
+<figure class="rounded w-full relative overflow-hidden" style="max-height: 50rem;">
 {{ $default_img := resources.Get "images/default_header.jpg" }}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" | default $default_img }}
 {{ if .Params.header_image.unsplash_id }}
