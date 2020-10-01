@@ -1,6 +1,10 @@
 const themeDir = __dirname + "/../../";
 const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
+    future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
+    },
     important: true,
     purge: {
         enabled: true,
