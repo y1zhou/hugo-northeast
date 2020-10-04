@@ -8,6 +8,6 @@
         {{- block "main" . }}{{- end }}
         </main>
         {{- partial "dev-parameters.html" . -}}
-        {{- partial "footer.html" . -}}
+        {{- partialCached "footer.html" . -}}
     </body>
 </html>
