@@ -6,10 +6,10 @@ A [Hugo](https://gohugo.io) theme with [Tailwind CSS](https://tailwindcss.com).
 
 You'll need `git` and `npm` installed.
 
-Make sure to install `postcss-cli` and `autoprefixer` globally in your environment, as Hugo Pipe's PostCSS requires it.
+Make sure to install `postcss`, `postcss-cli` and `autoprefixer` globally in your environment, as Hugo Pipe's PostCSS requires it.
 
 ```bash
-npm install -g postcss-cli autoprefixer
+npm install -g postcss postcss-cli autoprefixer
 ```
 
 Make sure to use a minimum Hugo version of v0.69.0 and above.
@@ -62,7 +62,7 @@ Files in the `public/` directory can now be served.
         -   [x] Large screen
         -   [x] Mobile
     -   [x] Search
-    -   [ ] Light/dark theme toggle
+    -   [x] Light/dark theme toggle
 -   [x] Footer
     -   [x] Social links
     -   [x] Copyright
@@ -83,7 +83,7 @@ Files in the `public/` directory can now be served.
     -   [x] List of posts
 -   [ ] Publications
     -   [ ] Support `.bib` files
-    -   [ ] External link to DOI/PDF
+    -   [x] External link to DOI/PDF
 -   [x] Shortcodes
     -   [x] Highlight (mark) in post
     -   [x] Figure w/ captions, links and numbering
