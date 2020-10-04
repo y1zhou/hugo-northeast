@@ -1,3 +1,8 @@
+/* Background color for homepage only */
+.page-home {
+    @apply bg-gray-100;
+}
+
 /* Text elements */
 h1,
 h2,
@@ -124,7 +129,7 @@ button.round-button {
 
 /* Site header */
 #site-header {
-    @apply text-gray-700 text-lg;
+    @apply bg-white text-gray-700 text-lg shadow-sm;
 }
 
 .site-header-navlink:hover {
@@ -133,7 +138,7 @@ button.round-button {
 
 /* Styling cards and elements */
 .post-card {
-    @apply text-gray-700;
+    @apply bg-white text-gray-700;
 }
 
 .gray-tag {

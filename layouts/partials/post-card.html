@@ -1,4 +1,4 @@
-<div class="post-card relative p-0 rounded border-b border-gray-300 sm:border-none overflow-hidden">
+<div class="post-card relative p-0 rounded overflow-hidden">
     <a href="{{ .Permalink }}">
         {{/* Show banner image or default header image */}}
         {{ .Scratch.Set "set_img_link" false}}
@@ -13,7 +13,7 @@
         <i data-feather="star" class="absolute right-0 top-0 pr-4 pt-4 w-10 h-10 text-yellow-400" fill="#f6e05e"></i>
         {{ end }}
 
-        <div class="px-1">
+        <div class="px-2 sm:px-4">
             <div class="flex flex-row flex-wrap justify-between content-center tracking-tighter mt-2">
                 {{/* Page categories */}}
                 {{ if .Params.categories }}
@@ -50,7 +50,7 @@
         </div>
     </a>
     {{/* Tags */}}
-    <div class="flex flex-wrap justify-left px-1 my-2 space-x-2">
+    <div class="flex flex-wrap justify-left px-2 sm:px-4 my-2 space-x-2">
         {{ range (.GetTerms "tags") }}
         <a href="{{ .Permalink }}"
             class="gray-tag inline-block px-3 py-1 my-1 rounded-full hover:bg-yellow-400 text-sm no-underline tracking-tight leading-tight font-semibold">

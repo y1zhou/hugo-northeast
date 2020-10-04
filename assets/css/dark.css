@@ -152,7 +152,7 @@ button.round-button:hover {
 }
 
 .post-card {
-    @apply text-gray-300;
+    @apply border border-gray-700 text-gray-300;
 }
 
 .gray-tag {
