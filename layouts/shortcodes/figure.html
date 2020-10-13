@@ -1,7 +1,7 @@
 {{/* Enable image to be loaded from local page dir or media library at `static/img/`. */}}
 
 {{ $asset := (.Page.Resources.ByType "image").GetMatch (.Get "src") }}
-{{ $image_src := (.Get "src") }}
+{{ $image_src := $asset.RelPermalink | default (.Get "src") }}
 
 {{/* Get caption. Support legacy `title` option. */}}
 {{ $caption := .Get "title" | default (.Get "caption") | default "" }}
@@ -10,15 +10,14 @@
   {{ with .Get "class" }} class="{{.}}"{{ end }}
   {{ with $caption }}id="figure-{{ anchorize . }}"{{ end }}>
 
-  {{ if .Get "link" }}
-    <a href="{{ .Get "link" }}"
-      target="{{.Get "target" | default "_blank" }}"
-      rel="{{.Get "rel" | default "noreferrer" }}">
+  {{ if (ne (.Get "link") "false" ) }}
+  <a href="{{ $image_src }}"
+    target="{{.Get "target" | default "_blank" }}"
+    rel="{{.Get "rel" | default "noreferrer" }}">
   {{ end -}}
 
   {{/* Create smaller versions if the figure is local */}}
   {{ if $asset }}
-    {{ $image_src = $asset.RelPermalink }}
     <img src="{{- $image_src -}}"
     srcset='
     {{- if ge $asset.Width "640" -}}
@@ -48,7 +47,7 @@
       {{ with (.Get "height") }}height="{{.}}"{{end}}>
   {{ end }}
 
-  {{- if .Get "link" }}</a>{{ end }}
+  {{ if (ne (.Get "link") "false" ) }}</a>{{ end }}
 
   {{ if $caption }}
     {{/* Localize the figure numbering (if enabled). */}}
