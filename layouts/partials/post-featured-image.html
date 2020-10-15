@@ -6,10 +6,10 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" | default $default_img }}
 {{ if .Params.header_image.unsplash_id }}
     {{ $img_url := printf "https://source.unsplash.com/%s" .Params.header_image.unsplash_id}}
-    {{ $small := printf "%s/640x640" $img_url }}
-    {{ $medium := printf "%s/800x800" $img_url }}
-    {{ $large := printf "%s/1200x1200" $img_url }}
-    {{ $xlarge := printf "%s/3000x1500" $img_url }}
+    {{ $small := printf "%s/640x396" $img_url }}
+    {{ $medium := printf "%s/800x494" $img_url }}
+    {{ $large := printf "%s/1200x742" $img_url }}
+    {{ $xlarge := printf "%s/3000x1854" $img_url }}
     {{ if (.Scratch.Get "set_img_link") }}
         <a href="https://unsplash.com/photos/{{- .Params.header_image.unsplash_id -}}"
             target="_blank"
@@ -19,6 +19,8 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
         class="object-cover object-center w-full h-full"
         loading="lazy"
         src="{{ $img_url }}"
+        width="1618"
+        height="1000"
         srcset='
             {{- $small }} 640w,
             {{- if (.Scratch.Get "get_large") -}}
@@ -41,6 +43,8 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
         class="object-cover object-center w-full h-full"
         loading="lazy"
         src="{{ $img.RelPermalink }}"
+        width="1618"
+        height="1000"
         srcset='
         {{- if ge $img.Width "640" -}}
             {{- $small := $img.Resize "640x" -}}
