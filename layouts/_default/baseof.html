@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang='{{ .Site.LanguageCode }}'>
-    {{ partial "head.html" . }}
+    <head>
+        {{ partial "head/meta.html" . }}
+        {{ partial "head/css.html" . }}
+        {{ partial "head/external.html" . }}
+    </head>
     <body class="page-{{- .Kind }} flex flex-col min-h-screen">
         {{- partial "dev-size-indicator.html" . -}}
         {{- partialCached "header.html" . -}}
