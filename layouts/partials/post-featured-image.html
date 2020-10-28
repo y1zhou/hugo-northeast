@@ -3,8 +3,39 @@ matter. We look for "featured.jpg" or "featured.png" in the same
 directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 <figure class="rounded w-full relative overflow-hidden" style="max-height: 50rem;">
 {{ $default_img := resources.Get "images/default_header.jpg" }}
-{{ $img := (.Resources.ByType "image").GetMatch "*featured*" | default $default_img }}
-{{ if .Params.header_image.unsplash_id }}
+{{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
+{{ if $img }}
+    {{ if (.Scratch.Get "set_img_link") }}
+    <a href="{{- $img.RelPermalink -}}"
+        target="_blank"
+        rel="noreferrer">
+    {{ end -}}
+    <img
+    class="object-cover object-center w-full h-full"
+    loading="lazy"
+    src="{{ $img.RelPermalink }}"
+    width="1618"
+    height="1000"
+    srcset='
+    {{- if ge $img.Width "640" -}}
+        {{- $small := $img.Resize "640x" -}}
+        {{- with $small.RelPermalink -}}{{.}} 640w,{{- end -}}
+    {{- end -}}
+    {{- if (.Scratch.Get "get_large") -}}
+    {{- if ge $img.Width "800" -}}
+        {{- $medium := $img.Resize "800x" -}}
+        {{- with $medium.RelPermalink -}}{{.}} 800w,{{- end -}}
+    {{- end -}}
+    {{- if ge $img.Width "1200" -}}
+        {{- $large := $img.Resize "1200x" -}}
+        {{- with $large.RelPermalink -}}{{.}} 1200w,{{- end -}}
+    {{- end -}}
+    {{- $img.RelPermalink }} {{ $img.Width -}}w
+    {{- end -}}'
+    alt="{{ with .Params.header_image.caption }} {{- . -}} {{end}}"
+    />
+    {{- if (.Scratch.Get "set_img_link") }}</a>{{ end }}
+{{ else if .Params.header_image.unsplash_id }}
     {{ $img_url := printf "https://source.unsplash.com/%s" .Params.header_image.unsplash_id}}
     {{ $small := printf "%s/640x396" $img_url }}
     {{ $medium := printf "%s/800x494" $img_url }}
@@ -30,38 +61,25 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
             {{- end -}}'
         alt="{{ with .Params.header_image.caption }} {{- . -}} {{end}}"
     />
-    {{ if (.Scratch.Get "set_img_caption") }}
-        {{ with .Params.header_image.caption }}
-        <div class="absolute bottom-0 right-0 text-gray-300 bg-gray-900 bg-opacity-50 px-2">
-            {{ . | markdownify | emojify }}
-        </div>
-        {{ end }}
-    {{ end }}
     {{- if (and .Params.header_image.unsplash_id (.Scratch.Get "set_img_link")) }}</a>{{ end }}
 {{ else }}
     <img
-        class="object-cover object-center w-full h-full"
-        loading="lazy"
-        src="{{ $img.RelPermalink }}"
-        width="1618"
-        height="1000"
-        srcset='
-        {{- if ge $img.Width "640" -}}
-            {{- $small := $img.Resize "640x" -}}
-            {{- with $small.RelPermalink -}}{{.}} 640w,{{- end -}}
-        {{- end -}}
-        {{- if (.Scratch.Get "get_large") -}}
-        {{- if ge $img.Width "800" -}}
-            {{- $medium := $img.Resize "800x" -}}
-            {{- with $medium.RelPermalink -}}{{.}} 800w,{{- end -}}
-        {{- end -}}
-        {{- if ge $img.Width "1200" -}}
-            {{- $large := $img.Resize "1200x" -}}
-            {{- with $large.RelPermalink -}}{{.}} 1200w,{{- end -}}
-        {{- end -}}
-        {{- $img.RelPermalink }} {{ $img.Width -}}w
-        {{- end -}}'
-        alt="{{ with .Params.header_image.caption }} {{- . -}} {{end}}"
+    class="object-cover object-center w-full h-full"
+    loading="lazy"
+    src="{{ $default_img.RelPermalink }}"
+    width="1618"
+    height="1000"
+    srcset='
+        {{- $small := $default_img.Resize "640x" -}}
+        {{- with $small.RelPermalink -}}{{.}} 640w,{{- end -}}
+    {{- if (.Scratch.Get "get_large") -}}
+        {{- $medium := $default_img.Resize "800x" -}}
+        {{- with $medium.RelPermalink -}}{{.}} 800w,{{- end -}}
+        {{- $large := $default_img.Resize "1200x" -}}
+        {{- with $large.RelPermalink -}}{{.}} 1200w,{{- end -}}
+    {{- $default_img.RelPermalink }} {{ $default_img.Width -}}w
+    {{- end -}}'
+    alt="Default placeholder image"
     />
 {{- end -}}
 
