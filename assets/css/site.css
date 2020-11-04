@@ -151,6 +151,10 @@ article {
     @apply py-1 mb-2 text-lg leading-relaxed text-left break-normal;
 }
 
+.article-container ol > li::marker {
+    @apply font-bold;
+}
+
 .article-container figcaption {
     @apply block mt-3 mb-6 text-base font-serif leading-normal text-center;
 }
