@@ -3,7 +3,7 @@
     {{/* Carousel of featured posts */}}
     <div class="glide w-full rounded-md overflow-hidden max-w-5xl" style="height: 30rem;">
         <div class="glide__track h-full" data-glide-el="track">
-            <div class="glide__slides h-full flex flex-row flex-no-wrap">
+            <div class="glide__slides h-full flex flex-row flex-nowrap">
                 {{ range first 7 (where site.RegularPages.ByPublishDate.Reverse "Params.featured" true) }}
                 <div class="glide__slide flex flex-shrink-0 overflow-hidden">
                     {{ .Scratch.Set "feat_card_controls" true }}
