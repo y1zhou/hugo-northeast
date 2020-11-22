@@ -5,9 +5,9 @@ module.exports = {
     // buttons, tags
     primary: {
         lighter: "#FEF3C7",
-        DEFAULT: "#FCD34D",
-        dark: "#FBBF24",
-        darker: "#F59E0B",
+        DEFAULT: "#FDE68A",
+        dark: "#FCD34D",
+        darker: "#FBBF24",
     },
     // links
     secondary: {
@@ -24,8 +24,8 @@ module.exports = {
     },
     // cards, menus, header
     surface: {
-        lighter: "#F9FAFB",
-        DEFAULT: "#FFFFFF",
+        lighter: "#FFFFFF",
+        DEFAULT: "#E5E7EB",
         dark: "#374151",
         darker: "#1F2937",
     },
@@ -44,10 +44,10 @@ module.exports = {
         },
         background: {
             DEFAULT: "#111827",
-            dark: "#E5E7EB",
+            dark: "#F9FAFB",
         },
         surface: {
-            DEFAULT: "#4B5563",
+            DEFAULT: "#6B7280",
             dark: "#9CA3AF",
         },
         error: {
