@@ -1,57 +1,57 @@
 // DEFAULT colors are for the light theme, and dark colors are for the dark theme.
 // Names adopted from Material Design:
 // https://material.io/design/color/the-color-system.html
+const colors = require("tailwindcss/colors");
 module.exports = {
     // buttons, tags
     primary: {
-        lighter: "#FEF3C7",
-        DEFAULT: "#FDE68A",
-        dark: "#FCD34D",
-        darker: "#FBBF24",
+        lighter: colors.amber[100],
+        DEFAULT: colors.amber[200],
+        dark: colors.amber[300],
+        darker: colors.amber[400],
     },
     // links
     secondary: {
-        lighter: "#93C5FD",
-        DEFAULT: "#2563EB",
-        dark: "#1D4ED8",
-        darker: "#1E3A8A",
+        lighter: colors.blue[300],
+        DEFAULT: colors.blue[600],
+        dark: colors.blue[700],
+        darker: colors.blue[900],
     },
 
     background: {
-        DEFAULT: "#F3F4F6",
-        dark: "#1F2937",
+        DEFAULT: colors.coolGray[100],
+        dark: colors.coolGray[800],
     },
     // cards, menus, header
     surface: {
-        DEFAULT: "#E5E7EB",
-        dark: "#374151",
-        darker: "#1F2937",
+        DEFAULT: colors.coolGray[200],
+        dark: colors.coolGray[600],
+        darker: colors.coolGray[700],
     },
     // in-line code, warning blocks
     error: {
-        lighter: "#FFF1F2",
-        DEFAULT: "#FEE2E2",
-        dark: "#FCA5A5",
-        darker: "#EF4444",
+        lighter: colors.rose[50],
+        DEFAULT: colors.red[100],
+        dark: colors.red[300],
+        darker: colors.red[500],
     },
     // text and icons
     on: {
         primary: {
-            DEFAULT: "#111827",
-            dark: "#111827",
+            DEFAULT: colors.coolGray[900],
         },
         background: {
-            DEFAULT: "#111827",
-            dark: "#F9FAFB",
+            DEFAULT: colors.coolGray[900],
+            dark: colors.coolGray[50],
         },
         surface: {
-            lighter: "#D1D5DB",
-            DEFAULT: "#6B7280",
-            dark: "#9CA3AF",
+            lighter: colors.coolGray[300],
+            DEFAULT: colors.coolGray[500],
+            dark: colors.coolGray[400],
         },
         error: {
-            DEFAULT: "#DC2626",
-            dark: "#B91C1C",
+            DEFAULT: colors.red[600],
+            dark: colors.red[700],
         },
     },
 };
