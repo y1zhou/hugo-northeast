@@ -12,19 +12,17 @@ module.exports = {
     // links
     secondary: {
         lighter: "#93C5FD",
-        DEFAULT: "#3B82F6",
+        DEFAULT: "#2563EB",
         dark: "#1D4ED8",
         darker: "#1E3A8A",
     },
 
     background: {
-        lighter: "#FFFFFF",
         DEFAULT: "#F3F4F6",
         dark: "#1F2937",
     },
     // cards, menus, header
     surface: {
-        lighter: "#FFFFFF",
         DEFAULT: "#E5E7EB",
         dark: "#374151",
         darker: "#1F2937",
@@ -47,6 +45,7 @@ module.exports = {
             dark: "#F9FAFB",
         },
         surface: {
+            lighter: "#D1D5DB",
             DEFAULT: "#6B7280",
             dark: "#9CA3AF",
         },
