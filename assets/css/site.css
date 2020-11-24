@@ -329,7 +329,7 @@ iframe.instagram-media,
 
 /* Unified buttons style */
 .round-button {
-    @apply rounded-full transition-all duration-150 ease-linear  hover:bg-ne-primary-dark;
+    @apply rounded-full transition-all duration-150 ease-linear hover:bg-ne-primary-dark hover:text-ne-on-primary;
 }
 
 .round-button button,
