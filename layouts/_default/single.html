@@ -3,7 +3,7 @@
     {{/* Post tags, title, metadata and banner image */}}
     <div class="py-2">
         {{ partial "post-tags" . }}
-        <h1 class="text-center py-2 px-6">{{ .Title }}</h1>
+        <h1 class="text-center pt-2 pb-6 px-6">{{ .Title }}</h1>
         {{ partial "post-metadata" . }}
         <div class="my-8 rounded overflow-hidden">
             {{ .Scratch.Set "set_img_link" true }}

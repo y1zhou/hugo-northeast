@@ -1,24 +1,24 @@
 {{ $related := site.RegularPages.Related . | first 5 }}
 {{ with $related }}
-<div class="text-gray-500 font-bold text-base mb-2">
+<div class="text-ne-on-surface font-bold text-base mb-2">
     Related Posts
 </div>
 
 <table class="table-fixed text-lg leading-loose w-full mx-auto">
     <tbody class="post-footer">
         {{ range . }}
-        <tr class="hover:bg-gray-300 cursor-pointer" onclick="window.location = {{ .Permalink }}">
+        <tr class="listview-row cursor-pointer" onclick="window.location = {{ .Permalink }}">
             <td class="pl-1 lg:pl-4 w-16 lg:w-20 font-semibold tracking-tighter text-sm">
                 {{- dateFormat "Jan 02" .PublishDate -}}
             </td>
             <td class="px-2 font-serif truncate">
-                <a href="{{ .Permalink }}" class="hover:bg-transparent transition-none">
+                <a href="{{ .Permalink }}" class="hover:bg-transparent">
                     {{- .Title -}}
                 </a>
             </td>
-            <td class="pr-1 lg:pr-4 w-24 lg:w-32 text-sm text-gray-600 tracking-tighter text-right">
+            <td class="pr-1 lg:pr-4 w-24 lg:w-32 text-sm tracking-tighter text-right">
                 {{ if .Params.featured }}
-                <i data-feather="star" class="inline-block text-yellow-400 pr-1 w-5 h-5" fill="#f6e05e"></i>
+                <i data-feather="star" class="inline-block text-ne-primary-dark pr-1 w-5 h-5" fill="#FCD34D"></i>
                 {{ end }} {{- .ReadingTime }} min read
             </td>
         </tr>

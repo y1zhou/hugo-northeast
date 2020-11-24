@@ -6,12 +6,12 @@
     <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
     {{ range .Pages.ByDate.Reverse }}
     <div class="flex flex-row items-center justify-start py-1 px-1">
-        <div class="flex flex-row flex-shrink-0 items-center text-gray-500 font-semibold tracking-tighter text-sm">
+        <div class="flex flex-row flex-shrink-0 items-center text-ne-on-surface font-semibold tracking-tighter text-sm">
             {{- dateFormat "Jan 02" .Date -}}
         </div>
 
         <div class="flex flex-row flex-grow flex-wrap items-center font-serif pl-4">
-            <p class="listview-row">
+            <p>
                 {{ with .Params.authors }}
                 {{ range $i, $author := . }}
                     {{- if gt $i 0 -}}, {{ end -}}
@@ -19,8 +19,8 @@
                 {{- end -}}
                 <span>.</span>
                 {{ end }}
-                
-                <a href="{{ .Permalink }}" class="text-blue-500 hover:bg-transparent hover:underline">{{ .Title }}.</a>
+
+                <a href="{{ .Permalink }}" class="text-ne-secondary-dark hover:text-ne-primary-darker">{{ .Title }}.</a>
 
                 {{ with .Params.journal }}<span class="italic">{{ . }}</span>{{ end -}}
                 {{ with .Params.volume }}<span> ({{ . }})</span>{{ end -}}
@@ -31,7 +31,7 @@
         </div>
 
         {{ if .Params.featured }}
-            <i data-feather="star" class="inline-block mr-1 text-sm text-yellow-400 w-4 h-4" fill="#f6e05e"></i>
+            <i data-feather="star" class="inline-block mr-1 text-sm text-ne-primary-dark w-4 h-4" fill="#FCD34D"></i>
         {{ end }}
     </div>
     {{ end }}

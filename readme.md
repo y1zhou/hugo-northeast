@@ -39,7 +39,7 @@ npm install
 
 Finally, add `theme = "hugo-northeast` in the `config.toml` file in the root directory of your Hugo website.
 
-The website is now good to go! Run `hugo server -D` to see a live preview of it. To build the website for deployment, run
+The website is now good to go! Run `hugo server -DF --disableFastRender` to see a live preview of it. To build the website for deployment, run
 
 ```bash
 hugo --gc --minify
