@@ -21,8 +21,8 @@ mark {
     @apply bg-ne-primary-dark;
 }
 
-blockquote > p {
-    @apply text-ne-on-surface;
+.article-container blockquote * {
+    @apply text-ne-on-surface !important;
 }
 
 :not(pre) > code {
