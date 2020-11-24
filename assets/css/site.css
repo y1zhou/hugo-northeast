@@ -326,3 +326,17 @@ iframe.instagram-media,
 .twitter-tweet {
     @apply mx-auto !important;
 }
+
+/* Unified buttons style */
+.round-button {
+    @apply rounded-full transition-all duration-150 ease-linear  hover:bg-ne-primary-dark;
+}
+
+.round-button button,
+button.round-button {
+    @apply font-bold;
+}
+
+.social-button {
+    @apply h-8 w-8 flex items-center justify-center bg-ne-surface-darker hover:bg-ne-primary-dark text-white hover:text-ne-on-primary !important;
+}

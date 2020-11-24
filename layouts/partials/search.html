@@ -3,7 +3,7 @@
         class="w-11/12 md:w-3/5 max-w-2xl mt-24 mx-auto rounded-md overflow-hidden transform -translate-y-4 transition-transform duration-150 ease-in">
         {{/* Search input */}}
         <div class="relative">
-            <div id="search-input" class="rounded-md text-gray-500">
+            <div id="search-input" class="rounded-md">
                 <input
                     class="pl-8 pr-6 py-2 block w-full focus:outline-none"
                     type="text" placeholder="Search..." />
@@ -15,14 +15,14 @@
 
         {{/* Popular tags */}}
         <div id="search-popular-tags" class="block px-4 py-2">
-            <div class="w-full text-gray-500 text-base tracking-tight font-semibold">
+            <div class="w-full text-ne-on-surface text-base tracking-tight font-semibold">
                 Popular Tags
             </div>
             <div
                 class="flex flex-row flex-wrap justify-start space-x-2 text-sm font-semibold">
                 {{ range first 5 site.Taxonomies.tags.ByCount }}
                 <a href="/tags/{{ .Name }}"
-                    class="gray-tag my-1 hover:bg-yellow-400 px-3 py-0 rounded-full">#{{- .Name -}}</a>
+                    class="gray-tag my-1 px-3 py-0 rounded-full">#{{- .Name -}}</a>
                 {{ end }}
             </div>
         </div>

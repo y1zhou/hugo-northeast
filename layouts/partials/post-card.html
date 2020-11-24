@@ -10,14 +10,14 @@
 
         {{/* featured */}}
         {{ if .Params.featured }}
-        <i data-feather="star" class="absolute right-0 top-0 pr-4 pt-4 w-10 h-10 text-yellow-400" fill="#f6e05e"></i>
+        <i data-feather="star" class="absolute right-0 top-0 pr-4 pt-4 w-10 h-10 text-ne-primary-dark" fill="#FCD34D"></i>
         {{ end }}
 
         <div class="px-2 sm:px-4">
             <div class="flex flex-row flex-wrap justify-between content-center tracking-tighter mt-2">
                 {{/* Page categories */}}
                 {{ if .Params.categories }}
-                <div class="flex flex-shrink font-serif text-gray-600 pr-2">
+                <div class="flex flex-shrink font-serif text-ne-on-surface pr-2">
                     {{- range $index, $value := (.GetTerms "categories") -}}
                     {{- if gt $index 0 }} | {{ end -}}
                     {{- humanize .LinkTitle -}}
@@ -26,7 +26,7 @@
                 {{ end }}
 
                 {{/* Date and category */}}
-                <div class="flex flex-row justify-start items-center space-x-2 text-gray-500 text-sm divide-x-2">
+                <div class="flex flex-row justify-start items-center space-x-2 text-ne-on-surface text-sm divide-x-2">
                     {{ with .PublishDate }}
                     <div class="flex flex-shrink-0 items-center">
                         {{ dateFormat "Jan 2, 2006" .Local -}}
@@ -53,7 +53,7 @@
     <div class="flex flex-wrap justify-left px-2 sm:px-4 my-2 space-x-2">
         {{ range (.GetTerms "tags") }}
         <a href="{{ .Permalink }}"
-            class="gray-tag inline-block px-3 py-1 my-1 rounded-full hover:bg-yellow-400 text-sm no-underline tracking-tight leading-tight font-semibold">
+            class="gray-tag inline-block px-3 py-1 my-1 rounded-full text-sm no-underline tracking-tight leading-tight font-semibold">
             #{{ .LinkTitle }}
         </a>
         {{ end }}

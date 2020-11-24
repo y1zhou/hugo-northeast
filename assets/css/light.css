@@ -95,7 +95,7 @@ section.footnotes:before {
     @apply bg-white shadow-md;
 }
 #search-input {
-    @apply border-b border-ne-surface;
+    @apply border-b border-ne-surface text-ne-on-surface;
 }
 #search-input input {
     @apply text-ne-surface-dark;
@@ -127,12 +127,12 @@ ul.search-results li:hover {
 
 /* Unified buttons style */
 .round-button {
-    @apply rounded-full shadow-md bg-white transition-all duration-150 ease-linear;
+    @apply shadow-md bg-white;
 }
 
 .round-button button,
 button.round-button {
-    @apply font-bold text-ne-on-background;
+    @apply text-ne-on-background;
 }
 
 /* Site header */
@@ -153,8 +153,8 @@ button.round-button {
     @apply text-ne-surface-dark;
 }
 
-.listview-row:hover {
-    @apply bg-ne-surface;
+.listview-row {
+    @apply hover:bg-ne-surface transition-all duration-150 ease-linear;
 }
 
 /* Styling cards and elements */
@@ -163,7 +163,7 @@ button.round-button {
 }
 
 .gray-tag {
-    @apply text-ne-surface-dark bg-ne-surface;
+    @apply text-ne-surface-dark bg-ne-surface hover:bg-ne-primary-dark;
 }
 
 /* Homepage pagination */
@@ -176,7 +176,7 @@ li.page-item {
 }
 
 li.page-item:not(.disabled) {
-    @apply rounded hover:bg-ne-surface;
+    @apply hover:bg-ne-surface;
 }
 
 li.page-item.active {

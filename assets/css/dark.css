@@ -53,7 +53,7 @@ blockquote > p {
     @apply bg-ne-surface-darker;
 }
 .article-container tbody tr:hover {
-    @apply bg-gray-600;
+    @apply bg-ne-on-surface;
 }
 
 .article-container figcaption {
@@ -69,11 +69,7 @@ section.footnotes:before {
 }
 
 .post-footer {
-    @apply text-ne-on-surface-dark;
-}
-
-a.post-footer:hover {
-    @apply text-ne-on-background-dark;
+    @apply text-ne-on-surface-dark hover:text-ne-on-surface-dark;
 }
 
 .post-footer tr:hover {
@@ -97,6 +93,10 @@ a.post-footer:hover {
     @apply bg-ne-background-dark;
 }
 
+#toc-top-divider {
+    @apply border-ne-surface-dark;
+}
+
 #toc-top-divider::after {
     @apply text-ne-on-surface-dark bg-ne-background-dark;
 }
@@ -111,7 +111,7 @@ a.post-footer:hover {
     @apply bg-ne-surface-darker;
 }
 #search-input {
-    @apply border-b border-ne-surface-dark;
+    @apply border-b border-ne-surface-dark text-ne-on-surface-dark;
 }
 #search-input input {
     @apply bg-ne-surface-darker text-ne-on-surface-dark;
@@ -143,12 +143,12 @@ ul.search-results li:hover {
 
 /* Unified buttons style */
 .round-button {
-    @apply rounded-full shadow-md bg-ne-surface-dark transition-all duration-150 ease-linear;
+    @apply bg-ne-surface-dark;
 }
 
 .round-button button,
 button.round-button {
-    @apply font-bold text-ne-on-surface-dark hover:text-ne-on-primary;
+    @apply text-ne-on-surface-dark hover:text-ne-on-primary;
 }
 
 /* Site header */
@@ -157,20 +157,20 @@ button.round-button {
 }
 
 .site-header-navlink:hover {
-    @apply bg-gray-400 text-gray-700;
+    @apply bg-ne-surface-dark text-ne-on-surface-lighter;
 }
 
 /* Publication related */
 #publication-metadata {
-    @apply text-gray-300;
+    @apply text-ne-on-surface-dark;
 }
 
 .listview-wrapper {
-    @apply text-gray-300;
+    @apply text-ne-on-surface-dark;
 }
 
-.listview-row:hover {
-    @apply bg-gray-400 text-gray-700;
+.listview-row {
+    @apply hover:bg-ne-surface-dark hover:text-ne-on-background-dark transition-all duration-150 ease-linear;
 }
 
 /* Styling cards and elements */
@@ -179,11 +179,7 @@ button.round-button {
 }
 
 .gray-tag {
-    @apply text-ne-on-surface-dark bg-ne-surface-dark;
-}
-
-.gray-tag:hover {
-    @apply text-ne-on-primary;
+    @apply text-ne-on-surface-dark bg-ne-surface-dark hover:text-ne-on-primary hover:bg-ne-primary-dark;
 }
 
 /* Homepage pagination */

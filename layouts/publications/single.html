@@ -23,19 +23,19 @@
     <div class="flex flex-row justify-center items-center space-x-2">
       {{ with .Params.doi }}
       <a href="https://doi.org/{{ . }}" alt="DOI" title="DOI"
-        class="round-button hover:bg-yellow-400 h-8 w-8 flex items-center justify-center">
+        class="round-button h-8 w-8 flex items-center justify-center">
         <i data-feather="link" class="w-5 h-5"></i>
       </a>
       {{ end }}
       {{ with .Params.pdf_url }}
       <a href="{{ . }}" alt="PDF" title="PDF"
-        class="round-button hover:bg-yellow-400 h-8 w-8 flex items-center justify-center">
+        class="round-button h-8 w-8 flex items-center justify-center">
         <i data-feather="file-text" class="w-5 h-5"></i>
       </a>
       {{ end }}
       {{ with .Params.cite_url }}
       <a href="{{ . }}" alt="Cite" title="Cite"
-        class="round-button hover:bg-yellow-400 h-8 w-8 flex items-center justify-center">
+        class="round-button h-8 w-8 flex items-center justify-center">
         <i data-feather="paperclip" class="w-5 h-5"></i>
       </a>
       {{ end }}

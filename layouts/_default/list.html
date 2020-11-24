@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h2 class="text-center text-gray-500">{{if (eq .Type "tags") }}#{{ end }}{{ .Title }}</h2>
+<h2 class="text-center text-ne-on-surface">{{if (eq .Type "tags") }}#{{ end }}{{ .Title }}</h2>
 <div class="listview-wrapper flex flex-col space-y-1 text-xl max-w-4xl mx-auto">
     {{ range .Pages.GroupByDate "2006" }}
     <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
@@ -17,9 +17,9 @@
                     {{- .Title -}}
                 </div>
 
-                <div class="flex flex-row flex-shrink-0 items-center text-gray-500 font-semibold tracking-tighter text-sm">
+                <div class="flex flex-row flex-shrink-0 items-center text-ne-on-surface font-semibold tracking-tighter text-sm">
                     {{ if .Params.featured }}
-                    <i data-feather="star" class="inline-block mr-1 text-sm text-yellow-400 w-4 h-4" fill="#f6e05e"></i>
+                    <i data-feather="star" class="inline-block mr-1 text-sm w-4 h-4 text-ne-primary-dark" fill="#FCD34D"></i>
                     {{ end }}
                     {{- dateFormat "Jan 02" .PublishDate -}}
                 </div>

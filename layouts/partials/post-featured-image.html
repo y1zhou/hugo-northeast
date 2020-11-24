@@ -85,7 +85,7 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 
 {{ if (.Scratch.Get "set_img_caption") }}
     {{ with .Params.header_image.caption }}
-    <div class="absolute bottom-0 right-0 text-gray-300 bg-gray-900 bg-opacity-50 px-2">
+    <div class="absolute bottom-0 right-0 text-ne-on-background-dark bg-ne-background-dark bg-opacity-50 px-2">
         {{ . | markdownify | emojify }}
     </div>
     {{ end }}

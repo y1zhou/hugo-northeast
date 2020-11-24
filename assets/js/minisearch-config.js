@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 let ans = markMatches(hit);
                                 ans.date = timestamp2Date(hit.date);
                                 let star = feather.icons.star.toSvg({
-                                    class: "inline-block mb-1 text-yellow-400",
+                                    class: "inline-block mb-1 text-ne-primary",
                                     width: 16,
                                     height: 16,
                                     fill: "#f6e05e",
