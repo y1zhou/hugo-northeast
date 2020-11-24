@@ -1,6 +1,6 @@
 {
     "name": "hugo-northeast",
-    "version": "0.9.2",
+    "version": "1.0.0",
     "description": "A Hugo theme with Tailwindcss",
     "main": "index.js",
     "repository": "https://github.com/y1zhou/hugo-northeast",
@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "autoprefixer": "^10.0.2",
-        "postcss": "^8.1.8",
+        "postcss": "^8.1.10",
         "postcss-cli": "^8.3.0",
         "postcss-import": "^13.0.0",
         "tailwindcss": "^2.0.1"
