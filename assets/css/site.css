@@ -309,13 +309,7 @@ ul.pagination {
 }
 
 li.page-item {
-    @apply py-1 px-2;
-}
-
-@media (min-width: 768px) {
-    li.page-item {
-        @apply px-4;
-    }
+    @apply py-1 px-2 md:px-4;
 }
 
 li.page-item.active {
@@ -329,7 +323,7 @@ iframe.instagram-media,
 
 /* Unified buttons style */
 .round-button {
-    @apply rounded-full transition-all duration-150 ease-linear  hover:bg-ne-primary-dark;
+    @apply rounded-full transition-all duration-150 ease-linear hover:bg-ne-primary-dark hover:text-ne-on-primary;
 }
 
 .round-button button,

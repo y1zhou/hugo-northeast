@@ -20,8 +20,8 @@ mark {
     @apply bg-ne-primary-darker;
 }
 
-blockquote > p {
-    @apply text-ne-on-surface-dark;
+.article-container blockquote * {
+    @apply text-ne-on-surface-dark !important;
 }
 
 :not(pre) > code {

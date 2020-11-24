@@ -26,7 +26,7 @@
                 {{ end }}
 
                 {{/* Date and category */}}
-                <div class="flex flex-row justify-start items-center space-x-2 text-ne-on-surface text-sm divide-x-2">
+                <div class="flex flex-row justify-start items-center space-x-2 text-ne-on-surface text-sm divide-x-2 divide-ne-on-surface-lighter">
                     {{ with .PublishDate }}
                     <div class="flex flex-shrink-0 items-center">
                         {{ dateFormat "Jan 2, 2006" .Local -}}
