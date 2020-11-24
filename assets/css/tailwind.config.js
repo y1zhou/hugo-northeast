@@ -13,7 +13,6 @@ module.exports = {
             "exampleSite/content/**/*.html",
         ],
     },
-    darkMode: "media",
     theme: {
         extend: {
             fontFamily: {

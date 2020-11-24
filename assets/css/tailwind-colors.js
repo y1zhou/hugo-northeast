@@ -12,21 +12,20 @@ module.exports = {
     },
     // links
     secondary: {
-        lighter: colors.blue[300],
-        DEFAULT: colors.blue[600],
-        dark: colors.blue[700],
-        darker: colors.blue[900],
+        lighter: colors.blue[100],
+        DEFAULT: colors.blue[700],
+        dark: colors.blue[400],
     },
 
     background: {
         DEFAULT: colors.coolGray[100],
-        dark: colors.coolGray[800],
+        dark: colors.coolGray[900],
     },
     // cards, menus, header
     surface: {
         DEFAULT: colors.coolGray[200],
-        dark: colors.coolGray[600],
-        darker: colors.coolGray[700],
+        dark: colors.coolGray[700],
+        darker: colors.coolGray[800],
     },
     // in-line code, warning blocks
     error: {
@@ -42,7 +41,7 @@ module.exports = {
         },
         background: {
             DEFAULT: colors.coolGray[900],
-            dark: colors.coolGray[50],
+            dark: colors.coolGray[200],
         },
         surface: {
             lighter: colors.coolGray[300],
@@ -51,7 +50,7 @@ module.exports = {
         },
         error: {
             DEFAULT: colors.red[600],
-            dark: colors.red[700],
+            dark: colors.red[800],
         },
     },
 };
