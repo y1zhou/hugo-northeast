@@ -23,7 +23,3 @@
 {{ if site.Params.minisearch_enabled }}
 {{ partialCached "search" . }}
 {{ end }}
-
-{{ if (not .Site.IsServer) }}
-{{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
