@@ -12,6 +12,7 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     {{ end -}}
     <img
     class="object-cover object-center w-full h-full"
+    {{ if (.Scratch.Get "darken") }} style="filter: brightness(0.7);" {{ end }}
     loading="lazy"
     src="{{ $img.RelPermalink }}"
     width="1618"
@@ -48,6 +49,7 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     {{ end -}}
     <img
         class="object-cover object-center w-full h-full"
+        {{ if (.Scratch.Get "darken") }} style="filter: brightness(0.7);" {{ end }}
         loading="lazy"
         src="{{ $img_url }}"
         width="1618"
@@ -65,6 +67,7 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
 {{ else }}
     <img
     class="object-cover object-center w-full h-full"
+    {{ if (.Scratch.Get "darken") }} style="filter: brightness(0.7);" {{ end }}
     loading="lazy"
     src="{{ $default_img.RelPermalink }}"
     width="1618"

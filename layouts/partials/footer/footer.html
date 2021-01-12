@@ -1,6 +1,6 @@
 <footer class="w-full h-32 text-center px-4 pb-4 pt-8 inset-0 text-sm bg-ne-surface-darker">
     {{ partial "social-list" }}
-    <p class="text-ne-on-surface-dark">
+    <p class="text-ne-on-surface-dark font-sans">
         {{ with site.Copyright }} {{- replace . "{year}" now.Year | markdownify -}} {{ end }}
         <a href="{{- site.BaseURL -}}" class="text-ne-on-background-dark hover:text-ne-primary-dark">{{- site.Title -}}</a>
         &copy; Powered by the

@@ -28,7 +28,7 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-serif font-bold text-xl;
+    @apply font-sans font-bold text-xl;
     @apply pt-4 pb-2;
 }
 h1 {
@@ -49,7 +49,7 @@ h6 {
 
 /* Text elements */
 p {
-    @apply font-sans;
+    @apply font-serif;
 }
 
 a {
@@ -109,17 +109,17 @@ article {
 }
 
 .article-container figcaption.numbered:before {
-    @apply font-bold;
+    @apply font-sans font-bold;
     content: attr(data-pre) counter(captions) attr(data-post);
 }
 
 /* Lists */
 .article-container ul {
-    @apply list-disc list-outside pl-8;
+    @apply font-serif list-disc list-outside pl-8;
 }
 
 .article-container ol {
-    @apply list-decimal list-outside pl-8;
+    @apply font-serif list-decimal list-outside pl-8;
 }
 
 .article-container li {
@@ -140,7 +140,7 @@ article {
 }
 
 .article-container figcaption {
-    @apply block mt-3 mb-6 text-base font-serif leading-normal text-center;
+    @apply block mt-3 mb-6 text-base font-sans leading-normal text-center;
 }
 
 /* Tables */

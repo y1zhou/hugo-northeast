@@ -4,44 +4,42 @@
         {{ .Scratch.Set "set_img_link" false}}
         {{ .Scratch.Set "set_img_caption" false}}
         {{ .Scratch.Set "get_large" false }}
+        {{ .Scratch.Set "darken" true }}
         <div class="block relative overflow-hidden w-full rounded" style="max-height: 16rem;">
             {{ partial "post-featured-image" . }}
+
+            {{/* featured */}}
+            {{ if .Params.featured }}
+            <i data-feather="star" class="absolute right-0 top-0 pr-4 pt-4 w-10 h-10 text-ne-primary-dark" fill="#FCD34D"></i>
+            {{ end }}
+
+            {{/* Page categories */}}
+            {{ if .Params.categories }}
+            <div class="absolute left-0 top-0 pl-4 pt-4 content-center tracking-tighter  text-ne-on-background-dark flex flex-shrink items-center font-sans font-bold text-base">
+                <i data-feather="bookmark" class=" inline-block mr-1 w-4 h-4"></i>
+                {{- range $index, $value := (.GetTerms "categories") -}}
+                {{- if gt $index 0 }} | {{ end -}}
+                {{- humanize .LinkTitle -}}
+                {{- end -}}
+            </div>
+            {{ end }}
+
+            {{/* Date and category */}}
+            <div class="absolute left-0 bottom-0 pl-4 pb-2 content-center tracking-tighter  text-ne-on-background-dark flex flex-shrink items-center font-sans font-bold text-base">
+                {{ with .PublishDate }}
+                    {{ dateFormat "Jan 2, 2006" .Local }} |
+                {{ end }}
+                {{ with .ReadingTime }}
+                    {{ . }} min read
+                {{ end }}
+            </div>
         </div>
 
-        {{/* featured */}}
-        {{ if .Params.featured }}
-        <i data-feather="star" class="absolute right-0 top-0 pr-4 pt-4 w-10 h-10 text-ne-primary-dark" fill="#FCD34D"></i>
-        {{ end }}
-
         <div class="px-2 sm:px-4">
-            <div class="flex flex-row flex-wrap justify-between content-center tracking-tighter mt-2">
-                {{/* Page categories */}}
-                {{ if .Params.categories }}
-                <div class="flex flex-shrink font-serif text-ne-on-surface pr-2">
-                    {{- range $index, $value := (.GetTerms "categories") -}}
-                    {{- if gt $index 0 }} | {{ end -}}
-                    {{- humanize .LinkTitle -}}
-                    {{- end -}}
-                </div>
-                {{ end }}
 
-                {{/* Date and category */}}
-                <div class="flex flex-row justify-start items-center space-x-2 text-ne-on-surface text-sm divide-x-2 divide-ne-on-surface-lighter">
-                    {{ with .PublishDate }}
-                    <div class="flex flex-shrink-0 items-center">
-                        {{ dateFormat "Jan 2, 2006" .Local -}}
-                    </div>
-                    {{ end }}
-                    {{ with .ReadingTime }}
-                    <div class="pl-2 flex flex-shrink-0 items-center">
-                        {{ . }} min read
-                    </div>
-                    {{ end }}
-                </div>
-            </div>
 
             {{/* Title */}}
-            <p class="font-serif text-2xl font-bold tracking-tight py-0">{{- .Title -}}</p>
+            <p class="font-sans text-2xl font-bold tracking-tight pb-1 pt-4">{{- .Title -}}</p>
 
             {{/* Summary */}}
             <p class="text-base leading-relaxed">
