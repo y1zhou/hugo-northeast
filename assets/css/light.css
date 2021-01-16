@@ -43,7 +43,7 @@ mark {
 }
 
 .article-container tbody tr:nth-child(even) {
-    @apply bg-ne-surface;
+    @apply bg-ne-surface-lighter;
 }
 .article-container tbody tr:hover {
     @apply bg-ne-primary-lighter;
@@ -58,7 +58,7 @@ mark {
 }
 
 section.footnotes:before {
-    @apply text-ne-on-surface-lighter bg-white;
+    @apply text-ne-on-surface bg-white;
 }
 
 .post-footer {

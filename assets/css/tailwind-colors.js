@@ -23,6 +23,7 @@ module.exports = {
     },
     // cards, menus, header
     surface: {
+        lighter: colors.coolGray[50],
         DEFAULT: colors.coolGray[200],
         dark: colors.coolGray[700],
         darker: colors.coolGray[800],
