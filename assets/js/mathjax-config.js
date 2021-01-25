@@ -22,6 +22,6 @@ window.MathJax = {
 
 window.addEventListener("load", () => {
     document.querySelectorAll("mjx-container").forEach(function (x) {
-        x.parentElement.classList += "has-jax";
+        x.parentElement.classList.add("has-jax");
     });
 });
