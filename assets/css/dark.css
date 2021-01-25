@@ -28,6 +28,11 @@ mark {
     @apply text-ne-on-error-dark bg-ne-error-dark rounded-sm;
 }
 
+code.has-jax,
+div.has-jax {
+    @apply text-ne-on-background-dark;
+}
+
 .article-container img {
     filter: brightness(0.85) contrast(1.2);
 }

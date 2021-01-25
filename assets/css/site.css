@@ -170,6 +170,14 @@ mjx-container[display="true"] {
     @apply overflow-x-auto overflow-y-hidden min-w-0 !important;
 }
 
+/* In-line math from https://geoffruddock.com/math-typesetting-in-hugo/ */
+code.has-jax {
+    -webkit-font-smoothing: antialiased;
+    background: inherit !important;
+    border: none !important;
+    font-size: 100%;
+}
+
 /* Better looking footnotes */
 section.footnotes {
     @apply mt-12;

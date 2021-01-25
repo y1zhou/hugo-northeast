@@ -29,6 +29,11 @@ mark {
     @apply text-ne-on-error bg-ne-error rounded-sm;
 }
 
+code.has-jax,
+div.has-jax {
+    @apply text-ne-on-background;
+}
+
 .article-container a {
     @apply text-ne-secondary;
 }

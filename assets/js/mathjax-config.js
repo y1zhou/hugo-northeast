@@ -15,4 +15,13 @@ window.MathJax = {
     chtml: {
         scale: 0.9,
     },
+    options: {
+        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre"],
+    },
 };
+
+window.addEventListener("load", () => {
+    document.querySelectorAll("mjx-container").forEach(function (x) {
+        x.parentElement.classList += "has-jax";
+    });
+});
