@@ -145,7 +145,7 @@ article {
 
 /* Tables */
 .article-container table {
-    @apply block mx-auto my-4;
+    @apply block mx-auto my-4 font-serif;
     @apply overflow-y-hidden overflow-x-auto;
     max-width: fit-content;
 }

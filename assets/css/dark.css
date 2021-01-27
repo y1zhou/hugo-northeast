@@ -20,7 +20,7 @@ mark {
     @apply bg-ne-primary-darker;
 }
 
-.article-container blockquote * {
+.article-container blockquote :not(code) {
     @apply text-ne-on-surface-dark !important;
 }
 
