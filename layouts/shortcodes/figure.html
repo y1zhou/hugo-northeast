@@ -51,11 +51,11 @@
 
   {{ if $caption }}
     {{/* Localize the figure numbering (if enabled). */}}
-    {{ $figure := split "Figure %d: " "%d" }}
+    {{ $figure := split "Figure %d:" "%d" }}
     <figcaption
       {{ if eq (.Get "numbered") "true" }}
         data-pre="{{ index $figure 0 }}"
-        data-post="{{ index $figure 1 }}"
+        data-post="{{ index $figure 1 }} "
         class="numbered"
       {{ end }}>
       {{ $caption | markdownify | emojify }}
