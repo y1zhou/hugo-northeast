@@ -19,19 +19,16 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     height="1000"
     srcset='
     {{- if ge $img.Width "640" -}}
-        {{- $small := $img.Resize "640x" -}}
-        {{- with $small.RelPermalink -}}{{.}} 640w,{{- end -}}
+        {{- ($img.Resize "640x").RelPermalink }} 640w,
     {{- end -}}
     {{- if (.Scratch.Get "get_large") -}}
-    {{- if ge $img.Width "800" -}}
-        {{- $medium := $img.Resize "800x" -}}
-        {{- with $medium.RelPermalink -}}{{.}} 800w,{{- end -}}
-    {{- end -}}
-    {{- if ge $img.Width "1200" -}}
-        {{- $large := $img.Resize "1200x" -}}
-        {{- with $large.RelPermalink -}}{{.}} 1200w,{{- end -}}
-    {{- end -}}
-    {{- $img.RelPermalink }} {{ $img.Width -}}w
+        {{- if ge $img.Width "800" -}}
+            {{- ($img.Resize "800x").RelPermalink }} 800w,
+        {{- end -}}
+        {{- if ge $img.Width "1200" -}}
+            {{- ($img.Resize "1200x").RelPermalink }} 1200w,
+        {{- end -}}
+        {{- $img.RelPermalink }} {{ $img.Width -}}w
     {{- end -}}'
     alt="{{ with .Params.header_image.caption }} {{- . -}} {{end}}"
     />
@@ -73,14 +70,11 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     width="1618"
     height="1000"
     srcset='
-        {{- $small := $default_img.Resize "640x" -}}
-        {{- with $small.RelPermalink -}}{{.}} 640w,{{- end -}}
+        {{- ($default_img.Resize "640x").RelPermalink }} 640w,
     {{- if (.Scratch.Get "get_large") -}}
-        {{- $medium := $default_img.Resize "800x" -}}
-        {{- with $medium.RelPermalink -}}{{.}} 800w,{{- end -}}
-        {{- $large := $default_img.Resize "1200x" -}}
-        {{- with $large.RelPermalink -}}{{.}} 1200w,{{- end -}}
-    {{- $default_img.RelPermalink }} {{ $default_img.Width -}}w
+        {{- ($default_img.Resize "800x").RelPermalink }} 800w,
+        {{- ($default_img.Resize "1200x").RelPermalink }} 1200w,
+        {{- $default_img.RelPermalink }} {{ $default_img.Width -}}w
     {{- end -}}'
     alt="Default placeholder image"
     />

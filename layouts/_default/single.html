@@ -6,9 +6,6 @@
         <h1 class="font-serif text-center pt-2 pb-6 px-6">{{ .Title }}</h1>
         {{ partial "post-metadata" . }}
         <div class="my-8 rounded overflow-hidden">
-            {{ .Scratch.Set "set_img_link" true }}
-            {{ .Scratch.Set "set_img_caption" true }}
-            {{ .Scratch.Set "get_large" true }}
             {{ with .Params.summary }}
                 <div class="post-summary mb-4 text-center italic text-xl">
                     {{ . }}
@@ -16,6 +13,9 @@
             {{ end }}
             {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
             {{ if (or $img .Params.header_image.unsplash_id ) }}
+                {{ .Scratch.Set "set_img_link" true }}
+                {{ .Scratch.Set "set_img_caption" true }}
+                {{ .Scratch.Set "get_large" true }}
                 {{ partial "post-featured-image" . }}
             {{ end }}
         </div>

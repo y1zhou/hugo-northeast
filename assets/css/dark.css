@@ -61,7 +61,8 @@ div.has-jax {
     @apply bg-ne-on-surface;
 }
 
-.article-container figcaption {
+.article-container figcaption,
+.article-container .figure p.caption {
     @apply text-ne-on-surface-dark;
 }
 

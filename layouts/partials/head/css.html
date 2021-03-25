@@ -1,20 +1,16 @@
 {{/* Site CSS  */}}
 {{- $styles := resources.Get "css/northeast-tailwind.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
 {{- if .Site.IsServer }}
-<link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" type="text/css" href="{{ $styles.RelPermalink }}" as="style" onload="this.rel='stylesheet'">
 <noscript>
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
+    <link rel="stylesheet" type="text/css" href="{{ $styles.RelPermalink }}">
+</noscript>
 {{ else }}
 {{- $styles := $styles | minify | fingerprint | resources.PostProcess -}}
-<link rel="preload"
-    href="{{ $styles.RelPermalink }}"
-    integrity="{{ $styles.Data.Integrity }}"
-    as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" type="text/css" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
-    <link rel="stylesheet"
-        href="{{ $styles.RelPermalink }}"
-        integrity="{{ $styles.Data.Integrity }}">
+    <link rel="stylesheet" type="text/css" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 </noscript>
 {{ end -}}
 
@@ -22,14 +18,10 @@
 {{- $light_theme := resources.Get "css/light.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
 {{- $dark_theme := resources.Get "css/dark.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
 {{- $light_theme := $light_theme | minify | fingerprint | resources.PostProcess -}}
-<link rel="stylesheet"
-    href="{{ $light_theme.RelPermalink }}"
-    integrity="{{ $light_theme.Data.Integrity }}"
-    media="(prefers-color-scheme: light)">
+<link rel="stylesheet" type="text/css" href="{{- relURL $light_theme.RelPermalink -}}"
+    integrity="{{ $light_theme.Data.Integrity }}" media="(prefers-color-scheme: light)">
 {{- $dark_theme := $dark_theme | minify | fingerprint | resources.PostProcess -}}
-<link rel="stylesheet"
-    href="{{ $dark_theme.RelPermalink }}"
-    integrity="{{ $dark_theme.Data.Integrity }}"
-    media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" type="text/css" href="{{- relURL $dark_theme.RelPermalink -}}"
+    integrity="{{ $dark_theme.Data.Integrity }}" media="(prefers-color-scheme: dark)">
 {{ $toggleTheme := resources.Get "js/theme-toggle.js" | minify | fingerprint }}
 <script src="{{- $toggleTheme.RelPermalink -}}" integrity="{{- $toggleTheme.Data.Integrity -}}"></script>

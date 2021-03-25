@@ -86,7 +86,7 @@ Files in the `public/` directory can now be served.
     -   [x] External link to DOI/PDF
 -   [x] Shortcodes
     -   [x] Highlight (mark) in post
-    -   [x] Figure w/ captions, links and numbering
+    -   [x] Figure w/ captions and links
     -   [x] Alert (note and warning)
 -   [x] Partials
     -   [x] Go back to top

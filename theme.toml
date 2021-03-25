@@ -6,10 +6,10 @@ license = "MIT"
 licenselink = "https://github.com/y1zhou/hugo-northeast/blob/master/LICENSE"
 description = "A Hugo theme using Tailwind CSS."
 homepage = "https://github.com/y1zhou/hugo-northeast"
-tags = ["Hugo", "Tailwind CSS", "theme"]
+tags = ["Hugo", "Tailwind CSS", "theme", "blogdown"]
 features = []
 min_version = "0.69"
 
 [author]
   name = "Yi Zhou"
-  homepage = "https://y1zhou.com/"
+  homepage = "https://www.y1zhou.com/"

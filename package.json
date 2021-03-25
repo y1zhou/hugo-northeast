@@ -1,6 +1,6 @@
 {
     "name": "hugo-northeast",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "A Hugo theme with Tailwindcss",
     "main": "index.js",
     "repository": "https://github.com/y1zhou/hugo-northeast",

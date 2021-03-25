@@ -20,7 +20,7 @@
                 <span>.</span>
                 {{ end }}
 
-                <a href="{{ .Permalink }}" class="text-ne-secondary-dark hover:text-ne-primary-darker">{{ .Title }}.</a>
+                <a href="{{ .RelPermalink }}" class="text-ne-secondary-dark hover:text-ne-primary-darker">{{ .Title }}.</a>
 
                 {{ with .Params.journal }}<span class="italic">{{ . }}</span>{{ end -}}
                 {{ with .Params.volume }}<span> ({{ . }})</span>{{ end -}}

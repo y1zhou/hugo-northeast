@@ -34,6 +34,7 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/minisearch@2.4.1/dist/umd/index.min.js"></script>
-{{ $minisearch := resources.Get "js/minisearch-config.js" | minify | fingerprint }}
+{{ $minisearch := resources.Get "static/js/minisearch.min.js" | fingerprint }}
+{{ $minisearch_config := resources.Get "js/minisearch-config.js" | minify | fingerprint }}
 <script defer src="{{- $minisearch.RelPermalink -}}" integrity="{{- $minisearch.Data.Integrity -}}"></script>
+<script defer src="{{- $minisearch_config.RelPermalink -}}" integrity="{{- $minisearch_config.Data.Integrity -}}"></script>

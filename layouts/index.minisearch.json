@@ -2,7 +2,7 @@
 
 {{- range site.RegularPages -}}
   {{- $content := .Plain | replaceRE `\s\$+[^\$]+\$+` "" | replaceRE `\s+` " " -}}
-  {{- $index = $index | append (dict "objectID" .File.UniqueID "title" .Title "date" .Date "href" .Permalink "featured" .Params.featured "summary" .Params.summary "content" $content ) -}}
+  {{- $index = $index | append (dict "objectID" .File.UniqueID "title" .Title "date" .Date "href" .RelPermalink "featured" .Params.featured "summary" .Params.summary "content" $content ) -}}
   {{- end -}}
 
 {{- $index | jsonify -}}
