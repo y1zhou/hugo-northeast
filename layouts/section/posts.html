@@ -4,7 +4,7 @@
     {{ range .Pages.GroupByDate "2006" }}
     <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
     {{ range .Pages.ByPublishDate.Reverse }}
-        <a href="{{ .Permalink }}" class="hover:bg-transparent">
+        <a href="{{ .RelPermalink }}" class="hover:bg-transparent">
             <div class="flex flex-row items-center justify-start py-1 px-1 listview-row">
                 <div class="flex flex-row flex-shrink-0 items-center text-ne-on-surface font-semibold tracking-tighter text-sm">
                     {{- dateFormat "Jan 02" .PublishDate -}}

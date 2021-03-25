@@ -1,5 +1,5 @@
 <div class="post-card relative p-0 rounded overflow-hidden">
-    <a href="{{ .Permalink }}">
+    <a href="{{ .RelPermalink }}">
         {{/* Show banner image or default header image */}}
         {{ .Scratch.Set "set_img_link" false}}
         {{ .Scratch.Set "set_img_caption" false}}
@@ -50,7 +50,7 @@
     {{/* Tags */}}
     <div class="flex flex-wrap justify-left px-2 sm:px-4 my-2 space-x-2">
         {{ range (.GetTerms "tags") }}
-        <a href="{{ .Permalink }}"
+        <a href="{{ .RelPermalink }}"
             class="gray-tag inline-block px-3 py-1 my-1 rounded-full text-sm no-underline tracking-tight leading-tight font-semibold">
             #{{ .LinkTitle }}
         </a>

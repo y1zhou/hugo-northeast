@@ -12,7 +12,7 @@
         <i data-feather="folder" class="mr-1 w-4 h-4"></i>
         {{- range $index, $value := (.GetTerms "categories") -}}
         {{- if gt $index 0 }}, {{ end -}}
-        <a href="{{ .Permalink }}" class="no-underline">{{- humanize .LinkTitle -}}</a>
+        <a href="{{ .RelPermalink }}" class="no-underline">{{- humanize .LinkTitle -}}</a>
         {{- end -}}
     </div>
     {{ end }}

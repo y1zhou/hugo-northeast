@@ -6,7 +6,7 @@
         <div class="flex justify-center items-center flex-shrink-0 mr-0 md:mr-5">
             <a
             id="nav-homepage"
-            href="{{ .Site.Home.Permalink }}"
+            href="{{ .Site.Home.RelPermalink }}"
             class="flex items-center m-0 py-3 md:flex-none font-bold font-serif tracking-tight hover:bg-transparent"
             >
             {{/* Show logo if file exists */}}
@@ -25,7 +25,7 @@
             <div class="flex justify-start items-center overflow-x-auto p-0 mr-0 md:mr-auto">
             {{ range .Site.Sections.ByWeight }}
                 <a
-                    href="{{ .Permalink }}"
+                    href="{{ .RelPermalink }}"
                     class="site-header-navlink py-1 px-2 rounded"
                 >
                     {{ .Title }}
@@ -33,7 +33,7 @@
             {{ end }}
             {{ with .Site.GetPage "/about" }}
                 <a
-                    href="{{ .Permalink }}"
+                    href="{{ .RelPermalink }}"
                     class="site-header-navlink py-1 px-2 rounded"
                 >
                     {{ .Title }}

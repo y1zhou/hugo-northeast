@@ -10,9 +10,9 @@
     <div class="font-sans text-2xl mt-4 mb-2">{{ .Key }}</div>
     {{ range .Pages.ByWeight }}
         {{ if .IsPage }}
-        <a target="_blank" href="{{ .Permalink }}" class="hover:bg-transparent">
+        <a target="_blank" href="{{ .RelPermalink }}" class="hover:bg-transparent">
         {{ else }}
-        <a href="{{ .Permalink }}" class="hover:bg-transparent">
+        <a href="{{ .RelPermalink }}" class="hover:bg-transparent">
         {{ end }}
             <div class="flex flex-row items-center justify-between py-1 px-1 listview-row">
                 <div class="flex flex-row flex-wrap items-center font-serif">
