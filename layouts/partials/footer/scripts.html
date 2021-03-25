@@ -18,7 +18,7 @@
 {{/* Mathjax import */}}
 {{ $mathjax_config := resources.Get "js/mathjax-config.js" | minify | fingerprint }}
 <script defer src="{{- $mathjax_config.RelPermalink -}}" integrity="{{- $mathjax_config.Data.Integrity -}}"></script>
-<script defer src="/js/mathjax3/tex-mml-chtml.js"></script>
+<script defer src={{- "/js/mathjax3/tex-mml-chtml.js" | relURL -}}></script>
 
 {{/* MinSearch for search bar */}}
 {{ if site.Params.minisearch_enabled }}

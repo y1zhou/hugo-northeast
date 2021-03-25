@@ -4,7 +4,7 @@
     font-style: normal;
     font-weight: 400;
     src: local("Jetbrains Mono"),
-        url("/fonts/jetbrains-mono-v6-latin-regular.woff2") format("woff2");
+        url("../fonts/jetbrains-mono-v6-latin-regular.woff2") format("woff2");
 }
 
 /* open-sans-regular - latin */
@@ -12,21 +12,21 @@
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/open-sans-v18-latin-regular.woff2") format("woff2");
+    src: url("../fonts/open-sans-v18-latin-regular.woff2") format("woff2");
 }
 /* open-sans-italic - latin */
 @font-face {
     font-family: "Open Sans";
     font-style: italic;
     font-weight: 400;
-    src: url("/fonts/open-sans-v18-latin-italic.woff2") format("woff2");
+    src: url("../fonts/open-sans-v18-latin-italic.woff2") format("woff2");
 }
 /* open-sans-700 - latin */
 @font-face {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/open-sans-v18-latin-700.woff2") format("woff2");
+    src: url("../fonts/open-sans-v18-latin-700.woff2") format("woff2");
 }
 
 /* pt-serif-regular - latin */
@@ -34,21 +34,21 @@
     font-family: "PT Serif";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/pt-serif-v12-latin-regular.woff2") format("woff2");
+    src: url("../fonts/pt-serif-v12-latin-regular.woff2") format("woff2");
 }
 /* pt-serif-italic - latin */
 @font-face {
     font-family: "PT Serif";
     font-style: italic;
     font-weight: 400;
-    src: url("/fonts/pt-serif-v12-latin-italic.woff2") format("woff2");
+    src: url("../fonts/pt-serif-v12-latin-italic.woff2") format("woff2");
 }
 /* pt-serif-700 - latin */
 @font-face {
     font-family: "PT Serif";
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/pt-serif-v12-latin-700.woff2") format("woff2");
+    src: url("../fonts/pt-serif-v12-latin-700.woff2") format("woff2");
 }
 
 /* Site-wide smooth scrolling */
