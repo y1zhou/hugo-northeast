@@ -1,7 +1,7 @@
 {{/* glide.js for homepage carousel */}}
 {{ if .IsHome }}
-<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"
-    integrity="sha256-CnNQJd80jPuIDyeQRRq7+Wgt+++Kl0dZLt4ETNmxMIw=" crossorigin="anonymous"></script>
+{{ $glidejs := resources.Get "static/js/glide.min.js" | fingerprint }}
+<script src="{{- $glidejs.RelPermalink -}}" integrity="{{- $glidejs.Data.Integrity -}}"></script>
 <script>
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     const peekVal = (vw > 768) ? 35 : 0
@@ -11,13 +11,14 @@
 {{ end }}
 
 {{/* Feather icons  */}}
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+{{ $feather := resources.Get "static/js/feather.min.js" | fingerprint }}
+<script src="{{- $feather.RelPermalink -}}" integrity="{{- $feather.Data.Integrity -}}"></script>
 <script>feather.replace()</script>
 
 {{/* Mathjax import */}}
 {{ $mathjax_config := resources.Get "js/mathjax-config.js" | minify | fingerprint }}
 <script defer src="{{- $mathjax_config.RelPermalink -}}" integrity="{{- $mathjax_config.Data.Integrity -}}"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+<script defer src="/js/mathjax3/tex-mml-chtml.js"></script>
 
 {{/* MinSearch for search bar */}}
 {{ if site.Params.minisearch_enabled }}
