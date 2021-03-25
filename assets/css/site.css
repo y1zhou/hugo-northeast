@@ -60,9 +60,6 @@ html {
         scroll-behavior: auto;
     }
 }
-body {
-    counter-reset: captions;
-}
 
 /* ################################# */
 /* #         Overall design        # */
@@ -150,15 +147,6 @@ article {
     @apply my-4 max-w-full mx-auto;
 }
 
-.article-container figcaption.numbered {
-    counter-increment: captions;
-}
-
-.article-container figcaption.numbered:before {
-    @apply font-sans font-bold;
-    content: attr(data-pre) counter(captions) attr(data-post);
-}
-
 /* Lists */
 .article-container ul {
     @apply font-serif list-disc list-outside pl-8;
@@ -185,7 +173,8 @@ article {
     @apply font-bold;
 }
 
-.article-container figcaption {
+.article-container figcaption,
+.article-container .figure p.caption {
     @apply block mt-3 mb-6 text-base font-sans leading-normal text-center;
 }
 
