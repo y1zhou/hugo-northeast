@@ -4,9 +4,9 @@
 {{- $dark_theme := resources.Get "css/dark.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
 
 {{- if not .Site.IsServer }}
-    {{- $styles := $styles | minify | fingerprint | resources.PostProcess -}}
-    {{- $light_theme := $light_theme | minify | fingerprint | resources.PostProcess -}}
-    {{- $dark_theme := $dark_theme | minify | fingerprint | resources.PostProcess -}}
+    {{- $styles = $styles | minify | fingerprint | resources.PostProcess -}}
+    {{- $light_theme = $light_theme | minify | fingerprint | resources.PostProcess -}}
+    {{- $dark_theme = $dark_theme | minify | fingerprint | resources.PostProcess -}}
 {{ end -}}
 
 <link rel="preload" type="text/css" href="{{ $styles.RelPermalink }}"
