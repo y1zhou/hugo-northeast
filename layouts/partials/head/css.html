@@ -23,4 +23,4 @@
     integrity="{{ $dark_theme.Data.Integrity }}" media="(prefers-color-scheme: dark)">
 
 {{ $toggleTheme := resources.Get "js/theme-toggle.js" | minify | fingerprint }}
-<script src="{{- $toggleTheme.RelPermalink -}}" integrity="{{- $toggleTheme.Data.Integrity -}}"></script>
+<script async src="{{- $toggleTheme.RelPermalink -}}" integrity="{{- $toggleTheme.Data.Integrity -}}"></script>
