@@ -3,7 +3,10 @@ window.MathJax = {
         load: ["[tex]/noerrors"],
     },
     tex: {
-        inlineMath: [["$", "$"]],
+        inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+        ],
         displayMath: [
             ["$$", "$$"],
             ["\\[", "\\]"],
