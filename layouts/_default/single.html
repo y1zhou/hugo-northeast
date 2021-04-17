@@ -16,6 +16,7 @@
                 {{ .Scratch.Set "set_img_link" true }}
                 {{ .Scratch.Set "set_img_caption" true }}
                 {{ .Scratch.Set "get_large" true }}
+                {{ .Scratch.Set "darken" false }}
                 {{ partial "post-featured-image" . }}
             {{ end }}
         </div>
