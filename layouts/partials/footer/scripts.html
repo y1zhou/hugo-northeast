@@ -22,5 +22,10 @@
 
 {{/* MinSearch for search bar */}}
 {{ if site.Params.minisearch_enabled }}
-{{ partialCached "search" . }}
+{{- partialCached "search" . -}}
 {{ end }}
+
+{{/* Cloudflare Web Analytics */}}
+{{- with site.Params.cf_analytics -}}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{- . -}}"}'></script>
+{{- end }}
