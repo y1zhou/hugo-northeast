@@ -16,24 +16,8 @@
     rel="{{.Get "rel" | default "noreferrer" }}">
   {{ end -}}
 
-  {{/* Create smaller versions if the figure is local */}}
   {{ if $asset }}
     <img src="{{- $image_src -}}"
-    srcset='
-    {{- if ge $asset.Width "640" -}}
-        {{- $small := $asset.Resize "640x" -}}
-        {{- with $small.RelPermalink }}{{.}} 640w, {{ end -}}
-    {{- end }}
-    {{- if ge $asset.Width "800" }}
-        {{- $medium := $asset.Resize "800x" -}}
-        {{- with $medium.RelPermalink }}{{.}} 800w, {{ end -}}
-    {{- end }}
-    {{- if ge $asset.Width "1000" }}
-        {{- $large := $asset.Resize "1000x" -}}
-        {{- with $large.RelPermalink }}{{.}} 1000w, {{ end -}}
-    {{- end }}
-    {{- $image_src }} {{$asset.Width -}}w
-    '
     loading="lazy"
     alt="{{ with .Get "alt" }}{{.}}{{end}}"
     width="{{ with (.Get "width") }} {{- . -}} {{ else }} {{- $asset.Width -}} {{end}}"
