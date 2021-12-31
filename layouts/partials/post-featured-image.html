@@ -21,15 +21,7 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     {{- if ge $img.Width "640" -}}
         {{- ($img.Resize "640x").RelPermalink }} 640w,
     {{- end -}}
-    {{- if (.Scratch.Get "get_large") -}}
-        {{- if ge $img.Width "800" -}}
-            {{- ($img.Resize "800x").RelPermalink }} 800w,
-        {{- end -}}
-        {{- if ge $img.Width "1200" -}}
-            {{- ($img.Resize "1200x").RelPermalink }} 1200w,
-        {{- end -}}
-        {{- $img.RelPermalink }} {{ $img.Width -}}w
-    {{- end -}}'
+        {{- $img.RelPermalink }} {{ $img.Width -}}w'
     alt="{{ with .Params.header_image.caption }} {{- . -}} {{end}}"
     />
     {{- if (.Scratch.Get "set_img_link") }}</a>{{ end }}
@@ -72,8 +64,6 @@ directory as the post. Alternatively, you can use a photo ID from Unsplash. */}}
     srcset='
         {{- ($default_img.Resize "640x").RelPermalink }} 640w,
     {{- if (.Scratch.Get "get_large") -}}
-        {{- ($default_img.Resize "800x").RelPermalink }} 800w,
-        {{- ($default_img.Resize "1200x").RelPermalink }} 1200w,
         {{- $default_img.RelPermalink }} {{ $default_img.Width -}}w
     {{- end -}}'
     alt="Default placeholder image"
