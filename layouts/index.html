@@ -1,5 +1,5 @@
 {{ define "main" }}
-<article class="flex flex-col justify-center items-center mx-1 sm:mx-4 min-w-0">
+<article class="flex flex-col justify-center items-center mx-1 sm:mx-4">
     {{/* Carousel of featured posts */}}
     <div class="glide w-full rounded-md overflow-hidden max-w-5xl" style="height: 30rem;">
         <div class="glide__track h-full" data-glide-el="track">
@@ -12,10 +12,12 @@
             </div>
         </div>
         <div data-glide-el="controls" class="glide__arrows absolute inset-y-1/2 text-white w-full px-1 md:px-4">
-            <button data-glide-dir="<" class="round-button w-8 h-8 float-left focus:outline-none" aria-label="Previous">
+            <button data-glide-dir="<" class="round-button w-8 h-8 float-left focus:outline-none hidden md:block"
+                aria-label="Previous">
                 <i data-feather="chevron-left" class="w-6 h-6 mx-1"></i>
             </button>
-            <button data-glide-dir=">" class="round-button w-8 h-8 float-right focus:outline-none" aria-label="Next">
+            <button data-glide-dir=">" class="round-button w-8 h-8 float-right focus:outline-none hidden md:block"
+                aria-label="Next">
                 <i data-feather="chevron-right" class="w-6 h-6 mx-1"></i>
             </button>
         </div>
