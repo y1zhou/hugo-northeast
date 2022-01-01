@@ -5,8 +5,9 @@
 <script>
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     const peekVal = (vw > 768) ? 35 : 0
-    var glide = new Glide('.glide', { autoplay: 5000, focusAt: "center", peek: peekVal, type: "carousel" })
-    glide.mount()
+    window.addEventListener('load', function () {
+        new Glide('.glide', { autoplay: 5000, focusAt: "center", peek: peekVal, type: "carousel" }).mount();
+    });
 </script>
 {{ end }}
 
@@ -27,5 +28,6 @@
 
 {{/* Cloudflare Web Analytics */}}
 {{- with site.Params.cf_analytics -}}
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{- . -}}"}'></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon='{"token": "{{- . -}}"}'></script>
 {{- end }}
