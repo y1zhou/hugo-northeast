@@ -1,4 +1,3 @@
-
 {{/* Get background image link, using featured.png/jpg by default  */}}
 {{ $img_src := "" }}
 {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
@@ -15,8 +14,8 @@
     <a href="{{ .RelPermalink }}">
     {{ end }}
         {{/* background image */}}
-        <img src="{{ $img_src }}" loading="lazy" class="object-cover object-center w-full h-full"
-            {{ with .Params.header_image.caption }}alt="{{.}}" {{end}} style="filter: brightness(0.7);" />
+        <img src="{{ $img_src }}" loading="lazy" class="object-cover lg:object-none object-center w-full h-full" {{ with
+            .Params.header_image.caption }}alt="{{.}}" {{end}} style="filter: brightness(0.7);" />
 
         {{/* Page categories */}}
         {{ if .Params.categories }}
