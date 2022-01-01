@@ -52,15 +52,4 @@
     {{ if (.Scratch.Get "feat_card_href" | default true) }}
     </a>
     {{ end }}
-
-    {{ if (.Scratch.Get "feat_card_controls" | default false) }}
-    <div data-glide-el="controls" class="glide__arrows absolute bottom-0 text-white right-0 pr-4 pb-2 hidden sm:block">
-        <button data-glide-dir="<" class="glide-prev" aria-label="Previous">
-            <i data-feather="chevron-left" class="w-6 h-6 mx-1"></i>
-        </button>
-        <button data-glide-dir=">" class="glide-next" aria-label="Next">
-            <i data-feather="chevron-right" class="w-6 h-6 mx-1"></i>
-        </button>
-    </div>
-    {{ end }}
 </div>
