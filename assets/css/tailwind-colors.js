@@ -18,15 +18,15 @@ module.exports = {
     },
 
     background: {
-        DEFAULT: colors.coolGray[100],
-        dark: colors.coolGray[900],
+        DEFAULT: colors.gray[100],
+        dark: colors.gray[900],
     },
     // cards, menus, header
     surface: {
-        lighter: colors.coolGray[50],
-        DEFAULT: colors.coolGray[200],
-        dark: colors.coolGray[700],
-        darker: colors.coolGray[800],
+        lighter: colors.gray[50],
+        DEFAULT: colors.gray[200],
+        dark: colors.gray[700],
+        darker: colors.gray[800],
     },
     // in-line code, warning blocks
     error: {
@@ -38,16 +38,16 @@ module.exports = {
     // text and icons
     on: {
         primary: {
-            DEFAULT: colors.coolGray[900],
+            DEFAULT: colors.gray[900],
         },
         background: {
-            DEFAULT: colors.coolGray[900],
-            dark: colors.coolGray[200],
+            DEFAULT: colors.gray[900],
+            dark: colors.gray[200],
         },
         surface: {
-            lighter: colors.coolGray[300],
-            DEFAULT: colors.coolGray[500],
-            dark: colors.coolGray[400],
+            lighter: colors.gray[300],
+            DEFAULT: colors.gray[500],
+            dark: colors.gray[400],
         },
         error: {
             DEFAULT: colors.red[600],
