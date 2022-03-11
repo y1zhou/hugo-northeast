@@ -1,3 +1,5 @@
+@import "assets/css/chroma_highlight/manni";
+
 /* Background color for homepage only */
 .page-home {
     @apply bg-ne-background;

@@ -16,7 +16,7 @@ copyright = "2019-{year}"
     codeFences = true
     guessSyntax = true
     lineNos = true
-    style = "dracula"
+    noClasses = false
     tabWidth = 2
   [markup.tableOfContents]
     startLevel = 1
