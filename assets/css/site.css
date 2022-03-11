@@ -176,9 +176,9 @@ article {
     @apply py-1 mb-2 text-lg leading-relaxed text-left break-normal;
 }
 
-.article-container pre code {
-    @apply text-base;
-}
+/* .article-container pre code { */
+/*     @apply text-base; */
+/* } */
 
 .article-container ol > li::marker {
     @apply font-bold;
