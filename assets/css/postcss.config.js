@@ -8,7 +8,7 @@ module.exports = {
         process.env.HUGO_ENVIRONMENT === "production"
             ? require("tailwindcss")(themeDir + "assets/css/tailwind.config.js")
             : require("tailwindcss")(
-                  themeDir + "assets/css/tailwind-dev.config.js"
+                  themeDir + "assets/css/tailwind.config.js"
               ),
         require("autoprefixer")({
             path: [themeDir],
