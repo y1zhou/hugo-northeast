@@ -1,7 +1,10 @@
 {{/* Enable image to be loaded from local page dir or media library at `static/img/`. */}}
 
+{{ $image_src := (.Get "src") }}
 {{ $asset := (.Page.Resources.ByType "image").GetMatch (.Get "src") }}
-{{ $image_src := $asset.RelPermalink | default (.Get "src") }}
+{{ if $asset }}
+  {{ $image_src = .RelPermalink }}
+{{ end }}
 
 {{/* Get caption. Support legacy `title` option. */}}
 {{ $caption := .Get "title" | default (.Get "caption") | default "" }}
